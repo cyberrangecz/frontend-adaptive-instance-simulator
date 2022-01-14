@@ -26,15 +26,11 @@ codeStyle:
   script:
     - npm run lint
   rules:
-    - changes:
-        - "CHANGELOG.md"
+    - if: '$CI_COMMIT_MESSAGE =~ /\[CI\/CD\] CHANGELOG\.md/'
       when: never
-
     - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
       when: never
-
     - if: '$CI_COMMIT_BRANCH && $CI_PIPELINE_SOURCE == "trigger"'
-      when: always
 
 unitTests:
   stage: test
@@ -46,13 +42,10 @@ unitTests:
   script:
     - npm run ci-test
   rules:
-    - changes:
-        - "CHANGELOG.md"
+    - if: '$CI_COMMIT_MESSAGE =~ /\[CI\/CD\] CHANGELOG\.md/'
       when: never
-
     - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
       when: never
-
     - if: '$CI_COMMIT_BRANCH && $CI_PIPELINE_SOURCE == "trigger"'
 
 buildExampleApp:
@@ -69,13 +62,10 @@ buildExampleApp:
       - ./dist
     expire_in: 1 hour
   rules:
-    - changes:
-        - "CHANGELOG.md"
+    - if: '$CI_COMMIT_MESSAGE =~ /\[CI\/CD\] CHANGELOG\.md/'
       when: never
-
     - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
       when: never
-
     - if: '$CI_COMMIT_BRANCH && $CI_PIPELINE_SOURCE == "trigger"'
 
 buildLibrary:
@@ -92,13 +82,10 @@ buildLibrary:
       - ./dist
     expire_in: 1 hour
   rules:
-    - changes:
-        - "CHANGELOG.md"
+    - if: '$CI_COMMIT_MESSAGE =~ /\[CI\/CD\] CHANGELOG\.md/'
       when: never
-
     - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
       when: never
-
     - if: '$CI_COMMIT_BRANCH && $CI_PIPELINE_SOURCE == "trigger"'
 
 auto-tag:
