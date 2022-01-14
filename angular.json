@@ -67,13 +67,9 @@
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "node_modules/animate.css/animate.css",
-              "projects/kypo-adaptive-model-calculator-example/src/styles.css"
+              "projects/kypo-adaptive-model-calculator-example/src/styles.scss"
             ],
-            "scripts": [
-              "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/chart.js/dist/Chart.js"
-            ],
+            "scripts": [],
             "vendorChunk": true,
             "extractLicenses": false,
             "buildOptimizer": false,
@@ -149,17 +145,17 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.spec.json",
-            "karmaConfig": "karma.conf.js",
+            "main": "projects/kypo-adaptive-model-calculator-example/src/test.ts",
+            "polyfills": "projects/kypo-adaptive-model-calculator-example/src/polyfills.ts",
+            "tsConfig": "projects/kypo-adaptive-model-calculator-example/tsconfig.spec.json",
+            "karmaConfig": "projects/kypo-adaptive-model-calculator-example/karma.conf.js",
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "projects/kypo-adaptive-model-calculator-example/src/favicon.ico",
+              "projects/kypo-adaptive-model-calculator-example/src/assets"
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/styles.css"
+              "projects/kypo-adaptive-model-calculator-example/src/styles.scss"
             ],
             "scripts": []
           }

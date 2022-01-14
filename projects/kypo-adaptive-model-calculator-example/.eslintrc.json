@@ -4,7 +4,7 @@
     {
       "files": ["*.ts"],
       "parserOptions": {
-        "project": ["projects/kypo-adaptive-model-calculator-example-app/tsconfig.*?.json"],
+        "project": ["projects/kypo-adaptive-model-calculator-example/tsconfig.*?.json"],
         "createDefaultProgram": true
       },
       "rules": {
