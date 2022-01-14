@@ -48,7 +48,7 @@ unitTests:
     - if: '$CI_COMMIT_BRANCH == "master"'
       changes:
         - "CHANGELOG.md"
-        when: never
+      when: never
     - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
       when: never
     - if: '$CI_COMMIT_BRANCH'
@@ -71,7 +71,7 @@ buildExampleApp:
     - if: '$CI_COMMIT_BRANCH == "master"'
       changes:
         - "CHANGELOG.md"
-        when: never
+      when: never
     - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
       when: never
     - if: '$CI_COMMIT_BRANCH'
@@ -94,7 +94,7 @@ buildLibrary:
     - if: '$CI_COMMIT_BRANCH == "master"'
       changes:
         - "CHANGELOG.md"
-        when: never
+      when: never
     - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
       when: never
     - if: '$CI_COMMIT_BRANCH'
