@@ -1,0 +1,23 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../out-tsc/app",
+    "types": [],
+    "baseUrl": "./",
+    "paths": {
+      "@muni-kypo-crp/training-agenda": [
+        "../kypo-adaptive-model-calculator/src/public_api.ts"
+      ],
+      "@muni-kypo-crp/training-agenda/*": [
+        "../kypo-adaptive-model-calculator/*/src/public_api.ts"
+      ]
+    }
+  },
+  "files": [
+    "src/main.ts",
+    "src/polyfills.ts"
+  ],
+  "include": [
+    "src/**/*.d.ts"
+  ]
+}
