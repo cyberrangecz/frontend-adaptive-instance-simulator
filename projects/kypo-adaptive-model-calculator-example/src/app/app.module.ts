@@ -6,10 +6,19 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SentinelLayout1Module } from '@sentinel/layout/layout1';
 import { SentinelAuthGuardWithLogin, SentinelNegativeAuthGuard } from '@sentinel/auth/guards';
+import { SentinelAuthModule } from '@sentinel/auth';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, BrowserAnimationsModule, SentinelLayout1Module],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    SentinelLayout1Module,
+    SentinelAuthModule.forRoot(environment.authConfig),
+  ],
   providers: [SentinelAuthGuardWithLogin, SentinelNegativeAuthGuard],
   bootstrap: [AppComponent],
 })
