@@ -1,0 +1,26 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../out-tsc/lib",
+    "target": "es2018",
+    "declaration": true,
+    "inlineSources": true,
+    "types": [],
+    "lib": [
+      "dom",
+      "es2018"
+    ],
+    "paths": {
+      "@muni-kypo-crp/adaptive-model-calculator/internal": ["./internal/src/public_api.ts"]
+    }
+  },
+  "angularCompilerOptions": {
+    "skipTemplateCodegen": true,
+    "strictMetadataEmit": true,
+    "enableResourceInlining": true
+  },
+  "exclude": [
+    "test.ts",
+    "**/*.spec.ts"
+  ]
+}
