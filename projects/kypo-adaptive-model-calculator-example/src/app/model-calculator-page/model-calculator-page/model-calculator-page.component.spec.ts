@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ModelCalculatorPageComponent } from './model-calculator-page.component';
 
 describe('ModelCalculatorPageComponent', () => {

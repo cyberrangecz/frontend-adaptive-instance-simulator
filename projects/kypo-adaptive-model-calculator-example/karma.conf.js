@@ -16,7 +16,7 @@ module.exports = function (config) {
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
     coverageIstanbulReporter: {
-      dir: require('path').join(__dirname, '../../coverage/training-agenda-example-app'),
+      dir: require('path').join(__dirname, '../../coverage/kypo-adaptive-model-calculator-example'),
       reports: ['html', 'lcovonly', 'text-summary'],
       fixWebpackSourcePaths: true
     },
@@ -38,6 +38,7 @@ module.exports = function (config) {
     autoWatch: true,
     browsers: ['ChromeHeadless'],
     singleRun: true,
+    failOnEmptyTestSuite: false,
     restartOnFileChange: true
   });
 };

@@ -33,6 +33,7 @@ module.exports = function (config) {
     },
     browsers: ['ChromeHeadless'],
     singleRun: true,
+    failOnEmptyTestSuite: false,
     restartOnFileChange: true,
   });
 };
