@@ -1,1 +1,1 @@
-export * from './model-calculator.model';
+export * from './model-calculator.module';

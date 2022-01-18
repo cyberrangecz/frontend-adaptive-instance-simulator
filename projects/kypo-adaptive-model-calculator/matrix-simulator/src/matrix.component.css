@@ -1,0 +1,98 @@
+table {
+  width: 80%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.matrix-container, .simulator-content {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.simulator-content {
+  justify-content: center;
+}
+
+.matrix-container button {
+  width: 100px;
+  justify-self: flex-end;
+}
+
+.matrix-content {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-left: 45px;
+}
+
+.matrix-content p {
+  margin: 0 0 0 -45px;
+}
+
+div .spacer {
+  flex: 1 1 auto;
+}
+
+div .panel-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.left-panel {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 3;
+  margin-right: 30px;
+  padding-left: 20px;
+}
+
+.left-panel h2{
+  margin-right: 20%;
+}
+
+div .right-panel {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin-left: 30px;
+}
+
+.matrix-field {
+  width: 150px;
+}
+
+div .right-panel mat-form-field {
+  margin-bottom: 20px;
+}
+
+.related-phase-text {
+  padding-bottom: 15px;
+  padding-left: 15px;
+}
+
+.cell-content mat-form-field{
+  margin-left: 10px;
+}
+
+.row-header td:first-child {
+  padding-left: 30px;
+}
+
+
+@media screen and (max-width: 800px) {
+  div .panel-wrapper {
+    flex-direction: column;
+  }
+  div .left-panel {
+    margin-right: 0;
+  }
+
+  div .right-panel {
+    margin-left: 0;
+  }
+}

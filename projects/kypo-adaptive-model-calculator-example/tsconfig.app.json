@@ -3,12 +3,11 @@
   "compilerOptions": {
     "outDir": "../../out-tsc/app",
     "types": [],
-    "baseUrl": "./",
     "paths": {
-      "@muni-kypo-crp/training-agenda": [
+      "@muni-kypo-crp/adaptive-model-calculator": [
         "../kypo-adaptive-model-calculator/src/public_api.ts"
       ],
-      "@muni-kypo-crp/training-agenda/*": [
+      "@muni-kypo-crp/adaptive-model-calculator/*": [
         "../kypo-adaptive-model-calculator/*/src/public_api.ts"
       ]
     }
