@@ -4,5 +4,4 @@
 
 export * from './model-simulator.component';
 export * from './model-simulator.module';
-export * from '../../matrix-simulator/src/matrix-simulator-material.module';
-export * from '../../matrix-simulator/src/matrix.component';
+export * from './model/trainee-phase-statistics';
