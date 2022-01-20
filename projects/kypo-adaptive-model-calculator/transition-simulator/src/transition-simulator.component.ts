@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnChanges, OnInit } from '@angular/core';
 import { VisualizationData } from '@muni-kypo-crp/adaptive-transition-visualization/model/visualization-data';
 
 @Component({
