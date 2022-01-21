@@ -1,0 +1,35 @@
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { SentinelAuthProviderListComponent } from '@sentinel/auth/components';
+import { SentinelAuthGuardWithLogin, SentinelNegativeAuthGuard } from '@sentinel/auth/guards';
+
+const routes: Routes = [
+  {
+    path: 'home',
+    loadChildren: () =>
+      import('./model-simulator-page/model-simulator-page/model-simulator-page.module').then(
+        (m) => m.ModelSimulatorPageModule
+      ),
+    // canActivate: [SentinelAuthGuardWithLogin],
+  },
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full',
+  },
+  // {
+  //   path: 'login',
+  //   component: SentinelAuthProviderListComponent,
+  //   canActivate: [SentinelNegativeAuthGuard],
+  // },
+  {
+    path: '**',
+    redirectTo: 'home',
+  },
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
+})
+export class AppRoutingModule {}
