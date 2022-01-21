@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnChanges, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { VisualizationData } from '@muni-kypo-crp/adaptive-transition-visualization/model/visualization-data';
 
 @Component({
@@ -7,11 +7,7 @@ import { VisualizationData } from '@muni-kypo-crp/adaptive-transition-visualizat
   styleUrls: ['./transition-simulator.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TransitionSimulatorComponent implements OnInit {
+export class TransitionSimulatorComponent {
   @Input() transitionData: VisualizationData;
   @Input() generate: boolean;
-
-  constructor() {}
-
-  ngOnInit(): void {}
 }

@@ -1,6 +1,6 @@
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { DecisionMatrixRow } from '@muni-kypo-crp/training-model';
-import { TraineePhasePerformance } from '@muni-kypo-crp/adaptive-model-calculator/model-simulator';
+import { TraineePhasePerformance } from './model/trainee-phase-performance';
 
 export class PerformanceFormGroup {
   formGroup: FormGroup;

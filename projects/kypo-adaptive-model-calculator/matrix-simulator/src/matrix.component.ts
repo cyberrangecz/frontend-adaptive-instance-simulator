@@ -4,7 +4,6 @@ import {
   EventEmitter,
   Input,
   OnChanges,
-  OnInit,
   Output,
   SimpleChanges,
 } from '@angular/core';
@@ -13,7 +12,7 @@ import { PerformanceFormGroup } from './performance-form-group';
 import { SentinelBaseDirective } from '@sentinel/common';
 import { takeWhile } from 'rxjs';
 import { DecisionMatrixRow, TrainingPhase } from '@muni-kypo-crp/training-model';
-import { TraineePhasePerformance } from '@muni-kypo-crp/adaptive-model-calculator/model-simulator';
+import { TraineePhasePerformance } from './model/trainee-phase-performance';
 
 @Component({
   selector: 'kypo-matrix',
@@ -52,7 +51,7 @@ export class MatrixComponent extends SentinelBaseDirective implements OnChanges 
 
   private createPerformanceMatrix(decisionMatrix: DecisionMatrixRow[]): TraineePhasePerformance[] {
     this.traineePerformance = [];
-    decisionMatrix.forEach((_) => {
+    decisionMatrix.forEach(() => {
       this.traineePerformance.push(new TraineePhasePerformance());
     });
     return this.traineePerformance;

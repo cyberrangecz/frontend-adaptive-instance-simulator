@@ -72,8 +72,8 @@ export class ModelSimulatorComponent implements OnInit, OnChanges {
     this.traineesSimulatedPath.trainingRunsData = [];
     this.traineesSimulatedPath.phases.sort((a, b) => a.order - b.order);
 
-    this.phases.forEach((phase, index) => {
-      let pathNode = new TrainingRunPathNode();
+    this.phases.forEach((phase) => {
+      const pathNode = new TrainingRunPathNode();
       let trainingPhaseIndex = 0;
 
       if (phase.type === AbstractPhaseTypeEnum.Training) {
@@ -161,7 +161,8 @@ export class ModelSimulatorComponent implements OnInit, OnChanges {
           (row.numberOfCommands < inspectedPhase.allowedCommands ? 1 : 0);
         participantWeightedPerformance +=
           inspectedPhase.decisionMatrix[index].completedInTime *
-          (row.phaseTime * 60000 < inspectedPhase.estimatedDuration * 60000 ? 1 : 0); // check if inspected phase does not already have time in millis
+          (row.phaseTime * 60000 < inspectedPhase.estimatedDuration * 60000 ? 1 : 0);
+        // check if inspected phase does not already have time in millis
         participantWeightedPerformance +=
           inspectedPhase.decisionMatrix[index].wrongAnswers *
           (row.wrongAnswers < inspectedPhase.allowedWrongAnswers ? 1 : 0);

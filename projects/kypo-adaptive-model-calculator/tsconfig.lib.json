@@ -13,6 +13,7 @@
     "paths": {
       "@muni-kypo-crp/adaptive-model-calculator/matrix-simulator": ["./matrix-simulator/src/public_api.ts"],
       "@muni-kypo-crp/adaptive-model-calculator/model-simulator": ["./model-simulator/src/public_api.ts"],
+      "@muni-kypo-crp/adaptive-model-calculator/transition-simulator": ["./transition-simulator/src/public_api.ts"],
       "@muni-kypo-crp/adaptive-model-calculator/internal": ["./internal/src/public_api.ts"]
     }
   },
