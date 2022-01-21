@@ -3,21 +3,21 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "kypo-adaptive-model-calculator": {
+    "kypo-adaptive-model-simulator": {
       "projectType": "library",
-      "root": "projects/kypo-adaptive-model-calculator",
-      "sourceRoot": "projects/kypo-adaptive-model-calculator/src",
-      "prefix": "kypo-adaptive-model-calculator",
+      "root": "projects/kypo-adaptive-model-simulator",
+      "sourceRoot": "projects/kypo-adaptive-model-simulator/src",
+      "prefix": "kypo-adaptive-model-simulator",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "tsConfig": "projects/kypo-adaptive-model-calculator/tsconfig.lib.json",
-            "project": "projects/kypo-adaptive-model-calculator/ng-package.json"
+            "tsConfig": "projects/kypo-adaptive-model-simulator/tsconfig.lib.json",
+            "project": "projects/kypo-adaptive-model-simulator/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/kypo-adaptive-model-calculator/tsconfig.lib.prod.json"
+              "tsConfig": "projects/kypo-adaptive-model-simulator/tsconfig.lib.prod.json"
             },
             "development": {}
           },
@@ -26,48 +26,48 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/kypo-adaptive-model-calculator/test.ts",
-            "tsConfig": "projects/kypo-adaptive-model-calculator/tsconfig.spec.json",
-            "karmaConfig": "projects/kypo-adaptive-model-calculator/karma.conf.js"
+            "main": "projects/kypo-adaptive-model-simulator/test.ts",
+            "tsConfig": "projects/kypo-adaptive-model-simulator/tsconfig.spec.json",
+            "karmaConfig": "projects/kypo-adaptive-model-simulator/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
             "lintFilePatterns": [
-              "projects/kypo-adaptive-model-calculator/**/*.ts",
-              "projects/kypo-adaptive-model-calculator/**/*.html"
+              "projects/kypo-adaptive-model-simulator/**/*.ts",
+              "projects/kypo-adaptive-model-simulator/**/*.html"
             ]
           }
         }
       }
     },
-    "kypo-adaptive-model-calculator-example": {
+    "kypo-adaptive-model-simulator-example": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
           "strict": true
         }
       },
-      "root": "projects/kypo-adaptive-model-calculator-example",
-      "sourceRoot": "projects/kypo-adaptive-model-calculator-example/src",
+      "root": "projects/kypo-adaptive-model-simulator-example",
+      "sourceRoot": "projects/kypo-adaptive-model-simulator-example/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/kypo-adaptive-model-calculator-example",
-            "index": "projects/kypo-adaptive-model-calculator-example/src/index.html",
-            "main": "projects/kypo-adaptive-model-calculator-example/src/main.ts",
-            "polyfills": "projects/kypo-adaptive-model-calculator-example/src/polyfills.ts",
-            "tsConfig": "projects/kypo-adaptive-model-calculator-example/tsconfig.app.json",
+            "outputPath": "dist/kypo-adaptive-model-simulator-example",
+            "index": "projects/kypo-adaptive-model-simulator-example/src/index.html",
+            "main": "projects/kypo-adaptive-model-simulator-example/src/main.ts",
+            "polyfills": "projects/kypo-adaptive-model-simulator-example/src/polyfills.ts",
+            "tsConfig": "projects/kypo-adaptive-model-simulator-example/tsconfig.app.json",
             "assets": [
-              "projects/kypo-adaptive-model-calculator-example/src/favicon.ico",
-              "projects/kypo-adaptive-model-calculator-example/src/assets"
+              "projects/kypo-adaptive-model-simulator-example/src/favicon.ico",
+              "projects/kypo-adaptive-model-simulator-example/src/assets"
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "projects/kypo-adaptive-model-calculator-example/src/styles.scss"
+              "projects/kypo-adaptive-model-simulator-example/src/styles.scss"
             ],
             "scripts": [],
             "vendorChunk": true,
@@ -81,8 +81,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "projects/kypo-adaptive-model-calculator-example/src/environments/environment.ts",
-                  "with": "projects/kypo-adaptive-model-calculator-example/src/environments/environment.prod.ts"
+                  "replace": "projects/kypo-adaptive-model-simulator-example/src/environments/environment.ts",
+                  "with": "projects/kypo-adaptive-model-simulator-example/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -114,8 +114,8 @@
               ],
               "fileReplacements": [
                 {
-                  "replace": "projects/kypo-adaptive-model-calculator-example/src/environments/environment.ts",
-                  "with": "projects/kypo-adaptive-model-calculator-example/src/environments/environment.local.ts"
+                  "replace": "projects/kypo-adaptive-model-simulator-example/src/environments/environment.ts",
+                  "with": "projects/kypo-adaptive-model-simulator-example/src/environments/environment.local.ts"
                 }
               ]
             }
@@ -125,37 +125,37 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "kypo-adaptive-model-calculator-example:build"
+            "browserTarget": "kypo-adaptive-model-simulator-example:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "kypo-adaptive-model-calculator-example:build:production"
+              "browserTarget": "kypo-adaptive-model-simulator-example:build:production"
             },
             "local": {
-              "browserTarget": "kypo-adaptive-model-calculator-example:build:local"
+              "browserTarget": "kypo-adaptive-model-simulator-example:build:local"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "kypo-adaptive-model-calculator-example:build"
+            "browserTarget": "kypo-adaptive-model-simulator-example:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/kypo-adaptive-model-calculator-example/src/test.ts",
-            "polyfills": "projects/kypo-adaptive-model-calculator-example/src/polyfills.ts",
-            "tsConfig": "projects/kypo-adaptive-model-calculator-example/tsconfig.spec.json",
-            "karmaConfig": "projects/kypo-adaptive-model-calculator-example/karma.conf.js",
+            "main": "projects/kypo-adaptive-model-simulator-example/src/test.ts",
+            "polyfills": "projects/kypo-adaptive-model-simulator-example/src/polyfills.ts",
+            "tsConfig": "projects/kypo-adaptive-model-simulator-example/tsconfig.spec.json",
+            "karmaConfig": "projects/kypo-adaptive-model-simulator-example/karma.conf.js",
             "assets": [
-              "projects/kypo-adaptive-model-calculator-example/src/favicon.ico",
-              "projects/kypo-adaptive-model-calculator-example/src/assets"
+              "projects/kypo-adaptive-model-simulator-example/src/favicon.ico",
+              "projects/kypo-adaptive-model-simulator-example/src/assets"
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "projects/kypo-adaptive-model-calculator-example/src/styles.scss"
+              "projects/kypo-adaptive-model-simulator-example/src/styles.scss"
             ],
             "scripts": []
           }
@@ -164,8 +164,8 @@
           "builder": "@angular-eslint/builder:lint",
           "options": {
             "lintFilePatterns": [
-              "projects/kypo-adaptive-model-calculator-example/src/app/visualizations/**/*.ts",
-              "projects/kypo-adaptive-model-calculator-example/**/*.component.html"
+              "projects/kypo-adaptive-model-simulator-example/src/app/visualizations/**/*.ts",
+              "projects/kypo-adaptive-model-simulator-example/**/*.component.html"
             ]
           }
         },
@@ -173,16 +173,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "kypo-adaptive-model-calculator-example:serve"
+            "devServerTarget": "kypo-adaptive-model-simulator-example:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "kypo-adaptive-model-calculator-example:serve:production"
+              "devServerTarget": "kypo-adaptive-model-simulator-example:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "kypo-adaptive-model-calculator"
+  "defaultProject": "kypo-adaptive-model-simulator"
 }
