@@ -13,36 +13,36 @@ export class ModelSimulatorPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.phase = {
-      id: 54,
-      title: 'Finding open ports',
-      order: 3,
+      id: 156,
+      title: 'Privilege Escalation',
+      order: 5,
       type: 'training',
-      estimatedDuration: 10,
-      allowedCommands: 0,
+      estimatedDuration: 13,
+      allowedCommands: 10,
       allowedWrongAnswers: 10,
       tasks: [
         {
-          id: 53,
-          title: 'Finding open ports',
+          id: 108,
+          title: 'Privilege Escalation',
           order: 0,
           content:
-            'Your goal is to get access to a **server**. You know that there is a **telnet** service running on the server but it is not running on the default port. Your first task is to find the **port** on which the telnet service is running. The flag is the port number.\n\nBelow are two options how to connect to the client from which you can connect to the server.\n\n## GUI access\n1. In the topology overview, click the button in the top-right corner of the graph, then **`Expand All`**, **`client`** and **`Generate console URL`**. After a few moments, **`Open link`** next to the **`Generate console URL`** should appear.\n\n2. Login using username **`kypo`** and password **`kypo`**.\n\n## SSH from local machine\n1. Use the **`Get SSH Access`** button to download **`ssh-access.zip`**.\n\n2. Extract the **`ssh-access.zip`** file to your **`~/.ssh/`** directory.\n\n    `$ unzip ssh-access.zip -d ~/.ssh/`\n\n3. Execute the extracted source script in the current shell using the **`source`** command with the path to the KYPO proxy SSH private key. The source script that will set the **`ssh`** command and the **KYPO proxy SSH private key**, which is available from instance operator.\n\n    `$ source ~/.ssh/pool-id-<pool_ID>-sandbox-id-<sbx_ID>-user-source.sh PATH_TO_KYPO_PROXY_PRIVATE_KEY`\n\n4. Connect to the client to **`kypo`** user. \n\n    `$ ssh kypo@client`',
-          answer: '2323',
+            'Great, you managed to login to the server as **alice** but there is not much you can do as **alice**. Can you find a way to become **root**? The flag is in the root directory.\n\nOne of common privilege escalation attack vectors is badly configured **sudo**. To see what you can use sudo for, use the **`sudo --list`** command.',
+          answer: 'Cant_Guess_This',
           solution:
-            '1. Connect to the client using either of the options.\n\n2. Look for open ports using the command **`nmap server`**. You can see **ssh** running on port **22** and some other service running on port **2323**. This has to be the **telnet** service.\n\n3. Enter **`2323`** as the flag.',
+            '1. You can see that the only command you can use sudo on is **`less /home/alice/flag.txt`**. There is not much to see in the flag, but you can run this as **root**. Is there a way to get a shell?\n\n2. There is, all you have to do is enter **`!sh`** while running the **`sudo less /home/alice/flag.txt`** to get a root shell.\n\n3. To get the flag, use **`cd`** to enter the root directory and **`cat flag.txt`** to read the flag. The flag is **`Cant_Guess_This`**.',
           incorrectAnswerLimit: 10,
           modifySandbox: false,
           sandboxChangeExpectedDuration: 0,
         },
         {
-          id: 54,
-          title: 'Finding open ports',
+          id: 109,
+          title: 'Privilege Escalation',
           order: 1,
           content:
-            'Your goal is to get access to a **server**. You know that there is a **telnet** service running on the server but it is not running on the default port. Your first task is to find the **port** on which the telnet service is running. The flag is the port number.\n\nBelow are two options how to connect to the client from which you can connect to the server.\n\n## GUI access\n1. In the topology overview, click the button in the top-right corner of the graph, then **`Expand All`**, **`client`** and **`Generate console URL`**. After a few moments, **`Open link`** next to the **`Generate console URL`** should appear.\n\n2. Login using username **`kypo`** and password **`kypo`**.\n\n## SSH from local machine\n1. Use the **`Get SSH Access`** button to download **`ssh-access.zip`**.\n\n2. Extract the **`ssh-access.zip`** file to your **`~/.ssh/`** directory.\n\n    `$ unzip ssh-access.zip -d ~/.ssh/`\n\n3. Execute the extracted source script in the current shell using the **`source`** command with the path to the KYPO proxy SSH private key. The source script that will set the **`ssh`** command and the **KYPO proxy SSH private key**, which is available from instance operator.\n\n    `$ source ~/.ssh/pool-id-<pool_ID>-sandbox-id-<sbx_ID>-user-source.sh PATH_TO_KYPO_PROXY_PRIVATE_KEY`\n\n4. Connect to the client to **`kypo`** user. \n\n    `$ ssh kypo@client`\n\nA common tool to find open ports is **nmap**. You can learn how to use nmap using **`nmap --help`** or by searching online.',
-          answer: '2323',
+            'Great, you managed to login to the server as **alice** but there is not much you can do as **alice**. Can you find a way to become **root**? The flag is in the root directory.\n\nOne of common privilege escalation attack vectors is badly configured **sudo**. To see what you can use sudo for, use the **`sudo --list`** command.\n\nYou have probably figured out that you can run **sudo** on a certain **less** command. To get a shell run **`sudo less /home/alice/flag.txt`**, enter the password. Type **`!sh`** to get a root shell.\n\n',
+          answer: 'Cant_Guess_This',
           solution:
-            '1. Connect to the client using either of the options.\n\n2. Look for open ports using the command **`nmap server`**. You can see **ssh** running on port **22** and some other service running on port **2323**. This has to be the **telnet** service.\n\n3. Enter **`2323`** as the flag.',
+            '1. You can see that the only command you can use sudo on is **`less /home/alice/flag.txt`**. There is not much to see in the flag, but you can run this as **root**. Is there a way to get a shell?\n\n2. There is, all you have to do is enter **`!sh`** while running the **`sudo less /home/alice/flag.txt`** to get a root shell.\n\n3. To get the flag, use **`cd`** to enter the root directory and **`cat flag.txt`** to read the flag. The flag is **`Cant_Guess_This`**.',
           incorrectAnswerLimit: 10,
           modifySandbox: false,
           sandboxChangeExpectedDuration: 0,
@@ -50,7 +50,7 @@ export class ModelSimulatorPageComponent implements OnInit {
       ],
       decisionMatrix: [
         {
-          id: 53,
+          id: 108,
           order: 0,
           questionnaireAnswered: 0.0,
           keywordUsed: 0.0,
@@ -59,9 +59,27 @@ export class ModelSimulatorPageComponent implements OnInit {
           wrongAnswers: 0.0,
         },
         {
-          id: 54,
+          id: 109,
           order: 1,
-          questionnaireAnswered: 1.0,
+          questionnaireAnswered: 0.0,
+          keywordUsed: 0.0,
+          completedInTime: 1.0,
+          solutionDisplayed: 1.0,
+          wrongAnswers: 0.0,
+        },
+        {
+          id: 110,
+          order: 2,
+          questionnaireAnswered: 0.0,
+          keywordUsed: 1.0,
+          completedInTime: 1.0,
+          solutionDisplayed: 0.0,
+          wrongAnswers: 1.0,
+        },
+        {
+          id: 111,
+          order: 3,
+          questionnaireAnswered: 0.0,
           keywordUsed: 0.0,
           completedInTime: 0.0,
           solutionDisplayed: 0.0,
@@ -70,18 +88,18 @@ export class ModelSimulatorPageComponent implements OnInit {
       ],
       relatedQuestions: [
         {
-          order: 0,
-          text: 'What is your level of skill in zip and unzip files in CLI?',
+          order: 7,
+          text: 'What is your level of skill in privilege escalation?',
           questionType: 'RFQ',
           choices: [],
-          id: 53,
+          id: 256,
         },
         {
-          order: 2,
-          text: 'What is your level of skill in connection to the server securely?',
+          order: 4,
+          text: 'What is your level of skill in using basic Linux commands?',
           questionType: 'RFQ',
           choices: [],
-          id: 52,
+          id: 255,
         },
       ],
     };

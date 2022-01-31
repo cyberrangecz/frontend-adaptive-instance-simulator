@@ -44,7 +44,6 @@
         <tr *ngFor="let rowGroup of decisionMatrixRows.controls; index as i;" [formGroupName]="i">
           <td>
             <div class="cell-content">
-              {{i+1}}.
               <mat-form-field class="matrix-field" appearance="outline">
                 <input type="number" matInput formControlName="questionnaireAnswered" required>
                 <mat-error *ngIf="rowGroup.get('questionnaireAnswered').hasError('required')">Empty</mat-error>

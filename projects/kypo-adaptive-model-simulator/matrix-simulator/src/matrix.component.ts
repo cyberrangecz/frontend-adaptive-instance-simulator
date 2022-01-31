@@ -27,7 +27,7 @@ export class MatrixComponent extends SentinelBaseDirective implements OnChanges 
   @Output() startGenerate: EventEmitter<boolean> = new EventEmitter();
 
   performanceFormGroup: PerformanceFormGroup;
-  traineePerformance: TraineePhasePerformance[];
+  traineePerformance: TraineePhasePerformance[] = [];
 
   get decisionMatrixRows(): FormArray {
     return this.performanceFormGroup.formGroup.get('performanceMatrix') as FormArray;
@@ -39,7 +39,7 @@ export class MatrixComponent extends SentinelBaseDirective implements OnChanges 
       this.setFormsAsTouched();
       this.performanceFormGroup.formGroup.valueChanges.pipe(takeWhile(() => this.isAlive)).subscribe(() => {
         this.createPerformanceMatrix(this.phase.decisionMatrix);
-        this.performanceFormGroup.setToPerformanceMatrix(this.traineePerformance);
+        this.performanceFormGroup.setToPerformanceMatrix(this.traineePerformance, this.relatedPhases);
         this.matrixChange.emit(this.traineePerformance);
       });
     }

@@ -62,6 +62,10 @@ export class ModelSimulatorComponent implements OnInit, OnChanges {
     }
   }
 
+  reset() {
+    this.traineesSimulatedPath = null;
+  }
+
   private computeTraineePath(inspectedPhase: TrainingPhase, performanceStatistics: TraineePhasePerformance[]) {
     const runData = new TrainingRunData();
     runData.trainee = new Trainee();
@@ -71,17 +75,11 @@ export class ModelSimulatorComponent implements OnInit, OnChanges {
     runData.trainingRunPathNodes = [];
     this.traineesSimulatedPath.trainingRunsData = [];
     this.traineesSimulatedPath.phases.sort((a, b) => a.order - b.order);
-
     this.phases.forEach((phase) => {
       const pathNode = new TrainingRunPathNode();
-      let trainingPhaseIndex = 0;
 
       if (phase.type === AbstractPhaseTypeEnum.Training) {
-        trainingPhaseIndex++;
-        const task = this.computeSuitableTask(
-          phase as TrainingPhase,
-          performanceStatistics.slice(0, trainingPhaseIndex)
-        ); // out of bound possibility
+        const task = this.computeSuitableTask(phase as TrainingPhase, performanceStatistics); // out of bound possibility
         pathNode.phaseId = phase.id;
         pathNode.phaseOrder = phase.order;
         pathNode.taskId = task.id;
@@ -132,7 +130,7 @@ export class ModelSimulatorComponent implements OnInit, OnChanges {
     if (participantPerformance == 0) {
       return inspectedPhase.tasks[inspectedPhase.tasks.length - 1];
     } else {
-      const suitableTask = inspectedPhase.tasks.length * (1 - participantPerformance) + 1;
+      const suitableTask = Math.trunc(inspectedPhase.tasks.length * (1 - participantPerformance)); // implicit truncate
       return inspectedPhase.tasks[suitableTask];
     }
   }
@@ -149,31 +147,47 @@ export class ModelSimulatorComponent implements OnInit, OnChanges {
   ): number {
     let sumOfAllWeights = 0;
     let participantWeightedPerformance = 0;
-    performanceStatisticsMatrix.forEach((row, index) => {
-      sumOfAllWeights += inspectedPhase.decisionMatrix[index].questionnaireAnswered;
+
+    let index = 0;
+    for (const decisionMatrixRow of inspectedPhase.decisionMatrix) {
+      const relatedPhase = this.relatedTrainingPhases[index];
+      sumOfAllWeights += decisionMatrixRow.questionnaireAnswered;
       participantWeightedPerformance +=
-        inspectedPhase.decisionMatrix[index].questionnaireAnswered * (row.questionnaireAnswered ? 1 : 0);
-      if (!row.solutionDisplayed) {
+        decisionMatrixRow.questionnaireAnswered *
+        Number(performanceStatisticsMatrix.find((row) => row.phaseId === relatedPhase.id).questionnaireAnswered);
+      if (relatedPhase.id === inspectedPhase.id) {
+        break;
+      }
+      if (
+        !(
+          decisionMatrixRow.completedInTime > 0 ||
+          decisionMatrixRow.keywordUsed > 0 ||
+          decisionMatrixRow.solutionDisplayed > 0 ||
+          decisionMatrixRow.wrongAnswers > 0
+        )
+      ) {
+        continue;
+      }
+      const relatedPhaseStatistics = performanceStatisticsMatrix.find((row) => row.phaseId === inspectedPhase.id);
+      if (!relatedPhaseStatistics.solutionDisplayed) {
         participantWeightedPerformance +=
-          inspectedPhase.decisionMatrix[index].solutionDisplayed * (row.solutionDisplayed ? 1 : 0);
+          decisionMatrixRow.solutionDisplayed * Number(relatedPhaseStatistics.solutionDisplayed);
         participantWeightedPerformance +=
-          inspectedPhase.decisionMatrix[index].keywordUsed *
-          (row.numberOfCommands < inspectedPhase.allowedCommands ? 1 : 0);
+          decisionMatrixRow.keywordUsed *
+          Number(relatedPhaseStatistics.numberOfCommands < relatedPhase.allowedCommands);
         participantWeightedPerformance +=
-          inspectedPhase.decisionMatrix[index].completedInTime *
-          (row.phaseTime * 60000 < inspectedPhase.estimatedDuration * 60000 ? 1 : 0);
-        // check if inspected phase does not already have time in millis
+          decisionMatrixRow.completedInTime * Number(relatedPhaseStatistics.phaseTime < relatedPhase.estimatedDuration); // check for millis
         participantWeightedPerformance +=
-          inspectedPhase.decisionMatrix[index].wrongAnswers *
-          (row.wrongAnswers < inspectedPhase.allowedWrongAnswers ? 1 : 0);
+          decisionMatrixRow.wrongAnswers *
+          Number(relatedPhaseStatistics.wrongAnswers < relatedPhase.allowedWrongAnswers);
       }
       sumOfAllWeights +=
-        inspectedPhase.decisionMatrix[index].completedInTime +
-        inspectedPhase.decisionMatrix[index].solutionDisplayed +
-        inspectedPhase.decisionMatrix[index].keywordUsed +
-        inspectedPhase.decisionMatrix[index].wrongAnswers;
-    });
-
+        decisionMatrixRow.completedInTime +
+        decisionMatrixRow.solutionDisplayed +
+        decisionMatrixRow.keywordUsed +
+        decisionMatrixRow.wrongAnswers;
+      index += 1;
+    }
     if (sumOfAllWeights === 0) {
       return 0;
     }
