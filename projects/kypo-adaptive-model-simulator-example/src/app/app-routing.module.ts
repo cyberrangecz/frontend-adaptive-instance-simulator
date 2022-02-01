@@ -7,8 +7,16 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () =>
-      import('./model-simulator-page/model-simulator-page/model-simulator-page.module').then(
+      import('./model-simulator/model-simulator-page/model-simulator-page.module').then(
         (m) => m.ModelSimulatorPageModule
+      ),
+    // canActivate: [SentinelAuthGuardWithLogin],
+  },
+  {
+    path: 'instance-model-simulator',
+    loadChildren: () =>
+      import('./model-simulator/instance-simulator-page/instance-simulator-page.module').then(
+        (m) => m.InstanceSimulatorPageModule
       ),
     // canActivate: [SentinelAuthGuardWithLogin],
   },

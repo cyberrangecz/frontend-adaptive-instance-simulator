@@ -1,0 +1,33 @@
+<mat-expansion-panel [expanded]="definitionInfo" [disabled]="!definitionInfo">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <span>Adaptive Training Definition</span>
+    </mat-panel-title>
+    <mat-panel-description>
+      <!--      <div class="panel-description-error" *ngIf="!canDeactivateTDEdit || (unsavedPhases).length !== 0">-->
+      <!--        <mat-icon color="warn">warning</mat-icon>-->
+      <!--        <mat-error>Changes are not saved</mat-error>-->
+      <!--      </div>-->
+      <mat-icon>info</mat-icon>
+    </mat-panel-description>
+
+  </mat-expansion-panel-header>
+  <ng-template matExpansionPanelContent>
+    <!--    DEFINITION INFO HERE-->
+
+    <mat-divider></mat-divider>
+    <!-- EDIT PHASES -->
+    <div>
+      <div class="phases-header">
+        <h3>Phases</h3>
+        <span class="phases-info" *ngIf="phasesCount >= 0">Training definition contains {{ phasesCount }} phase(s)</span>
+        <mat-icon>games</mat-icon>
+      </div>
+      <!--      <kypo-phase-overview [trainingDefinition]="trainingDefinition$ | async"-->
+      <!--                           (phasesCount)="onPhasesCountChanged($event)"-->
+      <!--                           (unsavedPhases)="onUnsavedPhasesChanged($event)">-->
+      <!--      </kypo-phase-overview>-->
+    </div>
+  </ng-template>
+
+</mat-expansion-panel>

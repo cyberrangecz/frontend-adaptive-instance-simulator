@@ -20,6 +20,7 @@
     ],
     "paths": {
       "@muni-kypo-crp/adaptive-model-simulator/matrix-simulator": ["./matrix-simulator/src/public_api.ts"],
+      "@muni-kypo-crp/adaptive-model-simulator/instance-model-simulator": ["./instance-model-simulator/src/public_api.ts"],
       "@muni-kypo-crp/adaptive-model-simulator/model-simulator": ["./model-simulator/src/public_api.ts"],
       "@muni-kypo-crp/adaptive-model-simulator/internal": ["./internal/src/public_api.ts"]
     }
