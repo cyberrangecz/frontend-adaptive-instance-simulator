@@ -1,6 +1,6 @@
 <div class="simulator-content">
   <form [formGroup]="performanceFormGroup.formGroup">
-    <h2>Trainee performance</h2>
+    <h2>Trainee Performance</h2>
     <div class="matrix-container">
       <table formArrayName="performanceMatrix">
         <tr class="row-header">
@@ -44,15 +44,11 @@
         <tr *ngFor="let rowGroup of decisionMatrixRows.controls; index as i;" [formGroupName]="i">
           <td>
             <div class="cell-content">
-              <mat-form-field class="matrix-field" appearance="outline">
-                <input type="number" matInput formControlName="questionnaireAnswered" required>
-                <mat-error *ngIf="rowGroup.get('questionnaireAnswered').hasError('required')">Empty</mat-error>
-                <mat-error *ngIf="rowGroup.get('questionnaireAnswered').hasError('min')">Negative</mat-error>
-              </mat-form-field>
+              <mat-checkbox color="primary" formControlName="questionnaireAnswered"></mat-checkbox>
             </div>
           </td>
           <td>
-            <mat-form-field class="matrix-field" appearance="outline">
+            <mat-form-field class="matrix-field" appearance="outline" matTooltip="Time is measured in minutes">
               <input type="number" matInput formControlName="completionTime" required>
               <mat-error *ngIf="rowGroup.get('completionTime').hasError('required')">Empty</mat-error>
               <mat-error *ngIf="rowGroup.get('completionTime').hasError('min')">Negative</mat-error>
@@ -66,11 +62,9 @@
             </mat-form-field>
           </td>
           <td>
-            <mat-form-field class="matrix-field" appearance="outline">
-              <input type="number" matInput formControlName="solutionDisplayed" required placeholder=0>
-              <mat-error *ngIf="rowGroup.get('solutionDisplayed').hasError('required')">Empty</mat-error>
-              <mat-error *ngIf="rowGroup.get('solutionDisplayed').hasError('min')">Negative</mat-error>
-            </mat-form-field>
+            <div class="solution-displayed">
+              <mat-checkbox color="primary" formControlName="solutionDisplayed"></mat-checkbox>
+            </div>
           </td>
           <td>
             <mat-form-field class="matrix-field" appearance="outline">

@@ -51,7 +51,6 @@ export class ModelSimulatorComponent implements OnInit, OnChanges {
   }
 
   updateTransition(traineePerformance: TraineePhasePerformance[]): void {
-    // simulation of how many commands were entered, elapsed time, etc. -- replace decision matrix with separate object
     this.traineePerformance = traineePerformance;
   }
 
@@ -130,7 +129,10 @@ export class ModelSimulatorComponent implements OnInit, OnChanges {
     if (participantPerformance == 0) {
       return inspectedPhase.tasks[inspectedPhase.tasks.length - 1];
     } else {
-      const suitableTask = Math.trunc(inspectedPhase.tasks.length * (1 - participantPerformance)); // implicit truncate
+      // ask for + 1 and 0.3333333
+      // console.log(Number((1 - participantPerformance).toFixed(8)) * inspectedPhase.tasks.length)
+      const suitableTask = Math.trunc(Number((1 - participantPerformance).toFixed(8)) * inspectedPhase.tasks.length);
+
       return inspectedPhase.tasks[suitableTask];
     }
   }
@@ -147,7 +149,6 @@ export class ModelSimulatorComponent implements OnInit, OnChanges {
   ): number {
     let sumOfAllWeights = 0;
     let participantWeightedPerformance = 0;
-
     let index = 0;
     for (const decisionMatrixRow of inspectedPhase.decisionMatrix) {
       const relatedPhase = this.relatedTrainingPhases[index];
@@ -166,6 +167,7 @@ export class ModelSimulatorComponent implements OnInit, OnChanges {
           decisionMatrixRow.wrongAnswers > 0
         )
       ) {
+        index += 1;
         continue;
       }
       const relatedPhaseStatistics = performanceStatisticsMatrix.find((row) => row.phaseId === inspectedPhase.id);
@@ -176,7 +178,7 @@ export class ModelSimulatorComponent implements OnInit, OnChanges {
           decisionMatrixRow.keywordUsed *
           Number(relatedPhaseStatistics.numberOfCommands < relatedPhase.allowedCommands);
         participantWeightedPerformance +=
-          decisionMatrixRow.completedInTime * Number(relatedPhaseStatistics.phaseTime < relatedPhase.estimatedDuration); // check for millis
+          decisionMatrixRow.completedInTime * Number(relatedPhaseStatistics.phaseTime < relatedPhase.estimatedDuration);
         participantWeightedPerformance +=
           decisionMatrixRow.wrongAnswers *
           Number(relatedPhaseStatistics.wrongAnswers < relatedPhase.allowedWrongAnswers);
