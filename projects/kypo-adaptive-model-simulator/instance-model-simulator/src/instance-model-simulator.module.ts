@@ -11,6 +11,7 @@ import { FileUploadProgressService } from './service/file-upload-progress.servic
 import { InstanceSimulatorApiService } from './service/instance-simulator-api.service';
 import { ngfModule } from 'angular-file';
 import { MatDialogModule } from '@angular/material/dialog';
+import { SentinelPipesModule } from '@sentinel/common';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     InstanceUploadDialogComponent,
   ],
   exports: [InstanceModelSimulatorComponent],
-  imports: [CommonModule, InstanceModelSimulatorMaterialModule, SentinelControlsModule, ngfModule],
+  imports: [CommonModule, InstanceModelSimulatorMaterialModule, SentinelControlsModule, ngfModule, SentinelPipesModule],
   providers: [InstanceSimulatorService, FileUploadProgressService, InstanceSimulatorApiService],
 })
 export class InstanceModelSimulatorModule {}

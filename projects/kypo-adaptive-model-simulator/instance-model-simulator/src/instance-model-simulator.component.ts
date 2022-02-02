@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { SentinelControlItem } from '@sentinel/components/controls';
 import { InstanceSimulatorService } from './service/instance-simulator.service';
 import { InstanceModelSimulatorControls } from './model/instance-model-simulator-controls';
-import { take } from 'rxjs';
+import { BehaviorSubject, Observable, take } from 'rxjs';
+import { InstanceModelSimulator } from './model/instance-model-simulator';
 
 @Component({
   selector: 'kypo-instance-model-simulator',
@@ -11,12 +12,14 @@ import { take } from 'rxjs';
 })
 export class InstanceModelSimulatorComponent implements OnInit {
   controls: SentinelControlItem[] = [];
-  data = [];
+  instanceSimulatorDataSubject$: BehaviorSubject<InstanceModelSimulator> = new BehaviorSubject(null);
+  instanceSimulatorData$: Observable<InstanceModelSimulator> = this.instanceSimulatorDataSubject$.asObservable();
 
   constructor(private instanceSimulatorService: InstanceSimulatorService) {}
 
   ngOnInit(): void {
     this.controls = InstanceModelSimulatorControls.create(this.instanceSimulatorService);
+    this.instanceSimulatorData$ = this.instanceSimulatorService.uploadedInstanceData$;
   }
 
   /**

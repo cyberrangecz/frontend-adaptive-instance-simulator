@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { TrainingDefinition } from '@muni-kypo-crp/training-model';
 
 @Component({
   selector: 'kypo-adaptive-model-simulator-definition-info',
@@ -7,7 +8,7 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DefinitionInfoComponent implements OnInit {
-  @Input() definitionInfo: any;
+  @Input() definitionInfo: TrainingDefinition;
   phasesCount: number;
 
   constructor() {}
