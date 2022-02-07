@@ -4,17 +4,11 @@
       <span>Instance Simulation</span>
     </mat-panel-title>
     <mat-panel-description>
-      <!--      <div class="panel-description-error" *ngIf="!canDeactivateTDEdit || (unsavedPhases).length !== 0">-->
-      <!--        <mat-icon color="warn">warning</mat-icon>-->
-      <!--        <mat-error>Changes are not saved</mat-error>-->
-      <!--      </div>-->
       <mat-icon>mediation</mat-icon>
     </mat-panel-description>
 
   </mat-expansion-panel-header>
   <ng-template matExpansionPanelContent>
-    <!--    DEFINITION INFO HERE-->
-
     <mat-divider></mat-divider>
     <!-- EDIT PHASES -->
     <div>
@@ -22,10 +16,7 @@
         <h3>Training Instance Simulation</h3>
         <span class="phases-info" *ngIf="1 >= 0">Training instance contains {{ 1 }} trainee(s)</span>
       </div>
-      <!--      <kypo-phase-overview [trainingDefinition]="trainingDefinition$ | async"-->
-      <!--                           (phasesCount)="onPhasesCountChanged($event)"-->
-      <!--                           (unsavedPhases)="onUnsavedPhasesChanged($event)">-->
-      <!--      </kypo-phase-overview>-->
+      <lib-kypo-sankey-visualization-lib [trainingInstanceId]="0" [graphData]="simulatorData"></lib-kypo-sankey-visualization-lib>
     </div>
   </ng-template>
 

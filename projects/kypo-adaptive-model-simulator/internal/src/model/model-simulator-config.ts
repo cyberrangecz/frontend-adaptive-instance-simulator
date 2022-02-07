@@ -1,1 +1,3 @@
-export class ModelSimulatorConfig {}
+export class ModelSimulatorConfig {
+  adaptiveTrainingServiceUrl: string;
+}

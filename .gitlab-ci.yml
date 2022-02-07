@@ -25,15 +25,14 @@ codeStyle:
     policy: pull
   script:
     - npm run lint
-  rules:
-    - if: '$CI_COMMIT_BRANCH == "master"'
-      changes:
-        - "CHANGELOG.md"
-      when: never
-    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
-      when: never
-    - if: '$CI_COMMIT_BRANCH'
-      when: on_success
+  only:
+    - triggers
+    - branches
+  except:
+    changes:
+      - "CHANGELOG.md"
+    refs:
+      - master
 
 unitTests:
   stage: test
@@ -44,15 +43,14 @@ unitTests:
     policy: pull
   script:
     - npm run ci-test
-  rules:
-    - if: '$CI_COMMIT_BRANCH == "master"'
-      changes:
-        - "CHANGELOG.md"
-      when: never
-    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
-      when: never
-    - if: '$CI_COMMIT_BRANCH'
-      when: on_success
+  only:
+    - triggers
+    - branches
+  except:
+    changes:
+      - "CHANGELOG.md"
+    refs:
+      - master
 
 buildExampleApp:
   stage: build
@@ -67,15 +65,14 @@ buildExampleApp:
     paths:
       - ./dist
     expire_in: 1 hour
-  rules:
-    - if: '$CI_COMMIT_BRANCH == "master"'
-      changes:
-        - "CHANGELOG.md"
-      when: never
-    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
-      when: never
-    - if: '$CI_COMMIT_BRANCH'
-      when: on_success
+  only:
+    - triggers
+    - branches
+  except:
+    changes:
+      - "CHANGELOG.md"
+    refs:
+      - master
 
 buildLibrary:
   stage: build
@@ -90,15 +87,15 @@ buildLibrary:
     paths:
       - ./dist
     expire_in: 1 hour
-  rules:
-    - if: '$CI_COMMIT_BRANCH == "master"'
-      changes:
-        - "CHANGELOG.md"
-      when: never
-    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
-      when: never
-    - if: '$CI_COMMIT_BRANCH'
-      when: on_success
+  only:
+    - triggers
+    - branches
+  except:
+    changes:
+      - "CHANGELOG.md"
+    refs:
+      - master
+
 
 auto-tag:
   image: 'registry.gitlab.ics.muni.cz:443/csirt-mu-devel/csirt-mu-devel-artifact-repository/docker-common-ci:v0.1.6'

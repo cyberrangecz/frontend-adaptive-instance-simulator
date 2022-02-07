@@ -7,7 +7,6 @@ import { InstanceSimulatorApiService } from './instance-simulator-api.service';
 
 @Injectable()
 export class InstanceSimulatorService {
-
   private uploadedInstanceDataSubject$: BehaviorSubject<any> = new BehaviorSubject(null);
   uploadedInstanceData$: Observable<any> = this.uploadedInstanceDataSubject$.asObservable();
 

@@ -1,6 +1,6 @@
 <div class="transition-container">
   <h2>Trainee Pathway Simulation</h2>
-  <div *ngIf="generate else noGenerate">
+  <div *ngIf="(transitionData && transitionData.trainingRunsData.length > 0) else noGenerate">
     <kypo-adaptive-transition-visualization [transitionData]="transitionData"></kypo-adaptive-transition-visualization>
   </div>
   <ng-template #noGenerate>

@@ -24,7 +24,7 @@ export class MatrixComponent extends SentinelBaseDirective implements OnChanges 
   @Input() phase: TrainingPhase;
   @Input() relatedPhases: TrainingPhase[];
   @Output() matrixChange: EventEmitter<TraineePhasePerformance[]> = new EventEmitter();
-  @Output() startGenerate: EventEmitter<boolean> = new EventEmitter();
+  @Output() startGenerate: EventEmitter<void> = new EventEmitter();
 
   performanceFormGroup: PerformanceFormGroup;
   traineePerformance: TraineePhasePerformance[] = [];
@@ -46,7 +46,7 @@ export class MatrixComponent extends SentinelBaseDirective implements OnChanges 
   }
 
   generate(): void {
-    this.startGenerate.emit(true);
+    this.startGenerate.emit();
   }
 
   private createPerformanceMatrix(decisionMatrix: DecisionMatrixRow[]): TraineePhasePerformance[] {
