@@ -2,16 +2,14 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./projects/kypo-adaptive-model-calculator",
+    "baseUrl": "./projects/kypo-adaptive-model-simulator",
     "outDir": "./dist/out-tsc",
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2017",
@@ -19,12 +17,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@muni-kypo-crp/adaptive-model-simulator/matrix-simulator": ["./matrix-simulator/src/public_api.ts"],
+      "@muni-kypo-crp/adaptive-model-simulator/model-simulator": ["./model-simulator/src/public_api.ts"],
+      "@muni-kypo-crp/adaptive-model-simulator/internal": ["./internal/src/public_api.ts"]
+    }
   },
   "angularCompilerOptions": {
-    "enableI18nLegacyMessageIdFormat": false,
-    "strictInjectionParameters": true,
-    "strictInputAccessModifiers": true,
-    "strictTemplates": true
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true
   }
 }

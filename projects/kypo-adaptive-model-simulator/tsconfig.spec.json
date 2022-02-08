@@ -1,0 +1,22 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "src",
+    "outDir": "../../out-tsc/spec",
+    "types": [
+      "jasmine",
+      "node"
+    ],
+    "paths": {
+      "@muni-kypo-crp/adaptive-model-simulator": ["./src/public_api.ts"],
+      "@muni-kypo-crp/adaptive-model-simulator/*": ["../*/src/public_api.ts"]
+    }
+  },
+  "files": [
+    "test.ts"
+  ],
+  "include": [
+    "**/*.spec.ts",
+    "**/*.d.ts"
+  ]
+}

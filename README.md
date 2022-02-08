@@ -1,4 +1,4 @@
-# KypoAdaptiveModelCalculator
+# KypoAdaptiveModelSimulator
 
 ### Running up the Project:
 Install project dependencies:
