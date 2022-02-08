@@ -13,6 +13,10 @@ import { ngfModule } from 'angular-file';
 import { SentinelPipesModule } from '@sentinel/common';
 import { AdaptiveVisualizationConfig, KypoAdaptiveVisualizationLibModule } from '@muni-kypo-crp/adaptive-visualization';
 import { ModelSimulatorConfig } from '@muni-kypo-crp/adaptive-model-simulator/internal';
+import { SentinelFreeFormModule } from '@sentinel/components/free-form';
+import { PhaseStepperComponent } from './components/definition-info/stepper/phase-stepper.component';
+import { SentinelStepperModule } from '@sentinel/components/stepper';
+import { PhaseEditComponentsModule } from './components/definition-info/phase-edit/phase-edit-components.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +24,7 @@ import { ModelSimulatorConfig } from '@muni-kypo-crp/adaptive-model-simulator/in
     DefinitionInfoComponent,
     InstanceSimulatorComponent,
     InstanceUploadDialogComponent,
+    PhaseStepperComponent,
   ],
   exports: [InstanceModelSimulatorComponent],
   imports: [
@@ -29,6 +34,9 @@ import { ModelSimulatorConfig } from '@muni-kypo-crp/adaptive-model-simulator/in
     ngfModule,
     SentinelPipesModule,
     KypoAdaptiveVisualizationLibModule,
+    PhaseEditComponentsModule,
+    SentinelFreeFormModule,
+    SentinelStepperModule,
   ],
   providers: [InstanceSimulatorService, FileUploadProgressService, InstanceSimulatorApiService],
 })
@@ -39,6 +47,10 @@ export class InstanceModelSimulatorModule {
       providers: [
         {
           provide: AdaptiveVisualizationConfig,
+          useValue: config,
+        },
+        {
+          provide: ModelSimulatorConfig,
           useValue: config,
         },
       ],

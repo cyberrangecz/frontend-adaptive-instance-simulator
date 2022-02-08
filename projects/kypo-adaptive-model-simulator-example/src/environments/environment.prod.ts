@@ -17,7 +17,7 @@ export const environment = {
   scope: 'openid profile email',
   sessionChecksEnabled: false,
   modelSimulatorConfig: {
-    adaptiveTrainingServiceUrl: 'https://172.19.0.22/kypo-rest-training/api/v1/',
+    adaptiveTrainingServiceUrl: 'https://172.19.0.22/kypo-adaptive-training/api/v1/',
   },
   authConfig: {
     guardMainPageRedirect: 'home',

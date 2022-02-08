@@ -1,4 +1,4 @@
-<mat-expansion-panel [expanded]="simulatorData" [disabled]="!simulatorData">
+<mat-expansion-panel [expanded]="(simulatorData !== null)" [disabled]="!simulatorData">
   <mat-expansion-panel-header>
     <mat-panel-title>
       <span>Instance Simulation</span>
@@ -10,14 +10,14 @@
   </mat-expansion-panel-header>
   <ng-template matExpansionPanelContent>
     <mat-divider></mat-divider>
-    <!-- EDIT PHASES -->
     <div>
-      <div class="phases-header">
+      <div class="simulator-header">
         <h3>Training Instance Simulation</h3>
-        <span class="phases-info" *ngIf="1 >= 0">Training instance contains {{ 1 }} trainee(s)</span>
+        <span class="simulator-info" *ngIf="1 >= 0">Training instance contains {{ 1 }} trainee(s)</span>
       </div>
-      <lib-kypo-sankey-visualization-lib [trainingInstanceId]="0" [graphData]="simulatorData"></lib-kypo-sankey-visualization-lib>
+      <div class="simulator-content">
+        <lib-kypo-sankey-visualization-lib [trainingInstanceId]="0" [graphData]="simulatorData"></lib-kypo-sankey-visualization-lib>
+      </div>
     </div>
   </ng-template>
-
 </mat-expansion-panel>

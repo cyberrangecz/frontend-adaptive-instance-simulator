@@ -3,7 +3,7 @@ mat-panel-description {
   justify-content: flex-end;
 }
 
-.phases-header {
+.simulator-header {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
@@ -11,6 +11,11 @@ mat-panel-description {
   margin-top: 35px;
 }
 
-.phases-info {
+.simulator-info {
   color: rgba(0,0,0,.54);
+}
+
+.simulator-content {
+  display: flex;
+  justify-content: center;
 }

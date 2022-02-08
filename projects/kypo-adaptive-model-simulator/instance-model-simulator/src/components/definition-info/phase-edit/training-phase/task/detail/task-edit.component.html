@@ -1,0 +1,56 @@
+<div class="content">
+  <div class="panel-wrapper">
+    <div class="left-panel">
+      <!--CONTENT field -->
+      <h3>Content</h3>
+      <markdown [data]="task.content"></markdown>
+
+      <!--SOLUTION field -->
+      <h3>Solution</h3>
+      <markdown [data]="task.solution"></markdown>
+    </div>
+
+    <div class="right-panel">
+      <!-- TITLE filed -->
+      <mat-form-field
+        appearance="outline">
+        <mat-label>Title</mat-label>
+        <input
+          matInput
+          placeholder="Title"
+          [disabled]="true"
+          [value]="task.title"
+        />
+      </mat-form-field>
+
+      <!-- INCORRECT ANSWER LIMIT field -->
+      <mat-form-field
+        appearance="outline">
+        <mat-label>Incorrect Answer Limit</mat-label>
+        <input
+          matInput
+          placeholder="Incorrect Answer Limit"
+          [disabled]="true"
+          [value]="task.incorrectAnswerLimit"
+        />
+      </mat-form-field>
+
+      <!-- ANSWER field -->
+      <mat-form-field
+        appearance="outline">
+        <mat-label>Correct Answer</mat-label>
+        <input
+          matInput
+          placeholder="Correct Answer"
+          [disabled]="true"
+          [value]="task.incorrectAnswerLimit"
+        />
+      </mat-form-field>
+
+      <div class="modify-sandbox">
+        <span>Modify sandbox: </span>
+        <mat-slide-toggle [disabled]="true" [checked]="task.modifySandbox"></mat-slide-toggle>
+      </div>
+    </div>
+  </div>
+</div>

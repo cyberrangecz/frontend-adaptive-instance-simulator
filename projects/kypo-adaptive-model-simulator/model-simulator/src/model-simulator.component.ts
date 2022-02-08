@@ -58,7 +58,6 @@ export class ModelSimulatorComponent implements OnInit, OnChanges {
       this.relatedTrainingPhases,
       performanceStatistics
     );
-    console.log(this.traineesSimulatedPath);
   }
 
   private fetchData(): void {

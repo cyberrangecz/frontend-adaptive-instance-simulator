@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { AdaptiveTrainingSankeyData } from '@muni-kypo-crp/adaptive-visualization';
 
 @Component({
@@ -7,10 +7,6 @@ import { AdaptiveTrainingSankeyData } from '@muni-kypo-crp/adaptive-visualizatio
   styleUrls: ['./instance-simulator.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class InstanceSimulatorComponent implements OnInit {
+export class InstanceSimulatorComponent {
   @Input() simulatorData: AdaptiveTrainingSankeyData;
-
-  constructor() {}
-
-  ngOnInit(): void {}
 }

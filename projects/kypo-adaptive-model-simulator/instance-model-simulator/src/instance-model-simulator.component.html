@@ -7,7 +7,11 @@
     </sentinel-controls>
   </div>
   <div class="card-content">
-    <kypo-adaptive-model-simulator-definition-info [definitionInfo]="(instanceSimulatorData$ | sAsync)?.trainingDefinition"></kypo-adaptive-model-simulator-definition-info>
-    <kypo-adaptive-model-simulator-instance-simulator [simulatorData]="(instanceSimulatorData$ | sAsync)?.sankeyData"></kypo-adaptive-model-simulator-instance-simulator>
+    <kypo-adaptive-model-simulator-definition-info
+      [definitionInfo]="(instanceSimulatorData$ | sAsync)?.trainingDefinition">
+    </kypo-adaptive-model-simulator-definition-info>
+    <kypo-adaptive-model-simulator-instance-simulator
+      [simulatorData]="(instanceSimulatorData$ | sAsync)?.sankeyData">
+    </kypo-adaptive-model-simulator-instance-simulator>
   </div>
 </div>

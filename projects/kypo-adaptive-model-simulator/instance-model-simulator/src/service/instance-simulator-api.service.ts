@@ -4,13 +4,14 @@ import { HttpClient } from '@angular/common/http';
 import { InstanceSimulatorMapper } from './mapper/instance-simulator-mapper';
 import { InstanceModelSimulator } from '../model/instance-model-simulator';
 import { InstanceModelSimulatorDTO } from '../model/instance-model-simulator-dto';
+import { ModelSimulatorConfig } from '@muni-kypo-crp/adaptive-model-simulator/internal';
 
 @Injectable()
 export class InstanceSimulatorApiService {
   readonly trainingInstanceUriExtension = 'training-instances';
   readonly trainingImportEndpointUri: string;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private config: ModelSimulatorConfig) {}
 
   upload(file: File): Observable<InstanceModelSimulator> {
     const fileReader = new FileReader();
@@ -18,7 +19,7 @@ export class InstanceSimulatorApiService {
       mergeMap(() => {
         const jsonBody = JSON.parse(fileReader.result as string);
         return this.http.post<InstanceModelSimulatorDTO>(
-          `http://localhost:3000/kypo-adaptive-training/api/v1/training-instances/instances`,
+          `${this.config.adaptiveTrainingServiceUrl}training-instances/instances`,
           jsonBody
         );
       })

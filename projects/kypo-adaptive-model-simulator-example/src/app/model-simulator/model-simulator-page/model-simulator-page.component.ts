@@ -415,7 +415,7 @@ export class ModelSimulatorPageComponent implements OnInit {
             title: 'Set up SSH access',
             order: 0,
             content:
-              'For accessing KYPO virtual machines using your local command-line tool, click on `Get SSH access` button to download ZIP file and then follow the instructions in the [documentation](https://docs.crp.kypo.muni.cz/user-guide-advanced/sandboxes/sandbox-access/#user-access). When you are ready to advance to the next phase, submit the answer provided by the organizer or click on `Solution` button. ',
+              'For accessing KYPO virtual machines using your local command-line tool, click on `Get SSH access` button to download ZIP file and then follow the instructions in the [documentation](https://docs.crp.kypo.muni.cz/user-guide-advanced/sandboxes/sandbox-access/#user-access). When you are ready to advance to the next phase-edit, submit the answer provided by the organizer or click on `Solution` button. ',
             answer: 'startgame',
             solution: 'startgame',
             incorrectAnswerLimit: 100,

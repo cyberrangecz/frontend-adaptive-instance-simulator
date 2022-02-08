@@ -29,7 +29,8 @@ export class ModelSimulatorService {
       const pathNode = new TrainingRunPathNode();
 
       if (phase.type === AbstractPhaseTypeEnum.Training) {
-        const task = this.computeSuitableTask(phase as TrainingPhase, relatedTrainingPhases, performanceStatistics); // out of bound possibility
+        // out of bound possibility
+        const task = this.computeSuitableTask(phase as TrainingPhase, relatedTrainingPhases, performanceStatistics);
         pathNode.phaseId = phase.id;
         pathNode.phaseOrder = phase.order;
         pathNode.taskId = task.id;
@@ -64,9 +65,9 @@ export class ModelSimulatorService {
   }
 
   /**
-   * Pick suitable task from inspected phase based on trainees' performance and decision matrix weights
-   * @param inspectedPhase phase from which the task will be selected
-   * @param relatedTrainingPhases phases related to current training phase
+   * Pick suitable task from inspected phase-edit based on trainees' performance and decision matrix weights
+   * @param inspectedPhase phase-edit from which the task will be selected
+   * @param relatedTrainingPhases phases related to current training phase-edit
    * @param performanceStatisticsMatrix simulation of trainees' performance
    * @return id of suitable task
    */
@@ -92,9 +93,9 @@ export class ModelSimulatorService {
   }
 
   /**
-   * Evaluate trainee performance for given phase with given trainees' performance
-   * @param inspectedPhase phase for which the trainee performance data are inspected
-   * @param relatedTrainingPhases phases related to current training phase
+   * Evaluate trainee performance for given phase-edit with given trainees' performance
+   * @param inspectedPhase phase-edit for which the trainee performance data are inspected
+   * @param relatedTrainingPhases phases related to current training phase-edit
    * @param performanceStatisticsMatrix trainees' performance
    * @return evaluated participant performance
    */

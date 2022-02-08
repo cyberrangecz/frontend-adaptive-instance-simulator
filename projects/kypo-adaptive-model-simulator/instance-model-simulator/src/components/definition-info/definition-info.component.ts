@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
-import { TrainingDefinition } from '@muni-kypo-crp/training-model';
+import { ChangeDetectionStrategy, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { AbstractPhaseTypeEnum, Phase, TrainingDefinition, TrainingPhase } from '@muni-kypo-crp/training-model';
+import { PhaseStepperAdapter } from '../../model/adapters/phase-stepper-adapter';
 
 @Component({
   selector: 'kypo-adaptive-model-simulator-definition-info',
@@ -7,11 +8,37 @@ import { TrainingDefinition } from '@muni-kypo-crp/training-model';
   styleUrls: ['./definition-info.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DefinitionInfoComponent implements OnInit {
+export class DefinitionInfoComponent implements OnInit, OnChanges {
   @Input() definitionInfo: TrainingDefinition;
-  phasesCount: number;
 
-  constructor() {}
+  activeStep: number;
+  activePhase: Phase;
+  trainingPhases: TrainingPhase[];
+  stepperPhases: PhaseStepperAdapter[];
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.activeStep = 0;
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if ('definitionInfo' in changes && !changes['definitionInfo'].isFirstChange()) {
+      const phases = this.definitionInfo.levels as Phase[];
+      this.stepperPhases = this.definitionInfo.levels.map((phase) => new PhaseStepperAdapter(phase));
+      this.activePhase = phases[this.activeStep];
+      this.trainingPhases = phases.filter((phase) => phase.type === AbstractPhaseTypeEnum.Training) as TrainingPhase[];
+      console.log(this.trainingPhases); // check if filtering is ok
+    }
+  }
+
+  /**
+   * Calls service to set new active phases
+   * @param phaseIndex index of new active phases
+   */
+  onActivePhaseChange(phaseIndex: number): void {
+    this.activePhase = this.definitionInfo.levels[phaseIndex] as Phase;
+  }
+
+  onActivePhaseChanged(phase: Phase): void {
+    console.log(phase);
+  }
 }
