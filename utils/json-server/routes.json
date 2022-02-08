@@ -1,3 +1,4 @@
 {
-  "/kypo-adaptive-training/api/v1/training-definitions/:definitionId/phases": "/phases"
+  "/kypo-adaptive-training/api/v1/training-definitions/:definitionId/phases": "/phases",
+  "/kypo-adaptive-training/api/v1/visualizations/training-instances/:id/transitions-graph": "/transition_graph"
 }

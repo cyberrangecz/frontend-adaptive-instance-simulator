@@ -1,0 +1,13 @@
+{
+  "name": "@muni-kypo-crp/adaptive-model-simulator",
+  "version": "13.0.0",
+  "peerDependencies": {
+    "@angular/common": "~13.1.2",
+    "@angular/core": "~13.1.2",
+    "@angular/material": "^13.1.2"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  },
+  "optionalDependencies": {}
+}

@@ -1,0 +1,9 @@
+<div class="transition-container">
+  <h2>Trainee Pathway Simulation</h2>
+  <div *ngIf="generate else noGenerate">
+    <kypo-adaptive-transition-visualization [transitionData]="transitionData"></kypo-adaptive-transition-visualization>
+  </div>
+  <ng-template #noGenerate>
+    <p>*Click Generate to enable automatic generation of trainee path.</p>
+  </ng-template>
+</div>
