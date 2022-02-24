@@ -15,7 +15,6 @@ import {
 })
 export class QuestionnairePhaseEditComponent extends SentinelBaseDirective {
   @Input() phase: QuestionnairePhase;
-  @Output() phaseChange: EventEmitter<QuestionnairePhase> = new EventEmitter();
   @Input() updateQuestionsFlag: boolean;
   @Input() presentTrainingPhases: TrainingPhase[];
 

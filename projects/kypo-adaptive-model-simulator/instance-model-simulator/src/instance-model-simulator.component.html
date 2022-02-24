@@ -1,5 +1,5 @@
 <div class="content-container">
-  <div class="upload-container" *ngIf="!(instanceSimulatorData$ | sAsync)">
+  <div class="upload-container">
     <h3>Upload Exported Training Instance</h3>
     <sentinel-controls
       [controls]="controls"
@@ -8,7 +8,8 @@
   </div>
   <div class="card-content">
     <kypo-adaptive-model-simulator-definition-info
-      [definitionInfo]="(instanceSimulatorData$ | sAsync)?.trainingDefinition">
+      [definitionInfo]="(instanceSimulatorData$ | sAsync)?.trainingDefinition"
+      (phaseChange)="phaseChanged($event)">
     </kypo-adaptive-model-simulator-definition-info>
     <kypo-adaptive-model-simulator-instance-simulator
       [simulatorData]="(instanceSimulatorData$ | sAsync)?.sankeyData">

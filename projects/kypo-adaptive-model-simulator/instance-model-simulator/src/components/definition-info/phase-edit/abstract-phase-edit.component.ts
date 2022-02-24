@@ -14,10 +14,10 @@ import { AbstractPhaseTypeEnum, Phase, TrainingPhase } from '@muni-kypo-crp/trai
 export class AbstractPhaseEditComponent extends SentinelBaseDirective {
   @Input() phase: Phase;
   @Input() presentTrainingPhases: TrainingPhase[];
-  @Output() phaseChange: EventEmitter<Phase> = new EventEmitter();
+  @Output() phaseChange: EventEmitter<TrainingPhase> = new EventEmitter();
   phaseTypes = AbstractPhaseTypeEnum;
 
-  onPhaseChange(phase: Phase): void {
+  onPhaseChange(phase: TrainingPhase): void {
     this.phaseChange.emit(phase);
   }
 }

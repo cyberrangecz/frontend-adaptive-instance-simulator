@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { FileUploadProgressService } from '../../service/file-upload-progress.service';
 
 /**
- * Component of training definition upload dialog window
+ * Dialog window component of training instance data upload
  */
 @Component({
   selector: 'kypo-training-upload-dialog',

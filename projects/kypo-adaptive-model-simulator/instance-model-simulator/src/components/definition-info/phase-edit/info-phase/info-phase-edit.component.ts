@@ -13,5 +13,4 @@ import { InfoPhase } from '@muni-kypo-crp/training-model';
 })
 export class InfoPhaseEditComponent extends SentinelBaseDirective {
   @Input() phase: InfoPhase;
-  @Output() phaseChange: EventEmitter<InfoPhase> = new EventEmitter();
 }

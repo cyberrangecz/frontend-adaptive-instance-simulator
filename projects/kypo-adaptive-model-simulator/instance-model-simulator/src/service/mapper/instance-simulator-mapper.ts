@@ -6,8 +6,9 @@ import { SankeyDataMapper } from '@muni-kypo-crp/adaptive-visualization';
 export class InstanceSimulatorMapper {
   static fromDTO(dto: InstanceModelSimulatorDTO): InstanceModelSimulator {
     const result = new InstanceModelSimulator();
-    result.trainingDefinition = TrainingDefinitionMapper.fromDTO(dto.trainingDefinitionDTO, false, true);
-    result.sankeyData = SankeyDataMapper.fromDTOs(dto.sankeyDataDTO);
+    console.log(dto);
+    result.trainingDefinition = TrainingDefinitionMapper.fromDTO(dto.training_definition, false, true);
+    result.sankeyData = SankeyDataMapper.fromDTOs(dto.sankey_diagram);
     return result;
   }
 }

@@ -1,16 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { SentinelControlItem } from '@sentinel/components/controls';
 import { InstanceSimulatorService } from './service/instance-simulator.service';
 import { InstanceModelSimulatorControls } from './model/instance-model-simulator-controls';
 import { BehaviorSubject, Observable, take } from 'rxjs';
 import { InstanceModelSimulator } from './model/instance-model-simulator';
+import { TrainingPhase } from '@muni-kypo-crp/training-model';
 
 @Component({
   selector: 'kypo-instance-model-simulator',
   templateUrl: './instance-model-simulator.component.html',
   styleUrls: ['./instance-model-simulator.component.css'],
 })
-export class InstanceModelSimulatorComponent implements OnInit {
+export class InstanceModelSimulatorComponent implements OnInit, OnDestroy {
   controls: SentinelControlItem[] = [];
   instanceSimulatorDataSubject$: BehaviorSubject<InstanceModelSimulator> = new BehaviorSubject(null);
   instanceSimulatorData$: Observable<InstanceModelSimulator> = this.instanceSimulatorDataSubject$.asObservable();
@@ -28,5 +29,13 @@ export class InstanceModelSimulatorComponent implements OnInit {
    */
   onControlsAction(control: SentinelControlItem): void {
     control.result$.pipe(take(1)).subscribe();
+  }
+
+  phaseChanged(phase: TrainingPhase): void {
+    this.instanceSimulatorService.updatePhase(phase);
+  }
+
+  ngOnDestroy(): void {
+    this.instanceSimulatorService.clearInstance();
   }
 }

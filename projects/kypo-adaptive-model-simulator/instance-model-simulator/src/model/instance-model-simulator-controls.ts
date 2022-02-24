@@ -7,9 +7,25 @@ import { defer, of } from 'rxjs';
 
 export class InstanceModelSimulatorControls {
   static readonly UPLOAD_ACTION_ID = 'upload';
+  static readonly EXPORT_ACTION_ID = 'export';
+  static readonly GENERATE_ACTION_ID = 'generate';
 
   static create(service: InstanceSimulatorService): SentinelControlItem[] {
     return [
+      new SentinelControlItem(
+        this.GENERATE_ACTION_ID,
+        'Generate',
+        'primary',
+        service.actionsDisabled$,
+        defer(() => service.generate())
+      ),
+      new SentinelControlItem(
+        this.EXPORT_ACTION_ID,
+        'Export',
+        'primary',
+        service.actionsDisabled$,
+        defer(() => service.export())
+      ),
       new SentinelControlItem(
         this.UPLOAD_ACTION_ID,
         'Upload',

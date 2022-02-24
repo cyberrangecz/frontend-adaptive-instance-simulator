@@ -67,6 +67,8 @@
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "projects/kypo-adaptive-model-simulator-example/src/theme.scss",
+              "projects/kypo-adaptive-model-simulator-example/src/variables.scss",
               "projects/kypo-adaptive-model-simulator-example/src/styles.scss"
             ],
             "scripts": [],

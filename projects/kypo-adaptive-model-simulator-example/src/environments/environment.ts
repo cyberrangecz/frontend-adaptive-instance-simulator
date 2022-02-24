@@ -16,12 +16,12 @@ export const environment = {
   scope: 'openid profile email',
   sessionChecksEnabled: false,
   modelSimulatorConfig: {
-    adaptiveTrainingServiceUrl: 'https://172.19.0.22/kypo-adaptive-training/api/v1/',
+    adaptiveTrainingServiceUrl: 'http://localhost:8082/kypo-adaptive-training/api/v1/',
   },
   authConfig: {
     guardMainPageRedirect: 'home',
     guardLoginPageRedirect: 'login',
-    interceptorAllowedUrls: ['https://172.19.0.22'],
+    interceptorAllowedUrls: ['https://172.19.0.22', 'http://localhost', 'https://localhost'],
     authorizationStrategyConfig: {
       authorizationUrl: 'https://172.19.0.22/kypo-rest-user-and-group/api/v1/users/info',
     },
@@ -32,7 +32,7 @@ export const environment = {
         backgroundColor: '#002776',
         oidcConfig: {
           issuer: 'https://172.19.0.22:8443/csirtmu-dummy-issuer-server/',
-          clientId: '48e0ea31-dc14-4888-a915-2be4eee60814',
+          clientId: 'b6944cee-288c-4a38-891f-bc43c35e468b',
           redirectUri: HOME_URL,
           scope: 'openid email profile',
           logoutUrl: 'https://172.19.0.22/csirtmu-dummy-issuer-server/endsession',

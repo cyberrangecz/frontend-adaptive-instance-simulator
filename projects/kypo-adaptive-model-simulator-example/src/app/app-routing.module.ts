@@ -10,7 +10,7 @@ const routes: Routes = [
       import('./model-simulator/model-simulator-page/model-simulator-page.module').then(
         (m) => m.ModelSimulatorPageModule
       ),
-    // canActivate: [SentinelAuthGuardWithLogin],
+    canActivate: [SentinelAuthGuardWithLogin],
   },
   {
     path: 'instance-model-simulator',
@@ -18,18 +18,18 @@ const routes: Routes = [
       import('./model-simulator/instance-simulator-page/instance-simulator-page.module').then(
         (m) => m.InstanceSimulatorPageModule
       ),
-    // canActivate: [SentinelAuthGuardWithLogin],
+    canActivate: [SentinelAuthGuardWithLogin],
   },
   {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',
   },
-  // {
-  //   path: 'login',
-  //   component: SentinelAuthProviderListComponent,
-  //   canActivate: [SentinelNegativeAuthGuard],
-  // },
+  {
+    path: 'login',
+    component: SentinelAuthProviderListComponent,
+    canActivate: [SentinelNegativeAuthGuard],
+  },
   {
     path: '**',
     redirectTo: 'home',

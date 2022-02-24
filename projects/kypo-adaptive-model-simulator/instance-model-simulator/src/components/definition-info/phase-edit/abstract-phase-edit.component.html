@@ -1,7 +1,6 @@
 <ng-container [ngSwitch]="phase.type">
   <kypo-info-phase-configuration *ngSwitchCase="phaseTypes.Info"
-                                 [phase]="phase"
-                                 (phaseChange)="onPhaseChange($event)">
+                                 [phase]="phase">
   </kypo-info-phase-configuration>
   <kypo-training-phase-configuration *ngSwitchCase="phaseTypes.Training"
                                      [phase]="phase"
@@ -10,7 +9,6 @@
   </kypo-training-phase-configuration>
   <kypo-questionnaire-phase-configuration *ngSwitchCase="phaseTypes.Questionnaire"
                                           [phase]="phase"
-                                          [presentTrainingPhases]="presentTrainingPhases"
-                                          (phaseChange)="onPhaseChange($event)">
+                                          [presentTrainingPhases]="presentTrainingPhases">
   </kypo-questionnaire-phase-configuration>
 </ng-container>

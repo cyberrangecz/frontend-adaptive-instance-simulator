@@ -14,6 +14,7 @@ import { AdaptiveQuestionStepperAdapter } from '../../../../../../model/adapters
 })
 export class QuestionsOverviewComponent extends SentinelBaseDirective implements OnInit, OnChanges {
   @Input() questions: AdaptiveQuestion[];
+  @Input() questionnaireOrder: number;
   @Input() questionnaireType: QuestionTypeEnum;
 
   stepperQuestions: SentinelStepper<AdaptiveQuestionStepperAdapter> = { items: [] };
@@ -29,6 +30,12 @@ export class QuestionsOverviewComponent extends SentinelBaseDirective implements
   }
 
   ngOnChanges(changes: SimpleChanges): void {
+    if (
+      changes['questionnaireOrder'] &&
+      changes['questionnaireOrder'].previousValue !== changes['questionnaireOrder'].currentValue
+    ) {
+      this.selectedStep = 0;
+    }
     if ('questions' in changes && changes['questions'].isFirstChange()) {
       this.selectedStep = 0;
     }

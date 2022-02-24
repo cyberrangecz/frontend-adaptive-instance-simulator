@@ -1,4 +1,13 @@
-import { ChangeDetectionStrategy, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import { AbstractPhaseTypeEnum, Phase, TrainingDefinition, TrainingPhase } from '@muni-kypo-crp/training-model';
 import { PhaseStepperAdapter } from '../../model/adapters/phase-stepper-adapter';
 
@@ -10,6 +19,7 @@ import { PhaseStepperAdapter } from '../../model/adapters/phase-stepper-adapter'
 })
 export class DefinitionInfoComponent implements OnInit, OnChanges {
   @Input() definitionInfo: TrainingDefinition;
+  @Output() phaseChange: EventEmitter<TrainingPhase> = new EventEmitter();
 
   activeStep: number;
   activePhase: Phase;
@@ -38,7 +48,7 @@ export class DefinitionInfoComponent implements OnInit, OnChanges {
     this.activePhase = this.definitionInfo.levels[phaseIndex] as Phase;
   }
 
-  onActivePhaseChanged(phase: Phase): void {
-    console.log(phase);
+  onActivePhaseChanged(phase: TrainingPhase): void {
+    this.phaseChange.emit(phase);
   }
 }
