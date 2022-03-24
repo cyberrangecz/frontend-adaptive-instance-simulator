@@ -4,4 +4,5 @@ import { AdaptiveTrainingSankeyDataDTO } from '@muni-kypo-crp/adaptive-visualiza
 export class InstanceModelSimulatorDTO {
   training_definition: TrainingDefinitionDTO;
   sankey_diagram: AdaptiveTrainingSankeyDataDTO;
+  cache_key: string;
 }

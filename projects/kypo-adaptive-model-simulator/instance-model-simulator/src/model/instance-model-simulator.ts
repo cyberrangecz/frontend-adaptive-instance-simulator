@@ -4,4 +4,5 @@ import { AdaptiveTrainingSankeyData } from '@muni-kypo-crp/adaptive-visualizatio
 export class InstanceModelSimulator {
   trainingDefinition: TrainingDefinition;
   sankeyData: AdaptiveTrainingSankeyData;
+  cacheId: string;
 }

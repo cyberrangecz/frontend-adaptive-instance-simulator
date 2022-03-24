@@ -8,6 +8,7 @@ import { InstanceModelSimulator } from '../model/instance-model-simulator';
 import { Phase, TrainingPhase } from '@muni-kypo-crp/training-model';
 import { saveAs } from 'file-saver';
 import { AdaptiveTrainingSankeyData } from '@muni-kypo-crp/adaptive-visualization';
+import { InstanceModelUpdateDTO } from '../model/instance-model-update-dto';
 
 @Injectable()
 export class InstanceSimulatorService {
@@ -65,7 +66,7 @@ export class InstanceSimulatorService {
    * @return data for sankey diagram visualization
    */
   generate(): Observable<AdaptiveTrainingSankeyData> {
-    return this.api.generate(this.uploadedInstanceDataSubject$.getValue().trainingDefinition).pipe(
+    return this.api.generate(this.uploadedInstanceDataSubject$.getValue()).pipe(
       take(1),
       tap(
         (data) => {

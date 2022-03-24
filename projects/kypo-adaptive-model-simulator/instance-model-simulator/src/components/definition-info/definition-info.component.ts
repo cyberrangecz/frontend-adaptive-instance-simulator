@@ -36,7 +36,6 @@ export class DefinitionInfoComponent implements OnInit, OnChanges {
       this.stepperPhases = this.definitionInfo.levels.map((phase) => new PhaseStepperAdapter(phase));
       this.activePhase = phases[this.activeStep];
       this.trainingPhases = phases.filter((phase) => phase.type === AbstractPhaseTypeEnum.Training) as TrainingPhase[];
-      console.log(this.trainingPhases); // check if filtering is ok
     }
   }
 

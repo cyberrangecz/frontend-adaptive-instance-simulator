@@ -8,6 +8,7 @@ import { ModelSimulatorConfig } from '@muni-kypo-crp/adaptive-model-simulator/in
 import { AdaptiveTrainingSankeyDataDTO, SankeyDataMapper } from '@muni-kypo-crp/adaptive-visualization';
 import { TrainingDefinition } from '@muni-kypo-crp/training-model';
 import { AdaptiveTrainingSankeyData } from '@muni-kypo-crp/adaptive-visualization';
+import { InstanceModelUpdateMapper } from './mapper/instance-model-update-mapper';
 
 @Injectable()
 export class InstanceSimulatorApiService {
@@ -39,14 +40,13 @@ export class InstanceSimulatorApiService {
   /**
    * Sends https request to generate sankey diagram from previously uploaded instance data stored in cache on
    * backend side. This data are identified by combination of definition id, instance id and access token.
-   * @param definition changed training definition
    * @return data for sankey diagram visualization
    */
-  generate(definition: TrainingDefinition): Observable<AdaptiveTrainingSankeyData> {
+  generate(instanceModelSimulator: InstanceModelSimulator): Observable<AdaptiveTrainingSankeyData> {
     return this.http
       .post<AdaptiveTrainingSankeyDataDTO>(
         `${this.config.adaptiveTrainingServiceUrl}visualizations/training-instances/generate`,
-        definition
+        InstanceModelUpdateMapper.toUpdateDTO(instanceModelSimulator)
       )
       .pipe(map((resp) => SankeyDataMapper.fromDTOs(resp)));
   }
