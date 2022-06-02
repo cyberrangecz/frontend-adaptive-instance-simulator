@@ -19,7 +19,7 @@ export const environment = {
   scope: 'openid profile email',
   sessionChecksEnabled: false,
   modelSimulatorConfig: {
-    adaptiveTrainingServiceUrl: 'http://localhost:8082/kypo-adaptive-training/api/v1/',
+    adaptiveTrainingServiceUrl: 'http://localhost:3000/kypo-adaptive-training/api/v1/',
   },
   authConfig: {
     guardMainPageRedirect: 'home',
@@ -34,8 +34,8 @@ export const environment = {
         textColor: 'white',
         backgroundColor: '#002776',
         oidcConfig: {
-          issuer: 'https://172.19.0.22:8443/csirtmu-dummy-issuer-server/',
-          clientId: '9333e00b-b413-42ca-9aab-65cd2709dfdf',
+          issuer: 'https://172.19.0.22:443/csirtmu-dummy-issuer-server/',
+          clientId: 'vvlHtZkuJdtdhBJjOoGvvpqghjBrLFTziPLE',
           redirectUri: HOME_URL,
           scope: 'openid email profile',
           logoutUrl: 'https://172.19.0.22/csirtmu-dummy-issuer-server/endsession',
