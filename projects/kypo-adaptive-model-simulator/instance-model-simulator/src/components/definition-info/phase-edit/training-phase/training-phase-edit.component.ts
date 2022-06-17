@@ -23,6 +23,7 @@ export class TrainingPhaseEditComponent extends SentinelBaseDirective implements
   @Input() phase: TrainingPhase;
   @Input() presentTrainingPhases: TrainingPhase[];
   @Output() phaseChange: EventEmitter<TrainingPhase> = new EventEmitter();
+  @Output() isMatrixValid: EventEmitter<boolean> = new EventEmitter();
 
   phaseConfigFormGroup: TrainingPhaseEditFormGroup;
 
@@ -52,6 +53,7 @@ export class TrainingPhaseEditComponent extends SentinelBaseDirective implements
       this.setFormsAsTouched();
       this.phaseConfigFormGroup.formGroup.valueChanges.pipe(takeWhile(() => this.isAlive)).subscribe(() => {
         this.phaseConfigFormGroup.setToPhase(this.phase);
+        this.isMatrixValid.emit(this.phaseConfigFormGroup.formGroup.valid);
         this.phaseChange.emit(this.phase);
       });
     }

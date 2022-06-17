@@ -15,12 +15,12 @@ import { DecisionMatrixRow, TrainingPhase } from '@muni-kypo-crp/training-model'
 import { TraineePhasePerformance } from './model/trainee-phase-performance';
 
 @Component({
-  selector: 'kypo-matrix',
-  templateUrl: './matrix.component.html',
-  styleUrls: ['./matrix.component.css'],
+  selector: 'kypo-performance-simulator',
+  templateUrl: './performance.component.html',
+  styleUrls: ['./performance.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MatrixComponent extends SentinelBaseDirective implements OnChanges {
+export class PerformanceComponent extends SentinelBaseDirective implements OnChanges {
   @Input() phase: TrainingPhase;
   @Input() relatedPhases: TrainingPhase[];
   @Output() matrixChange: EventEmitter<TraineePhasePerformance[]> = new EventEmitter();

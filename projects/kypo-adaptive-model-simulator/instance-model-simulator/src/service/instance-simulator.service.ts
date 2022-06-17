@@ -9,9 +9,13 @@ import { Phase, TrainingPhase } from '@muni-kypo-crp/training-model';
 import { saveAs } from 'file-saver';
 import { AdaptiveTrainingSankeyData } from '@muni-kypo-crp/adaptive-visualization';
 import { InstanceModelUpdateDTO } from '../model/instance-model-update-dto';
+import { TrainingErrorHandler } from './state-handlers/training-error-handler';
+import { TrainingNotificationService } from './state-handlers/training-notification.service';
 
 @Injectable()
 export class InstanceSimulatorService {
+  private readonly EXPORT_FILE_NAME = 'adaptive-training-definition.json';
+
   private uploadedInstanceDataSubject$: BehaviorSubject<InstanceModelSimulator> = new BehaviorSubject(null);
   uploadedInstanceData$: Observable<InstanceModelSimulator> = this.uploadedInstanceDataSubject$.asObservable();
 
@@ -20,6 +24,8 @@ export class InstanceSimulatorService {
 
   constructor(
     private dialog: MatDialog,
+    private errorHandler: TrainingErrorHandler,
+    private notificationService: TrainingNotificationService,
     private fileUploadProgressService: FileUploadProgressService,
     private api: InstanceSimulatorApiService
   ) {}
@@ -35,7 +41,7 @@ export class InstanceSimulatorService {
       switchMap((file) => this.api.upload(file)),
       tap(
         (data) => {
-          // this.notificationService.emit('success', 'Training instance data were uploaded');
+          this.notificationService.emit('success', 'Training instance data were uploaded');
           this.fileUploadProgressService.finish();
           this.uploadedInstanceDataSubject$.next(data);
           this.actionsDisabledSubject$.next(false);
@@ -43,7 +49,8 @@ export class InstanceSimulatorService {
         },
         (err) => {
           this.fileUploadProgressService.finish();
-          // this.errorHandler.emit(err, 'Uploading training instance data');
+          dialogRef.close();
+          this.errorHandler.emit(err, 'Uploading training instance data');
         }
       )
     );
@@ -56,7 +63,7 @@ export class InstanceSimulatorService {
     const blob = new Blob([JSON.stringify(this.uploadedInstanceDataSubject$.getValue().trainingDefinition)], {
       type: 'application/json',
     });
-    saveAs(blob, 'adaptive-training-definition.json');
+    saveAs(blob, this.EXPORT_FILE_NAME);
     return of(true);
   }
 
@@ -75,7 +82,7 @@ export class InstanceSimulatorService {
           this.uploadedInstanceDataSubject$.next(value);
         },
         (err) => {
-          // this.errorHandler.emit(err, 'Generating training visualization');
+          this.errorHandler.emit(err, 'Generating training visualization');
         }
       )
     );

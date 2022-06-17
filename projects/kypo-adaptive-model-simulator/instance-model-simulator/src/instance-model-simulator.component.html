@@ -9,7 +9,8 @@
   <div class="card-content">
     <kypo-adaptive-model-simulator-definition-info
       [definitionInfo]="(instanceSimulatorData$ | sAsync)?.trainingDefinition"
-      (phaseChange)="phaseChanged($event)">
+      (phaseChange)="phaseChanged($event)"
+      (isPhaseValid)="phaseValid($event)">
     </kypo-adaptive-model-simulator-definition-info>
     <kypo-adaptive-model-simulator-instance-simulator
       [simulatorData]="(instanceSimulatorData$ | sAsync)?.sankeyData">

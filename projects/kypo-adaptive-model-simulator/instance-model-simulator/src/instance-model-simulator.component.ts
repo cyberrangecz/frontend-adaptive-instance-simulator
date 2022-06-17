@@ -13,13 +13,17 @@ import { TrainingPhase } from '@muni-kypo-crp/training-model';
 })
 export class InstanceModelSimulatorComponent implements OnInit, OnDestroy {
   controls: SentinelControlItem[] = [];
-  instanceSimulatorDataSubject$: BehaviorSubject<InstanceModelSimulator> = new BehaviorSubject(null);
+
+  private instanceSimulatorDataSubject$: BehaviorSubject<InstanceModelSimulator> = new BehaviorSubject(null);
   instanceSimulatorData$: Observable<InstanceModelSimulator> = this.instanceSimulatorDataSubject$.asObservable();
+
+  private disableGenerateSubject$: BehaviorSubject<boolean> = new BehaviorSubject(true);
+  disableGenerate$: Observable<boolean> = this.disableGenerateSubject$.asObservable();
 
   constructor(private instanceSimulatorService: InstanceSimulatorService) {}
 
   ngOnInit(): void {
-    this.controls = InstanceModelSimulatorControls.create(this.instanceSimulatorService);
+    this.controls = InstanceModelSimulatorControls.create(this.instanceSimulatorService, this.disableGenerate$);
     this.instanceSimulatorData$ = this.instanceSimulatorService.uploadedInstanceData$;
   }
 
@@ -32,7 +36,12 @@ export class InstanceModelSimulatorComponent implements OnInit, OnDestroy {
   }
 
   phaseChanged(phase: TrainingPhase): void {
+    this.disableGenerateSubject$.next(false);
     this.instanceSimulatorService.updatePhase(phase);
+  }
+
+  phaseValid(isPhaseValid: boolean): void {
+    this.disableGenerateSubject$.next(!isPhaseValid);
   }
 
   ngOnDestroy(): void {

@@ -20,6 +20,7 @@ import { PhaseStepperAdapter } from '../../model/adapters/phase-stepper-adapter'
 export class DefinitionInfoComponent implements OnInit, OnChanges {
   @Input() definitionInfo: TrainingDefinition;
   @Output() phaseChange: EventEmitter<TrainingPhase> = new EventEmitter();
+  @Output() isPhaseValid: EventEmitter<boolean> = new EventEmitter();
 
   activeStep: number;
   activePhase: Phase;
@@ -49,5 +50,9 @@ export class DefinitionInfoComponent implements OnInit, OnChanges {
 
   onActivePhaseChanged(phase: TrainingPhase): void {
     this.phaseChange.emit(phase);
+  }
+
+  onPhaseValidChanged(event: boolean): void {
+    this.isPhaseValid.emit(event);
   }
 }

@@ -88,7 +88,8 @@
         <mat-divider></mat-divider>
         <kypo-simulator-phase-edit [phase]="activePhase"
                                    [presentTrainingPhases]="trainingPhases"
-                                   (phaseChange)="onActivePhaseChanged($event)">
+                                   (phaseChange)="onActivePhaseChanged($event)"
+                                   (isPhaseValid)="onPhaseValidChanged($event)">
         </kypo-simulator-phase-edit>
       </div>
 

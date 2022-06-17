@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MatrixComponent } from './matrix.component';
+import { PerformanceComponent } from './performance.component';
 
 describe('MatrixComponent', () => {
-  let component: MatrixComponent;
-  let fixture: ComponentFixture<MatrixComponent>;
+  let component: PerformanceComponent;
+  let fixture: ComponentFixture<PerformanceComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [MatrixComponent],
+      declarations: [PerformanceComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MatrixComponent);
+    fixture = TestBed.createComponent(PerformanceComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

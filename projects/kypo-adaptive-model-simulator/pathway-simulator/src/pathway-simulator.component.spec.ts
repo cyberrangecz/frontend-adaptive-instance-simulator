@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TransitionSimulatorComponent } from './transition-simulator.component';
+import { PathwaySimulatorComponent } from './pathway-simulator.component';
 
 describe('TransitionSimulatorComponent', () => {
-  let component: TransitionSimulatorComponent;
-  let fixture: ComponentFixture<TransitionSimulatorComponent>;
+  let component: PathwaySimulatorComponent;
+  let fixture: ComponentFixture<PathwaySimulatorComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [TransitionSimulatorComponent],
+      declarations: [PathwaySimulatorComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TransitionSimulatorComponent);
+    fixture = TestBed.createComponent(PathwaySimulatorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

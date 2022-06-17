@@ -2,29 +2,20 @@
 // `ng build --configuration production` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-const HOME_URL = 'https://localhost:4200';
+export const homeURL = 'https://localhost:4200';
+export const baseURL = 'https://172.19.0.22';
 
 export const environment = {
   production: true,
-  // OIDC SETTINGS
-  // Url of the Identity Provider
-  issuer: 'https://oidc.muni.cz/oidc/',
-  // URL of the SPA to redirect the user after silent refresh
-  silentRefreshRedirectUri: HOME_URL,
-  // URL of the SPA to redirect the user to after login
-  redirectUri: HOME_URL,
-  // set the scope for the permissions the client should request
-  scope: 'openid profile email',
-  sessionChecksEnabled: false,
   modelSimulatorConfig: {
-    adaptiveTrainingServiceUrl: 'https://172.19.0.22/kypo-adaptive-training/api/v1/',
+    adaptiveTrainingServiceUrl: baseURL + '/kypo-adaptive-training/api/v1/',
   },
   authConfig: {
     guardMainPageRedirect: 'home',
     guardLoginPageRedirect: 'login',
-    interceptorAllowedUrls: ['https://172.19.0.22', 'http://localhost'],
+    interceptorAllowedUrls: [baseURL],
     authorizationStrategyConfig: {
-      authorizationUrl: 'https://172.19.0.22/kypo-rest-user-and-group/api/v1/users/info',
+      authorizationUrl: baseURL + '/kypo-rest-user-and-group/api/v1/users/info',
     },
     providers: [
       {
@@ -34,10 +25,11 @@ export const environment = {
         oidcConfig: {
           issuer: 'https://172.19.0.22:443/csirtmu-dummy-issuer-server/',
           clientId: '0bf33f00-2700-4efb-ab09-186076f85c7d',
-          redirectUri: HOME_URL,
+          redirectUri: homeURL,
           scope: 'openid email profile',
           logoutUrl: 'https://172.19.0.22/csirtmu-dummy-issuer-server/endsession',
-          postLogoutRedirectUri: HOME_URL,
+          postLogoutRedirectUri: homeURL + '/logout-confirmed/',
+          silentRefreshRedirectUri: homeURL + '/silent-refresh.html',
           clearHashAfterLogin: true,
         },
       },

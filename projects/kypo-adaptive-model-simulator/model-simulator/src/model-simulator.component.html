@@ -1,6 +1,7 @@
-<kypo-matrix [phase]="inspectedPhase"
+<kypo-performance-simulator [phase]="inspectedTrainingPhase"
              [relatedPhases]="relatedTrainingPhases"
              (matrixChange)="updateTransition($event)"
              (startGenerate)="generate()">
-</kypo-matrix>
-<kypo-transition-simulator [transitionData]="traineesSimulatedPath"></kypo-transition-simulator>
+</kypo-performance-simulator>
+<mat-divider></mat-divider>
+<kypo-pathway-simulator [transitionData]="traineesSimulatedPath"></kypo-pathway-simulator>

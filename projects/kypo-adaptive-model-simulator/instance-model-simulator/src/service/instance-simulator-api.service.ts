@@ -6,14 +6,12 @@ import { InstanceModelSimulator } from '../model/instance-model-simulator';
 import { InstanceModelSimulatorDTO } from '../model/instance-model-simulator-dto';
 import { ModelSimulatorConfig } from '@muni-kypo-crp/adaptive-model-simulator/internal';
 import { AdaptiveTrainingSankeyDataDTO, SankeyDataMapper } from '@muni-kypo-crp/adaptive-visualization';
-import { TrainingDefinition } from '@muni-kypo-crp/training-model';
 import { AdaptiveTrainingSankeyData } from '@muni-kypo-crp/adaptive-visualization';
 import { InstanceModelUpdateMapper } from './mapper/instance-model-update-mapper';
 
 @Injectable()
 export class InstanceSimulatorApiService {
-  readonly trainingInstanceUriExtension = 'training-instances';
-  readonly trainingImportEndpointUri: string;
+  private readonly FILE_NAME = 'instance-data.zip';
 
   constructor(private http: HttpClient, private config: ModelSimulatorConfig) {}
 
@@ -25,7 +23,7 @@ export class InstanceSimulatorApiService {
   upload(file: File): Observable<InstanceModelSimulator> {
     const headers = new HttpHeaders().append('Content-Type', ['application/octet-stream']);
     const zipFile = new FormData();
-    zipFile.append('instance-data.zip', file);
+    zipFile.append(this.FILE_NAME, file);
     return this.http
       .post<InstanceModelSimulatorDTO>(
         `${this.config.adaptiveTrainingServiceUrl}visualizations/training-instances/simulator`,

@@ -5,12 +5,13 @@ import { AdaptiveTrainingSankeyData } from '@muni-kypo-crp/adaptive-visualizatio
   selector: 'kypo-adaptive-model-simulator-instance-simulator',
   templateUrl: './instance-simulator.component.html',
   styleUrls: ['./instance-simulator.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InstanceSimulatorComponent implements OnChanges {
   @Input() simulatorData: AdaptiveTrainingSankeyData;
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (!changes['simulatorData'].isFirstChange()) {
+    if ('simulatorData' in changes && !changes['simulatorData'].isFirstChange()) {
       this.simulatorData = { ...this.simulatorData };
     }
   }

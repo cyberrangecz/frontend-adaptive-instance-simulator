@@ -14,13 +14,13 @@ table {
   flex-direction: column;
 }
 
-.simulator-content {
-  justify-content: center;
+.generate-container {
+  display: flex;
+  justify-content: flex-end;
 }
 
-.matrix-container button {
-  width: 100px;
-  justify-self: flex-end;
+.simulator-content {
+  justify-content: center;
 }
 
 .matrix-content {

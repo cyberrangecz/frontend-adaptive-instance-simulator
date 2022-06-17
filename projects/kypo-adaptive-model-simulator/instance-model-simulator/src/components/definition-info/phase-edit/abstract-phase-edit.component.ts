@@ -15,9 +15,14 @@ export class AbstractPhaseEditComponent extends SentinelBaseDirective {
   @Input() phase: Phase;
   @Input() presentTrainingPhases: TrainingPhase[];
   @Output() phaseChange: EventEmitter<TrainingPhase> = new EventEmitter();
+  @Output() isPhaseValid: EventEmitter<boolean> = new EventEmitter();
   phaseTypes = AbstractPhaseTypeEnum;
 
   onPhaseChange(phase: TrainingPhase): void {
     this.phaseChange.emit(phase);
+  }
+
+  onValidityChange(event: boolean): void {
+    this.isPhaseValid.emit(event);
   }
 }

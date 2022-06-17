@@ -2,6 +2,13 @@
   <form [formGroup]="performanceFormGroup.formGroup">
     <h2>Trainee Performance</h2>
     <div class="matrix-container">
+      <div class="generate-container">
+        <button mat-raised-button
+                color="primary"
+                [disabled]="!performanceFormGroup.formGroup.dirty || performanceFormGroup.formGroup.invalid"
+                (click)="generate()">Generate
+        </button>
+      </div>
       <table formArrayName="performanceMatrix">
         <tr class="row-header">
           <td matTooltip="Specify whether the Questionnaire was Answered correctly or not">
@@ -83,11 +90,6 @@
           </td>
         </tr>
       </table>
-      <button mat-raised-button
-              color="primary"
-              [disabled]="!performanceFormGroup.formGroup.dirty || performanceFormGroup.formGroup.invalid"
-              (click)="generate()">Generate
-      </button>
     </div>
   </form>
 </div>

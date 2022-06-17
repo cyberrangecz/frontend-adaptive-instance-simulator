@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TransitionSimulatorComponent } from './transition-simulator.component';
+import { PathwaySimulatorComponent } from './pathway-simulator.component';
 import { KypoAdaptiveTransitionVisualizationModule } from '@muni-kypo-crp/adaptive-transition-visualization';
 
 @NgModule({
-  declarations: [TransitionSimulatorComponent],
+  declarations: [PathwaySimulatorComponent],
   imports: [CommonModule, KypoAdaptiveTransitionVisualizationModule.forRoot(null)],
-  exports: [TransitionSimulatorComponent],
+  exports: [PathwaySimulatorComponent],
 })
-export class TransitionSimulatorModule {}
+export class PathwaySimulatorModule {}

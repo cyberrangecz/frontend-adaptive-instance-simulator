@@ -5,7 +5,8 @@
   <kypo-training-phase-configuration *ngSwitchCase="phaseTypes.Training"
                                      [phase]="phase"
                                      [presentTrainingPhases]="presentTrainingPhases"
-                                     (phaseChange)="onPhaseChange($event)">
+                                     (phaseChange)="onPhaseChange($event)"
+                                     (isMatrixValid)="onValidityChange($event)">
   </kypo-training-phase-configuration>
   <kypo-questionnaire-phase-configuration *ngSwitchCase="phaseTypes.Questionnaire"
                                           [phase]="phase"
