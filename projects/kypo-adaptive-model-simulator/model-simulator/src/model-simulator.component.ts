@@ -10,13 +10,12 @@ import { ModelSimulatorService } from './service/model-simulator.service';
   styleUrls: ['./model-simulator.component.css'],
 })
 export class ModelSimulatorComponent implements OnInit, OnChanges {
-  @Input() inspectedPhase: Phase;
   @Input() phases: Phase[];
 
+  inspectedPhase: TrainingPhase;
   relatedTrainingPhases: TrainingPhase[];
   traineesSimulatedPath: VisualizationData;
   traineePerformance: TraineePhasePerformance[];
-  inspectedTrainingPhase: TrainingPhase;
 
   constructor(private modelSimulatorService: ModelSimulatorService) {}
 
@@ -24,20 +23,16 @@ export class ModelSimulatorComponent implements OnInit, OnChanges {
     this.relatedTrainingPhases = this.phases.filter(
       (phase) => phase.type === AbstractPhaseTypeEnum.Training
     ) as TrainingPhase[];
+    this.inspectedPhase = this.relatedTrainingPhases[this.relatedTrainingPhases.length - 1];
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if ('inspectedPhase' in changes) {
-      if (this.inspectedPhase.type === AbstractPhaseTypeEnum.Training) {
-        this.inspectedTrainingPhase = this.inspectedPhase as TrainingPhase;
-      }
-    }
-
     if ('phases' in changes) {
       this.prepareData();
       this.relatedTrainingPhases = this.phases.filter(
         (phase) => phase.type === AbstractPhaseTypeEnum.Training
       ) as TrainingPhase[];
+      this.inspectedPhase = this.relatedTrainingPhases[this.relatedTrainingPhases.length - 1];
     }
   }
 
