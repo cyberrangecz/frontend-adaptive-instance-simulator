@@ -1,3 +1,3 @@
 export class ModelSimulatorConfig {
-  adaptiveTrainingServiceUrl: string;
+  adaptiveBasePath: string;
 }

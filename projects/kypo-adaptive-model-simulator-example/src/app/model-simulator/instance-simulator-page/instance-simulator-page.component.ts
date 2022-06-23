@@ -5,4 +5,8 @@ import { Component } from '@angular/core';
   templateUrl: './instance-simulator-page.component.html',
   styleUrls: ['./instance-simulator-page.component.css'],
 })
-export class InstanceSimulatorPageComponent {}
+export class InstanceSimulatorPageComponent {
+  handleState(event): void {
+    console.log(event);
+  }
+}

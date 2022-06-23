@@ -4,5 +4,4 @@
 
 export * from './instance-model-simulator.module';
 export * from './instance-model-simulator.component';
-export * from './service/state-handlers/training-error-handler';
-export * from './service/state-handlers/training-notification.service';
+export * from './model/simulator-state';

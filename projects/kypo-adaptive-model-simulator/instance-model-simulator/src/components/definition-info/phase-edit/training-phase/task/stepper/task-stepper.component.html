@@ -1,6 +1,5 @@
 <div *ngIf="taskStepper.items && taskStepper.items.length > 0 else noTasks" class="task-stepper">
   <sentinel-stepper [selectable]="true"
-                    [dragDisabled]="true"
                     [stepperItems]="taskStepper"
                     [activeIndex]="activeStep"
                     (indexSelected)="activeStepChanged($event)">

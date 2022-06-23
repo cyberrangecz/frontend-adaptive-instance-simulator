@@ -1,4 +1,4 @@
-import { StepperItemState } from '@sentinel/components/stepper';
+import { StepStateEnum } from '@sentinel/components/stepper';
 import { AdaptiveQuestion, QuestionTypeEnum } from '@muni-kypo-crp/training-model';
 
 export class AdaptiveQuestionStepperAdapter {
@@ -10,7 +10,8 @@ export class AdaptiveQuestionStepperAdapter {
   isActive: boolean;
   primaryIcon: string;
   hasRelation: boolean;
-  state: StepperItemState;
+  state: StepStateEnum;
+  icon: string;
 
   constructor(question: AdaptiveQuestion) {
     this._question = question;
@@ -18,10 +19,8 @@ export class AdaptiveQuestionStepperAdapter {
     this.order = question.order;
     this.title = question.text;
     this.valid = question.valid;
-    this.state = new StepperItemState();
-    this.state.icon = AdaptiveQuestionStepperAdapter.iconType(question.questionType);
-    this.state.hasState = false;
-    // this.hasRelation = question.relations;
+    this.icon = AdaptiveQuestionStepperAdapter.iconType(question.questionType);
+    this.state = StepStateEnum.SELECTABLE;
     this.primaryIcon = AdaptiveQuestionStepperAdapter.iconType(question.questionType);
   }
 

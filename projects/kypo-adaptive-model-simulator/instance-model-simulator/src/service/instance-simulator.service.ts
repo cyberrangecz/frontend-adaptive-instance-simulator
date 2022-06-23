@@ -8,9 +8,8 @@ import { InstanceModelSimulator } from '../model/instance-model-simulator';
 import { Phase, TrainingPhase } from '@muni-kypo-crp/training-model';
 import { saveAs } from 'file-saver';
 import { AdaptiveTrainingSankeyData } from '@muni-kypo-crp/adaptive-visualization';
-import { InstanceModelUpdateDTO } from '../model/instance-model-update-dto';
-import { TrainingErrorHandler } from './state-handlers/training-error-handler';
-import { TrainingNotificationService } from './state-handlers/training-notification.service';
+import { BasicEventInfo, SimulatorState } from '../model/simulator-state';
+import EventStateTypeEnum = BasicEventInfo.EventStateTypeEnum;
 
 @Injectable()
 export class InstanceSimulatorService {
@@ -22,10 +21,11 @@ export class InstanceSimulatorService {
   private actionsDisabledSubject$: BehaviorSubject<boolean> = new BehaviorSubject(true);
   actionsDisabled$: Observable<boolean> = this.actionsDisabledSubject$.asObservable();
 
+  private stateSubject$: BehaviorSubject<SimulatorState> = new BehaviorSubject(null);
+  state$: Observable<SimulatorState> = this.stateSubject$.asObservable();
+
   constructor(
     private dialog: MatDialog,
-    private errorHandler: TrainingErrorHandler,
-    private notificationService: TrainingNotificationService,
     private fileUploadProgressService: FileUploadProgressService,
     private api: InstanceSimulatorApiService
   ) {}
@@ -41,7 +41,9 @@ export class InstanceSimulatorService {
       switchMap((file) => this.api.upload(file)),
       tap(
         (data) => {
-          this.notificationService.emit('success', 'Training instance data were uploaded');
+          this.stateSubject$.next(
+            new SimulatorState('Training instance data were uploaded', EventStateTypeEnum.NOTIFICATION_EVENT)
+          );
           this.fileUploadProgressService.finish();
           this.uploadedInstanceDataSubject$.next(data);
           this.actionsDisabledSubject$.next(false);
@@ -50,7 +52,9 @@ export class InstanceSimulatorService {
         (err) => {
           this.fileUploadProgressService.finish();
           dialogRef.close();
-          this.errorHandler.emit(err, 'Uploading training instance data');
+          this.stateSubject$.next(
+            new SimulatorState('Uploading training instance data', EventStateTypeEnum.ERROR_EVENT, err)
+          );
         }
       )
     );
@@ -82,7 +86,9 @@ export class InstanceSimulatorService {
           this.uploadedInstanceDataSubject$.next(value);
         },
         (err) => {
-          this.errorHandler.emit(err, 'Generating training visualization');
+          this.stateSubject$.next(
+            new SimulatorState('Generating training visualization', EventStateTypeEnum.ERROR_EVENT, err)
+          );
         }
       )
     );

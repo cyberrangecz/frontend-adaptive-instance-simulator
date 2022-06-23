@@ -49,7 +49,7 @@
     "@muni-kypo-crp/training-model": "~13.0.6",
     "@sentinel/auth": "~13.0.0",
     "@sentinel/common": "~13.0.1",
-    "@sentinel/components": "~13.1.0",
+    "@sentinel/components": "~13.3.0",
     "@sentinel/layout": "~13.0.2",
     "@typescript-eslint/eslint-plugin": "^5.9.1",
     "@typescript-eslint/parser": "^5.9.1",

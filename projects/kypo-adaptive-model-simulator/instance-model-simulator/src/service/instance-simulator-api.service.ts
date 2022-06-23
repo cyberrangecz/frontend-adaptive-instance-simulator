@@ -26,7 +26,7 @@ export class InstanceSimulatorApiService {
     zipFile.append(this.FILE_NAME, file);
     return this.http
       .post<InstanceModelSimulatorDTO>(
-        `${this.config.adaptiveTrainingServiceUrl}visualizations/training-instances/simulator`,
+        `${this.config.adaptiveBasePath}visualizations/training-instances/simulator`,
         file,
         {
           headers: headers,
@@ -43,7 +43,7 @@ export class InstanceSimulatorApiService {
   generate(instanceModelSimulator: InstanceModelSimulator): Observable<AdaptiveTrainingSankeyData> {
     return this.http
       .post<AdaptiveTrainingSankeyDataDTO>(
-        `${this.config.adaptiveTrainingServiceUrl}visualizations/training-instances/generate`,
+        `${this.config.adaptiveBasePath}visualizations/training-instances/generate`,
         InstanceModelUpdateMapper.toUpdateDTO(instanceModelSimulator)
       )
       .pipe(map((resp) => SankeyDataMapper.fromDTOs(resp)));

@@ -8,7 +8,7 @@ export const baseURL = 'https://172.19.0.22';
 export const environment = {
   production: true,
   modelSimulatorConfig: {
-    adaptiveTrainingServiceUrl: baseURL + '/kypo-adaptive-training/api/v1/',
+    adaptiveBasePath: baseURL + '/kypo-adaptive-training/api/v1/',
   },
   authConfig: {
     guardMainPageRedirect: 'home',

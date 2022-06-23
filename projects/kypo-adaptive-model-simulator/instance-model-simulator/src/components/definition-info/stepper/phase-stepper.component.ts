@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { SentinelBaseDirective } from '@sentinel/common';
-import { SentinelStepper } from '@sentinel/components/stepper';
+import { SentinelStepper, StepStateEnum } from '@sentinel/components/stepper';
 import { PhaseStepperAdapter } from '../../../model/adapters/phase-stepper-adapter';
 
 /**
@@ -54,9 +54,9 @@ export class PhaseStepperComponent extends SentinelBaseDirective implements OnCh
 
   private changeSelectedStep(index: number) {
     if (this.previousActiveStep >= 0 && this.previousActiveStep < this.phaseStepper.items.length) {
-      this.phaseStepper.items[this.previousActiveStep].isActive = false;
+      this.phaseStepper.items[this.previousActiveStep].state = StepStateEnum.SELECTABLE;
     }
-    this.phaseStepper.items[index].isActive = true;
+    this.phaseStepper.items[index].state = StepStateEnum.ACTIVE;
     this.previousActiveStep = this.activeStep;
   }
 }
