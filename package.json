@@ -51,11 +51,13 @@
     "@typescript-eslint/parser": "^5.29.0",
     "angular-oauth2-oidc": "^13.0.1",
     "angular-oauth2-oidc-jwks": "^13.0.1",
+    "caret-pos": "^2.0.0",
     "d3": "^7.4.4",
     "d3-sankey": "^0.12.3",
     "eslint": "^8.18.0",
     "file-saver": "2.0.5",
     "ngx-indexed-db": "^11.0.2",
+    "ngx-markdown": "14.0.1",
     "rxjs": "~7.5.5",
     "tslib": "^2.4.0",
     "zone.js": "~0.11.6"
