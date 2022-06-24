@@ -1,14 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ModelSimulatorComponent } from './model-simulator.component';
+import { ModelSimulatorService } from './service/model-simulator.service';
+import { createModelSimulatorServiceSpy } from '../../internal/src/testing/testing-commons.spec';
 
 describe('ModelSimulatorComponent', () => {
   let component: ModelSimulatorComponent;
   let fixture: ComponentFixture<ModelSimulatorComponent>;
+  let modelSimulatorServiceSpy: jasmine.SpyObj<ModelSimulatorService>;
 
   beforeEach(async () => {
+    modelSimulatorServiceSpy = createModelSimulatorServiceSpy();
     await TestBed.configureTestingModule({
       declarations: [ModelSimulatorComponent],
+      providers: [{ provide: ModelSimulatorService, useValue: modelSimulatorServiceSpy }],
     }).compileComponents();
   });
 
