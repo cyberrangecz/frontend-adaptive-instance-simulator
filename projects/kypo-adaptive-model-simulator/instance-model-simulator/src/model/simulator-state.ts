@@ -12,6 +12,7 @@ export class SimulatorState {
   }
 }
 
+// eslint-disable-next-line @typescript-eslint/no-namespace
 export namespace BasicEventInfo {
   export type EventStateTypeEnum = 'ERROR_EVENT' | 'NOTIFICATION_EVENT';
   export const EventStateTypeEnum = {
