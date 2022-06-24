@@ -7,7 +7,7 @@ import {
   Output,
   SimpleChanges,
 } from '@angular/core';
-import { FormArray } from '@angular/forms';
+import { UntypedFormArray } from '@angular/forms';
 import { PerformanceFormGroup } from './performance-form-group';
 import { SentinelBaseDirective } from '@sentinel/common';
 import { takeWhile } from 'rxjs';
@@ -29,8 +29,8 @@ export class PerformanceComponent extends SentinelBaseDirective implements OnCha
   performanceFormGroup: PerformanceFormGroup;
   traineePerformance: TraineePhasePerformance[] = [];
 
-  get decisionMatrixRows(): FormArray {
-    return this.performanceFormGroup.formGroup.get('performanceMatrix') as FormArray;
+  get decisionMatrixRows(): UntypedFormArray {
+    return this.performanceFormGroup.formGroup.get('performanceMatrix') as UntypedFormArray;
   }
 
   ngOnChanges(changes: SimpleChanges): void {

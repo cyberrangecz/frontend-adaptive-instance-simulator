@@ -1,16 +1,16 @@
-import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormArray, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { DecisionMatrixRow, TrainingPhase } from '@muni-kypo-crp/training-model';
 
 export class TrainingPhaseEditFormGroup {
-  formGroup: FormGroup;
+  formGroup: UntypedFormGroup;
 
   constructor(phase: TrainingPhase) {
-    this.formGroup = new FormGroup({
-      title: new FormControl(phase.title, Validators.required),
-      allowedWrongAnswers: new FormControl(phase.allowedWrongAnswers, [Validators.required, Validators.min(0)]),
-      allowedCommands: new FormControl(phase.allowedCommands, [Validators.required, Validators.min(0)]),
-      estimatedDuration: new FormControl(phase.estimatedDuration, [Validators.required, Validators.min(0)]),
-      decisionMatrix: new FormArray(
+    this.formGroup = new UntypedFormGroup({
+      title: new UntypedFormControl(phase.title, Validators.required),
+      allowedWrongAnswers: new UntypedFormControl(phase.allowedWrongAnswers, [Validators.required, Validators.min(0)]),
+      allowedCommands: new UntypedFormControl(phase.allowedCommands, [Validators.required, Validators.min(0)]),
+      estimatedDuration: new UntypedFormControl(phase.estimatedDuration, [Validators.required, Validators.min(0)]),
+      decisionMatrix: new UntypedFormArray(
         phase.decisionMatrix.map((row, index) =>
           TrainingPhaseEditFormGroup.createRows(row, index === phase.decisionMatrix.length - 1)
         )
@@ -18,27 +18,30 @@ export class TrainingPhaseEditFormGroup {
     });
   }
 
-  private static createRows(row: DecisionMatrixRow, isDisabled: boolean): FormGroup {
-    return new FormGroup({
-      questionnaireAnswered: new FormControl(row.questionnaireAnswered, [Validators.required, Validators.min(0)]),
-      completedInTime: new FormControl({ value: row.completedInTime, disabled: isDisabled }, [
+  private static createRows(row: DecisionMatrixRow, isDisabled: boolean): UntypedFormGroup {
+    return new UntypedFormGroup({
+      questionnaireAnswered: new UntypedFormControl(row.questionnaireAnswered, [
         Validators.required,
         Validators.min(0),
       ]),
-      keywordUsed: new FormControl({ value: row.keywordUsed, disabled: isDisabled }, [
+      completedInTime: new UntypedFormControl({ value: row.completedInTime, disabled: isDisabled }, [
         Validators.required,
         Validators.min(0),
       ]),
-      solutionDisplayed: new FormControl({ value: row.solutionDisplayed, disabled: isDisabled }, [
+      keywordUsed: new UntypedFormControl({ value: row.keywordUsed, disabled: isDisabled }, [
         Validators.required,
         Validators.min(0),
       ]),
-      wrongAnswers: new FormControl({ value: row.wrongAnswers, disabled: isDisabled }, [
+      solutionDisplayed: new UntypedFormControl({ value: row.solutionDisplayed, disabled: isDisabled }, [
         Validators.required,
         Validators.min(0),
       ]),
-      order: new FormControl(row.order, [Validators.required, Validators.min(0)]),
-      id: new FormControl(row.id, [Validators.required, Validators.min(0)]),
+      wrongAnswers: new UntypedFormControl({ value: row.wrongAnswers, disabled: isDisabled }, [
+        Validators.required,
+        Validators.min(0),
+      ]),
+      order: new UntypedFormControl(row.order, [Validators.required, Validators.min(0)]),
+      id: new UntypedFormControl(row.id, [Validators.required, Validators.min(0)]),
     });
   }
 
