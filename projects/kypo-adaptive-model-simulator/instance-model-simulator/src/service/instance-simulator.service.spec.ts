@@ -21,6 +21,7 @@ describe('InstanceSimulatorService', () => {
     instanceSimulatorApiServiceSpy = createInstanceSimulatorApiServiceSpy();
     TestBed.configureTestingModule({
       providers: [
+        InstanceSimulatorService,
         { provide: MatDialog, useValue: dialogSpy },
         { provide: FileUploadProgressService, useValue: fileUploadProgressServiceSpy },
         { provide: InstanceSimulatorApiService, useValue: instanceSimulatorApiServiceSpy },

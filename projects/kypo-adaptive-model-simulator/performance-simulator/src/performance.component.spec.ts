@@ -1,8 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PerformanceComponent } from './performance.component';
+import { PerformanceFormGroup } from './performance-form-group';
+import { TrainingPhase } from '@muni-kypo-crp/training-model';
 
-describe('MatrixComponent', () => {
+describe('PerformanceComponent', () => {
   let component: PerformanceComponent;
   let fixture: ComponentFixture<PerformanceComponent>;
 
@@ -15,6 +17,9 @@ describe('MatrixComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(PerformanceComponent);
     component = fixture.componentInstance;
+    const phase: TrainingPhase = new TrainingPhase();
+    phase.decisionMatrix = [];
+    component.performanceFormGroup = new PerformanceFormGroup(phase.decisionMatrix);
     fixture.detectChanges();
   });
 

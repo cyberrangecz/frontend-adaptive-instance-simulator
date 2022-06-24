@@ -12,7 +12,7 @@ describe('InstanceSimulatorApiService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [ModelSimulatorConfig],
+      providers: [InstanceSimulatorApiService, ModelSimulatorConfig],
     });
     service = TestBed.inject(InstanceSimulatorApiService);
   });

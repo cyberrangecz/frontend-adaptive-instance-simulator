@@ -8,12 +8,12 @@
   </div>
   <div class="card-content">
     <kypo-adaptive-model-simulator-definition-info
-      [definitionInfo]="(instanceSimulatorData$ | sAsync)?.trainingDefinition"
+      [definitionInfo]="(instanceSimulatorData$ | async)?.trainingDefinition"
       (phaseChange)="phaseChanged($event)"
       (isPhaseValid)="phaseValid($event)">
     </kypo-adaptive-model-simulator-definition-info>
     <kypo-adaptive-model-simulator-instance-simulator
-      [simulatorData]="(instanceSimulatorData$ | sAsync)?.sankeyData">
+      [simulatorData]="(instanceSimulatorData$ | async)?.sankeyData">
     </kypo-adaptive-model-simulator-instance-simulator>
   </div>
 </div>
