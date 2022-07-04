@@ -2,7 +2,10 @@
   <div class="question-container">
     <!-- TITLE field-->
     <div class='question-text'>
-      <markdown [data]="question.text"></markdown>
+      <sentinel-markdown-editor
+        [sentinel-markdown-file-upload]="false"
+        [content]="question.text"
+      ></sentinel-markdown-editor>
     </div>
   </div>
   <h2>Options:</h2>

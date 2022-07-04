@@ -3,11 +3,19 @@
     <div class="left-panel">
       <!--CONTENT field -->
       <h3>Content</h3>
-      <markdown [data]="task.content"></markdown>
+      <sentinel-markdown-editor
+        class="mrkdwn-content"
+        [sentinel-markdown-file-upload]="false"
+        [content]="task.content"
+      ></sentinel-markdown-editor>
 
       <!--SOLUTION field -->
       <h3>Solution</h3>
-      <markdown [data]="task.solution"></markdown>
+      <sentinel-markdown-editor
+        class="mrkdwn-solution"
+        [sentinel-markdown-file-upload]="false"
+        [content]="task.solution"
+      ></sentinel-markdown-editor>
     </div>
 
     <div class="right-panel">

@@ -8,6 +8,9 @@
 
     <!-- CONTENT filed -->
     <h3>Content</h3>
-    <markdown [data]="phase.content"></markdown>
+    <sentinel-markdown-editor
+      [sentinel-markdown-file-upload]="false"
+      [content]="phase.content"
+    ></sentinel-markdown-editor>
   </div>
 </div>
