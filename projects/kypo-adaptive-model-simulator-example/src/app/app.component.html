@@ -1,3 +1,7 @@
-<sentinel-layout1 notificationsRoute="notifications" [agendaContainers]="agendaContainers">
+<sentinel-layout1 notificationsRoute="notifications"
+                  [agendaContainers]="agendaContainers$ | async"
+                  [user]="activeUser$ | async"
+                  (login)="onLogin()"
+                  (logout)="onLogout()">
   <router-outlet></router-outlet>
 </sentinel-layout1>

@@ -14,7 +14,8 @@ import { SimulatorState } from './model/simulator-state';
 })
 export class InstanceModelSimulatorComponent implements OnInit, OnDestroy {
   @Output() state: EventEmitter<SimulatorState> = new EventEmitter();
-  controls: SentinelControlItem[] = [];
+  definitionControls: SentinelControlItem[] = [];
+  generateControls: SentinelControlItem[] = [];
 
   private instanceSimulatorDataSubject$: BehaviorSubject<InstanceModelSimulator> = new BehaviorSubject(null);
   instanceSimulatorData$: Observable<InstanceModelSimulator> = this.instanceSimulatorDataSubject$.asObservable();
@@ -30,7 +31,14 @@ export class InstanceModelSimulatorComponent implements OnInit, OnDestroy {
   constructor(private instanceSimulatorService: InstanceSimulatorService) {}
 
   ngOnInit(): void {
-    this.controls = InstanceModelSimulatorControls.create(this.instanceSimulatorService, this.disableGenerate$);
+    this.definitionControls = InstanceModelSimulatorControls.createDefinition(
+      this.instanceSimulatorService,
+      this.disableGenerate$
+    );
+    this.generateControls = InstanceModelSimulatorControls.createGenerate(
+      this.instanceSimulatorService,
+      this.disableGenerate$
+    );
     this.instanceSimulatorData$ = this.instanceSimulatorService.uploadedInstanceData$;
     this.state$ = this.instanceSimulatorService.state$.pipe(tap((state) => this.state.emit(state)));
     this.stateSubscription$ = this.state$.subscribe();

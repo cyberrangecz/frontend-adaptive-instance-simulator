@@ -2,7 +2,7 @@
   <div class="upload-container">
     <h3>Upload Exported Training Instance</h3>
     <sentinel-controls
-      [controls]="controls"
+      [controls]="definitionControls"
       (itemClicked)="onControlsAction($event)">
     </sentinel-controls>
   </div>
@@ -12,6 +12,10 @@
       (phaseChange)="phaseChanged($event)"
       (isPhaseValid)="phaseValid($event)">
     </kypo-adaptive-model-simulator-definition-info>
+    <sentinel-controls
+      [controls]="generateControls"
+      (itemClicked)="onControlsAction($event)">
+    </sentinel-controls>
     <kypo-adaptive-model-simulator-instance-simulator
       [simulatorData]="(instanceSimulatorData$ | async)?.sankeyData">
     </kypo-adaptive-model-simulator-instance-simulator>
