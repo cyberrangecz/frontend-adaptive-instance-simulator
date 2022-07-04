@@ -6,7 +6,6 @@ import { SentinelControlsModule } from '@sentinel/components/controls';
 import { SentinelFreeFormModule } from '@sentinel/components/free-form';
 import { SentinelMarkdownEditorModule } from '@sentinel/components/markdown-editor';
 import { SentinelStepperModule } from '@sentinel/components/stepper';
-import { MarkedOptions } from 'ngx-markdown';
 import { AbstractPhaseEditComponent } from './abstract-phase-edit.component';
 import { InfoPhaseEditComponent } from './info-phase/info-phase-edit.component';
 import { PhaseEditMaterialModule } from './phase-edit-material.module';
@@ -20,10 +19,10 @@ import { QuestionsOverviewComponent } from './questionnaire/question/overview/qu
 import { FreeFormQuestionEditComponent } from './questionnaire/question/free-form-question/free-form-question-edit.component';
 import { MultipleChoiceQuestionEditComponent } from './questionnaire/question/multiple-choice-question/multiple-choice-question-edit.component';
 import { RatingFormQuestionEditComponent } from './questionnaire/question/rating-form-question/rating-form-question-edit.component';
+import { MarkedOptions } from '@sentinel/components/markdown-view';
 
 const markdownConfig = {
   markdownParser: {
-    loader: HttpClient,
     markedOptions: {
       provide: MarkedOptions,
       useValue: {

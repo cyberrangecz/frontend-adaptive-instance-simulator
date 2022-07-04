@@ -1,4 +1,4 @@
-<div *ngIf="taskStepper.items && taskStepper.items.length > 0 else noTasks" class="task-stepper">
+<div *ngIf="taskStepper.items && taskStepper.items.length > 0 else noTasks">
   <sentinel-stepper [selectable]="true"
                     [stepperItems]="taskStepper"
                     [activeIndex]="activeStep"

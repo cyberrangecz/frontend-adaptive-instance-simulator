@@ -13,7 +13,6 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
-import { MarkdownModule } from 'ngx-markdown';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 /**
@@ -37,7 +36,6 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatSelectModule,
     MatTableModule,
     MatDialogModule,
-    MarkdownModule,
     MatSlideToggleModule,
   ],
   exports: [
@@ -55,7 +53,6 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatSelectModule,
     MatTableModule,
     MatDialogModule,
-    MarkdownModule,
     MatSlideToggleModule,
   ],
 })

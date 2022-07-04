@@ -1,1 +1,2 @@
+14.0.1 Remove unused css and move object creation to mapper.
 14.0.0 Angular 14 version of the tool.

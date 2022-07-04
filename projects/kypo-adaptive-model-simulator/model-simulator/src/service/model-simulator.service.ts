@@ -3,13 +3,11 @@ import { AbstractPhaseTypeEnum, Phase, Task, TrainingPhase } from '@muni-kypo-cr
 import { TraineePhasePerformance } from '../model/trainee-phase-statistics';
 import {
   InfoPhase,
-  InfoPhaseTask,
   QuestionnairePhase,
-  QuestionnairePhaseTask,
-  Trainee,
   TrainingRunData,
   TrainingRunPathNode,
 } from '@muni-kypo-crp/adaptive-transition-visualization';
+import { SimulatorMapper } from '../mappers/simulator.mapper';
 
 @Injectable()
 export class ModelSimulatorService {
@@ -19,39 +17,23 @@ export class ModelSimulatorService {
     relatedTrainingPhases: TrainingPhase[],
     performanceStatistics: TraineePhasePerformance[]
   ): TrainingRunData[] {
-    const runData = new TrainingRunData();
-    runData.trainee = new Trainee();
-    runData.trainee.id = 1;
-    runData.trainee.name = 'Trainee';
-    runData.trainingRunId = 1;
-    runData.trainingRunPathNodes = [];
-    phases.forEach((phase) => {
-      const pathNode = new TrainingRunPathNode();
+    const runData = SimulatorMapper.createTrainee();
 
+    phases.forEach((phase) => {
+      let pathNode = new TrainingRunPathNode();
       if (phase.type === AbstractPhaseTypeEnum.Training) {
         // out of bound possibility
         const task = this.computeSuitableTask(phase as TrainingPhase, relatedTrainingPhases, performanceStatistics);
-        pathNode.phaseId = phase.id;
-        pathNode.phaseOrder = phase.order;
-        pathNode.taskId = task.id;
-        pathNode.taskOrder = task.order;
+        pathNode = SimulatorMapper.toCreatePathNode(task, phase as TrainingPhase);
       } else {
         pathNode.phaseId = phase.id;
         pathNode.phaseOrder = phase.order;
         pathNode.taskId = 0;
         pathNode.taskOrder = 0;
         if (phase.type === AbstractPhaseTypeEnum.Info) {
-          const infoTask = new InfoPhaseTask();
-          infoTask.id = 0;
-          infoTask.order = 0;
-          infoTask.content = '';
-          (phase as unknown as InfoPhase).tasks = [infoTask];
+          (phase as unknown as InfoPhase).tasks = [SimulatorMapper.createInfoPhaseTask()];
         } else if (phase.type === AbstractPhaseTypeEnum.Questionnaire) {
-          const questionnaireTask = new QuestionnairePhaseTask();
-          questionnaireTask.order = 0;
-          questionnaireTask.id = 0;
-          questionnaireTask.questions = [];
-          (phase as unknown as QuestionnairePhase).tasks = [questionnaireTask];
+          (phase as unknown as QuestionnairePhase).tasks = [SimulatorMapper.createQuestionnairePhaseTask()];
         }
       }
       runData.trainingRunPathNodes.push(pathNode);
