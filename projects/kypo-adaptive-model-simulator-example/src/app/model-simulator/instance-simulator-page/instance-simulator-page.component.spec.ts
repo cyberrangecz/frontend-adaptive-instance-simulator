@@ -7,6 +7,7 @@ import {
   createInstanceSimulatorServiceSpy,
 } from '../../../../../kypo-adaptive-model-simulator/internal/src/testing/testing-commons.spec';
 import { InstanceSimulatorApiService } from '../../../../../kypo-adaptive-model-simulator/instance-model-simulator/src/service/instance-simulator-api.service';
+import { SentinelAuthService } from '@sentinel/auth';
 
 describe('InstanceSimulatorPageComponent', () => {
   let component: InstanceSimulatorPageComponent;
