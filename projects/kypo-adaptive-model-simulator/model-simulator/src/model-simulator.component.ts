@@ -41,15 +41,13 @@ export class ModelSimulatorComponent implements OnInit, OnChanges {
   }
 
   generate(): void {
-    this.computeTraineePath(this.inspectedPhase as TrainingPhase, this.traineePerformance);
+    this.computeTraineePath(this.traineePerformance);
   }
 
-  private computeTraineePath(inspectedPhase: TrainingPhase, performanceStatistics: TraineePhasePerformance[]) {
+  private computeTraineePath(performanceStatistics: TraineePhasePerformance[]) {
     this.traineesSimulatedPath.trainingRunsData = [];
     this.traineesSimulatedPath.phases.sort((a, b) => a.order - b.order);
-    this.traineesSimulatedPath.phases = this.traineesSimulatedPath.phases.slice(0, inspectedPhase.order + 1);
     this.traineesSimulatedPath.trainingRunsData = this.modelSimulatorService.computeTraineePath(
-      inspectedPhase,
       this.phases,
       this.relatedTrainingPhases,
       performanceStatistics
