@@ -1,48 +1,50 @@
 import { Injectable } from '@angular/core';
 import { AbstractPhaseTypeEnum, Phase, Task, TrainingPhase } from '@muni-kypo-crp/training-model';
 import { TraineePhasePerformance } from '../model/trainee-phase-statistics';
-import {
-  InfoPhase,
-  QuestionnairePhase,
-  TrainingRunData,
-  TrainingRunPathNode,
-} from '@muni-kypo-crp/adaptive-transition-visualization';
+import { TrainingRunData } from '@muni-kypo-crp/adaptive-transition-visualization';
 import { SimulatorMapper } from '../mappers/simulator.mapper';
 
 @Injectable()
 export class ModelSimulatorService {
   computeTraineePath(
-    inspectedPhase: TrainingPhase,
     phases: Phase[],
     relatedTrainingPhases: TrainingPhase[],
     performanceStatistics: TraineePhasePerformance[]
   ): TrainingRunData[] {
     const runData = SimulatorMapper.createTrainee();
+    const maxOrder = phases.length - 1;
 
-    phases.forEach((phase) => {
-      let pathNode = new TrainingRunPathNode();
-      if (phase.type === AbstractPhaseTypeEnum.Training) {
-        // out of bound possibility
-        const task = this.computeSuitableTask(phase as TrainingPhase, relatedTrainingPhases, performanceStatistics);
-        pathNode = SimulatorMapper.toCreatePathNode(task, phase as TrainingPhase);
-      } else {
-        pathNode.phaseId = phase.id;
-        pathNode.phaseOrder = phase.order;
-        pathNode.taskId = 0;
-        pathNode.taskOrder = 0;
-        if (phase.type === AbstractPhaseTypeEnum.Info) {
-          (phase as unknown as InfoPhase).tasks = [SimulatorMapper.createInfoPhaseTask()];
-        } else if (phase.type === AbstractPhaseTypeEnum.Questionnaire) {
-          (phase as unknown as QuestionnairePhase).tasks = [SimulatorMapper.createQuestionnairePhaseTask()];
+    // process all non training phases before first training phase
+    phases
+      .filter((phase) => phase.type !== AbstractPhaseTypeEnum.Training)
+      .forEach((phase) => {
+        runData.trainingRunPathNodes.push(SimulatorMapper.createNonTrainingPathNode(phase));
+      });
+
+    // process first training phase
+    const firstTrainingPhase = phases.find((phase) => phase.type === AbstractPhaseTypeEnum.Training) as TrainingPhase;
+    const task = this.computeSuitableTask(firstTrainingPhase, relatedTrainingPhases, performanceStatistics);
+    runData.trainingRunPathNodes.push(SimulatorMapper.toCreatePathNode(task, firstTrainingPhase));
+
+    // process remaining training phases
+    phases
+      .filter((phase) => phase.type === AbstractPhaseTypeEnum.Training)
+      .forEach((phase) => {
+        if (phase.order === maxOrder) {
+          return;
         }
-      }
-      runData.trainingRunPathNodes.push(pathNode);
+        const nextPhase = phases[phase.order + 1];
+        if (nextPhase.type === AbstractPhaseTypeEnum.Training) {
+          const task = this.computeSuitableTask(
+            nextPhase as TrainingPhase,
+            relatedTrainingPhases,
+            performanceStatistics
+          );
+          runData.trainingRunPathNodes.push(SimulatorMapper.toCreatePathNode(task, nextPhase as TrainingPhase));
+        }
+      });
 
-      if (phase.id === inspectedPhase.id) {
-        return;
-      }
-    });
-    runData.trainingRunPathNodes = runData.trainingRunPathNodes.slice(0, inspectedPhase.order + 1);
+    runData.trainingRunPathNodes.sort((a, b) => a.phaseOrder - b.phaseOrder);
     return [runData];
   }
 
@@ -63,13 +65,16 @@ export class ModelSimulatorService {
       relatedTrainingPhases,
       performanceStatisticsMatrix
     );
+    /**
+     * This computation is equal to the third equation in the paper: https://www.muni.cz/en/research/publications/1783806
+     * it is not adding one to the suitableTask constant result as it used as index to array to pick the suitable task.
+     * Therefore, for the suitable task 1, the first task with index 0 is picked from the tasks array.
+     */
     if (participantPerformance == 0) {
       return inspectedPhase.tasks[inspectedPhase.tasks.length - 1];
     } else {
       // ask for + 1 and 0.3333333
-      // console.log(Number((1 - participantPerformance).toFixed(8)) * inspectedPhase.tasks.length)
-      const suitableTask = Math.trunc(Number((1 - participantPerformance).toFixed(8)) * inspectedPhase.tasks.length);
-
+      const suitableTask = Math.trunc(inspectedPhase.tasks.length * Number((1 - participantPerformance).toFixed(8)));
       return inspectedPhase.tasks[suitableTask];
     }
   }
@@ -109,7 +114,7 @@ export class ModelSimulatorService {
         index += 1;
         continue;
       }
-      const relatedPhaseStatistics = performanceStatisticsMatrix.find((row) => row.phaseId === inspectedPhase.id);
+      const relatedPhaseStatistics = performanceStatisticsMatrix.find((row) => row.phaseId === relatedPhase.id);
       if (!relatedPhaseStatistics.solutionDisplayed) {
         participantWeightedPerformance +=
           decisionMatrixRow.solutionDisplayed * Number(relatedPhaseStatistics.solutionDisplayed);

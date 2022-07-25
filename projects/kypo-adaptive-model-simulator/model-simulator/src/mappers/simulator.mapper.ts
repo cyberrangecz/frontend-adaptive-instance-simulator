@@ -1,11 +1,15 @@
 import {
+  AccessPhase,
+  AccessPhaseTask,
+  InfoPhase,
   InfoPhaseTask,
+  QuestionnairePhase,
   QuestionnairePhaseTask,
   Trainee,
   TrainingRunData,
   TrainingRunPathNode,
 } from '@muni-kypo-crp/adaptive-transition-visualization';
-import { Task, TrainingPhase } from '@muni-kypo-crp/training-model';
+import { AbstractPhaseTypeEnum, Phase, Task, TrainingPhase } from '@muni-kypo-crp/training-model';
 
 export class SimulatorMapper {
   static toCreatePathNode(task: Task, phase: TrainingPhase): TrainingRunPathNode {
@@ -45,5 +49,32 @@ export class SimulatorMapper {
     questionnaireTask.id = 0;
     questionnaireTask.questions = [];
     return questionnaireTask;
+  }
+
+  static createAccessPhaseTask(): AccessPhaseTask {
+    const accessTask = new AccessPhaseTask();
+    accessTask.id = 0;
+    accessTask.order = 0;
+    return accessTask;
+  }
+
+  static createNonTrainingPathNode(phase: Phase) {
+    const pathNode = new TrainingRunPathNode();
+    pathNode.phaseId = phase.id;
+    pathNode.phaseOrder = phase.order;
+    pathNode.taskId = 0;
+    pathNode.taskOrder = 0;
+    switch (phase.type) {
+      case AbstractPhaseTypeEnum.Access:
+        (phase as unknown as AccessPhase).tasks = [SimulatorMapper.createAccessPhaseTask()];
+        break;
+      case AbstractPhaseTypeEnum.Info:
+        (phase as unknown as InfoPhase).tasks = [SimulatorMapper.createInfoPhaseTask()];
+        break;
+      case AbstractPhaseTypeEnum.Questionnaire:
+        (phase as unknown as QuestionnairePhase).tasks = [SimulatorMapper.createQuestionnairePhaseTask()];
+        break;
+    }
+    return pathNode;
   }
 }
