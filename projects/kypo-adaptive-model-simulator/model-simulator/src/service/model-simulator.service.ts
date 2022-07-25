@@ -117,7 +117,7 @@ export class ModelSimulatorService {
       const relatedPhaseStatistics = performanceStatisticsMatrix.find((row) => row.phaseId === relatedPhase.id);
       if (!relatedPhaseStatistics.solutionDisplayed) {
         participantWeightedPerformance +=
-          decisionMatrixRow.solutionDisplayed * Number(relatedPhaseStatistics.solutionDisplayed);
+          decisionMatrixRow.solutionDisplayed * Number(!relatedPhaseStatistics.solutionDisplayed);
         participantWeightedPerformance +=
           decisionMatrixRow.keywordUsed *
           Number(relatedPhaseStatistics.numberOfCommands < relatedPhase.allowedCommands);

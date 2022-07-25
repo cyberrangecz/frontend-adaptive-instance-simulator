@@ -1,5 +1,5 @@
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { SentinelBaseDirective } from '@sentinel/common';
 import { SentinelControlItem } from '@sentinel/components/controls';
@@ -21,7 +21,7 @@ import { PhaseStepperAdapter } from '../../../../../../model/adapters/phase-step
     },
   ],
 })
-export class TasksOverviewComponent extends SentinelBaseDirective implements OnInit {
+export class TasksOverviewComponent extends SentinelBaseDirective implements OnInit, OnChanges {
   @Input() tasks: Task[];
 
   stepperTasks: PhaseStepperAdapter[];
@@ -33,11 +33,21 @@ export class TasksOverviewComponent extends SentinelBaseDirective implements OnI
   }
 
   ngOnInit(): void {
-    this.activeStep = 0;
-    this.stepperTasks = this.tasks.map((task) => new PhaseStepperAdapter(task));
+    this.update();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if ('tasks' in changes && !changes['tasks'].isFirstChange()) {
+      this.update();
+    }
   }
 
   onActiveTaskChanged(index: number): void {
     this.activeStep = index;
+  }
+
+  private update(): void {
+    this.activeStep = 0;
+    this.stepperTasks = this.tasks.map((task) => new PhaseStepperAdapter(task));
   }
 }
