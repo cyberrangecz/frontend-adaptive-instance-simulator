@@ -25,9 +25,9 @@ export class AppComponent {
     const agendas = [];
     if (user.roles.some((role) => role.roleType === 'ROLE_TRAINING_TRAINEE')) {
       agendas.push(
-        new AgendaContainer('Visualizations', [
-          new Agenda('Simulator', 'home'),
-          new Agenda('Upload', 'instance-model-simulator'),
+        new AgendaContainer('Tools', [
+          new Agenda('Pre-training', 'home'),
+          new Agenda('Post-training', 'instance-model-simulator'),
         ])
       );
     }
