@@ -1,3 +1,7 @@
+### 15.0.0 Update to Angular 15.
+* 5324787 -- [CI/CD] Update packages.json version based on GitLab tag.
+* 3e2eaa8 -- Merge branch '9-update-to-angular-15' into 'master'
+* b3a3b34 -- Update to Angular 15
 ### 14.1.1 Fix task stepper for post-training tool.
 * 7c3ec53 -- [CI/CD] Update packages.json version based on GitLab tag.
 * 4d53993 -- Merge branch '8-fix-task-stepper-for-instance-simulator' into 'master'
