@@ -8,7 +8,7 @@ import { SentinelLayout1Module } from '@sentinel/layout/layout1';
 import { SentinelAuthGuardWithLogin, SentinelNegativeAuthGuard } from '@sentinel/auth/guards';
 import { SentinelAuthModule } from '@sentinel/auth';
 import { environment } from '../environments/environment';
-import { SentinelConfirmationDialogModule } from '@sentinel/components/dialogs';
+import { SentinelConfirmationDialogComponent } from '@sentinel/components/dialogs';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,7 +18,7 @@ import { SentinelConfirmationDialogModule } from '@sentinel/components/dialogs';
     HttpClientModule,
     BrowserAnimationsModule,
     SentinelLayout1Module,
-    SentinelConfirmationDialogModule,
+    SentinelConfirmationDialogComponent,
     SentinelAuthModule.forRoot(environment.authConfig),
   ],
   providers: [SentinelAuthGuardWithLogin, SentinelNegativeAuthGuard],

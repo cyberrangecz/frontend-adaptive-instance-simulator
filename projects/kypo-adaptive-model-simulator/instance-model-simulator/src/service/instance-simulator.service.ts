@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { InstanceUploadDialogComponent } from '../components/instance-upload-dialog/instance-upload-dialog.component';
 import { BehaviorSubject, Observable, of, switchMap, take, tap } from 'rxjs';
-import { MatDialog } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 import { FileUploadProgressService } from './file-upload-progress.service';
 import { InstanceSimulatorApiService } from './instance-simulator-api.service';
 import { InstanceModelSimulator } from '../model/instance-model-simulator';

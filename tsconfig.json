@@ -12,18 +12,27 @@
     "esModuleInterop": true,
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "es2020",
+    "target": "ES2022",
     "module": "es2020",
     "lib": [
       "es2018",
       "dom"
     ],
     "paths": {
-      "@muni-kypo-crp/adaptive-model-simulator/performance-simulator": ["./performance-simulator/src/public_api.ts"],
-      "@muni-kypo-crp/adaptive-model-simulator/instance-model-simulator": ["./instance-model-simulator/src/public_api.ts"],
-      "@muni-kypo-crp/adaptive-model-simulator/model-simulator": ["./model-simulator/src/public_api.ts"],
-      "@muni-kypo-crp/adaptive-model-simulator/internal": ["./internal/src/public_api.ts"]
-    }
+      "@muni-kypo-crp/adaptive-model-simulator/performance-simulator": [
+        "./performance-simulator/src/public_api.ts"
+      ],
+      "@muni-kypo-crp/adaptive-model-simulator/instance-model-simulator": [
+        "./instance-model-simulator/src/public_api.ts"
+      ],
+      "@muni-kypo-crp/adaptive-model-simulator/model-simulator": [
+        "./model-simulator/src/public_api.ts"
+      ],
+      "@muni-kypo-crp/adaptive-model-simulator/internal": [
+        "./internal/src/public_api.ts"
+      ]
+    },
+    "useDefineForClassFields": false
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

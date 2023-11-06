@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import { SentinelBaseDirective } from '@sentinel/common';
 import { SentinelStepper, StepStateEnum } from '@sentinel/components/stepper';
-import { MatDialog } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 import { PhaseStepperAdapter } from '../../../../../../model/adapters/phase-stepper-adapter';
 
 @Component({
