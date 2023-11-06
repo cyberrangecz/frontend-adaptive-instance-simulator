@@ -6,7 +6,7 @@
     "kypo-adaptive-model-simulator": {
       "projectType": "library",
       "root": "projects/kypo-adaptive-model-simulator",
-      "sourceRoot": "projects/kypo-adaptive-model-simulator/src",
+      "sourceRoot": "projects/kypo-adaptive-model-simulator",
       "prefix": "kypo-adaptive-model-simulator",
       "architect": {
         "build": {
@@ -185,5 +185,16 @@
         }
       }
     }
+  },
+  "schematics": {
+    "@angular-eslint/schematics:application": {
+      "setParserOptionsProject": true
+    },
+    "@angular-eslint/schematics:library": {
+      "setParserOptionsProject": true
+    }
+  },
+  "cli": {
+    "analytics": false
   }
 }

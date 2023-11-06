@@ -5,15 +5,15 @@ import { InstanceModelSimulatorMaterialModule } from './instance-model-simulator
 import { DefinitionInfoComponent } from './components/definition-info/definition-info.component';
 import { InstanceSimulatorComponent } from './components/instance-simulator/instance-simulator.component';
 import { InstanceSimulatorService } from './service/instance-simulator.service';
-import { SentinelControlsModule } from '@sentinel/components/controls';
+import { SentinelControlsComponent } from '@sentinel/components/controls';
 import { InstanceUploadDialogComponent } from './components/instance-upload-dialog/instance-upload-dialog.component';
 import { FileUploadProgressService } from './service/file-upload-progress.service';
 import { InstanceSimulatorApiService } from './service/instance-simulator-api.service';
 import { ngfModule } from 'angular-file';
-import { SentinelPipesModule } from '@sentinel/common';
+import { SentinelPipesModule } from '@sentinel/common/pipes';
 import { AdaptiveVisualizationConfig, KypoAdaptiveVisualizationLibModule } from '@muni-kypo-crp/adaptive-visualization';
 import { ModelSimulatorConfig } from '@muni-kypo-crp/adaptive-model-simulator/internal';
-import { SentinelFreeFormModule } from '@sentinel/components/free-form';
+import { SentinelFreeFormComponent } from '@sentinel/components/free-form';
 import { PhaseStepperComponent } from './components/definition-info/stepper/phase-stepper.component';
 import { SentinelStepperModule } from '@sentinel/components/stepper';
 import { PhaseEditComponentsModule } from './components/definition-info/phase-edit/phase-edit-components.module';
@@ -30,12 +30,12 @@ import { PhaseEditComponentsModule } from './components/definition-info/phase-ed
   imports: [
     CommonModule,
     InstanceModelSimulatorMaterialModule,
-    SentinelControlsModule,
+    SentinelControlsComponent,
     ngfModule,
     SentinelPipesModule,
     KypoAdaptiveVisualizationLibModule,
     PhaseEditComponentsModule,
-    SentinelFreeFormModule,
+    SentinelFreeFormComponent,
     SentinelStepperModule,
   ],
   providers: [InstanceSimulatorService, FileUploadProgressService, InstanceSimulatorApiService],

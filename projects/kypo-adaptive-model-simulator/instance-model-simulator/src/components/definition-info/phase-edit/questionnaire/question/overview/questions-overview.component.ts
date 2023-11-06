@@ -4,7 +4,7 @@ import { SentinelBaseDirective } from '@sentinel/common';
 import { SentinelStepper } from '@sentinel/components/stepper';
 import { SentinelControlItem } from '@sentinel/components/controls';
 
-import { MatDialog } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 import { AdaptiveQuestionStepperAdapter } from '../../../../../../model/adapters/adaptive-question-stepper-adapter';
 
 @Component({
