@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { InstanceSimulatorService } from './instance-simulator.service';
-import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { FileUploadProgressService } from './file-upload-progress.service';
 import { InstanceSimulatorApiService } from './instance-simulator-api.service';
 import {
