@@ -1,4 +1,4 @@
-import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { FileUploadProgressService } from '../../../instance-model-simulator/src/service/file-upload-progress.service';
 import { InstanceSimulatorApiService } from '../../../instance-model-simulator/src/service/instance-simulator-api.service';
 import { InstanceSimulatorService } from '../../../instance-model-simulator/src/service/instance-simulator.service';

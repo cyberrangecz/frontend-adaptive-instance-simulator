@@ -7,7 +7,7 @@ import {
   Output,
   SimpleChanges,
 } from '@angular/core';
-import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { SentinelBaseDirective } from '@sentinel/common';
 import { SentinelStepper, StepStateEnum } from '@sentinel/components/stepper';
 import { PhaseStepperAdapter } from '../../../model/adapters/phase-stepper-adapter';
