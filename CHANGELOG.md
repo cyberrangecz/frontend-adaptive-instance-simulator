@@ -1,3 +1,7 @@
+### 15.0.1 Resolve Angular Material migration.
+* e515adc -- [CI/CD] Update packages.json version based on GitLab tag.
+* 828682e -- Merge branch 'resolve-Angular-15-material' into 'master'
+* 2807c52 -- Resolve new Material styling
 ### 15.0.0 Update to Angular 15.
 * 5324787 -- [CI/CD] Update packages.json version based on GitLab tag.
 * 3e2eaa8 -- Merge branch '9-update-to-angular-15' into 'master'
