@@ -2,17 +2,17 @@
   "name": "@muni-kypo-crp/adaptive-model-simulator",
   "version": "15.0.1",
   "peerDependencies": {
-    "@angular/common": "~14.0.3",
-    "@angular/core": "~14.0.3",
-    "@angular/material": "^14.0.3",
-    "@muni-kypo-crp/adaptive-transition-visualization": "14.0.0",
-    "@muni-kypo-crp/adaptive-visualization": "~14.0.0",
-    "@muni-kypo-crp/d3-service": "14.0.0",
-    "@muni-kypo-crp/training-api": "~14.0.0",
-    "@muni-kypo-crp/training-model": "~14.0.0"
+    "@angular/common": "~16.2.12",
+    "@angular/core": "~16.2.12",
+    "@angular/material": "^16.2.14",
+    "@muni-kypo-crp/adaptive-transition-visualization": "16.0.0",
+    "@muni-kypo-crp/adaptive-visualization": "~16.0.0",
+    "@muni-kypo-crp/d3-service": "16.0.0",
+    "@muni-kypo-crp/training-api": "~16.0.0",
+    "@muni-kypo-crp/training-model": "~16.0.0"
   },
   "dependencies": {
-    "tslib": "^2.0.0"
+    "tslib": "^2.4.0"
   },
   "optionalDependencies": {}
 }
