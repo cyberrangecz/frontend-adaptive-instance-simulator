@@ -3,6 +3,7 @@
 
 export const homeURL = 'https://localhost:4200';
 export const baseURL = 'https://172.19.0.22';
+export const authUrl = 'https://172.19.0.22';
 
 export const environment = {
   production: false,
@@ -22,13 +23,14 @@ export const environment = {
         textColor: 'white',
         backgroundColor: '#002776',
         oidcConfig: {
-          issuer: 'https://172.19.0.22:443/csirtmu-dummy-issuer-server/',
-          clientId: 'vvlHtZkuJdtdhBJjOoGvvpqghjBrLFTziPLE',
+          requireHttps: true,
+          issuer: authUrl + '/keycloak/realms/KYPO',
+          clientId: 'KYPO-client',
           redirectUri: homeURL,
-          scope: 'openid email profile',
-          logoutUrl: 'https://172.19.0.22/csirtmu-dummy-issuer-server/endsession',
-          postLogoutRedirectUri: homeURL + '/logout-confirmed/',
-          silentRefreshRedirectUri: homeURL + '/silent-refresh.html',
+          scope: 'openid email profile offline_access',
+          logoutUrl: authUrl + '/keycloak/realms/KYPO/protocol/openid-connect/logout',
+          silentRefreshRedirectUri: authUrl + '/silent-refresh.html',
+          postLogoutRedirectUri: homeURL + '/logout-confirmed',
           clearHashAfterLogin: true,
         },
       },

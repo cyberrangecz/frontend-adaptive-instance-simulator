@@ -16,7 +16,7 @@ Navigate to `https://localhost:4200/`. The app will automatically reload if you 
 1.  Install json-server `npm install -g json-server`.
 3.  Run the server with provided parameters via `npm run api`.
 4.  Run `npm install`.
-5.  Run the app in local environment and ssl `ng serve --configuration local --ssl` and access it on `https://localhost:4200`.
+5.  Run the app in local environment and ssl `npm start` and access it on `https://localhost:4200`.
 
 
 ## Code scaffolding
