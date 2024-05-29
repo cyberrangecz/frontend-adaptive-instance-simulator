@@ -1,3 +1,7 @@
+### 16.0.0 Update to Angular 16.
+* e9fac21 -- [CI/CD] Update packages.json version based on GitLab tag.
+* e602d7b -- Merge branch '10-update-to-angular-16' into 'master'
+* d0a5dd8 -- Update to Angular 16, update local issuer to keycloak
 ### 15.0.1 Resolve Angular Material migration.
 * e515adc -- [CI/CD] Update packages.json version based on GitLab tag.
 * 828682e -- Merge branch 'resolve-Angular-15-material' into 'master'
