@@ -1,3 +1,7 @@
+### 16.0.1 Update sentinel components version.
+* 9ef00d2 -- [CI/CD] Update packages.json version based on GitLab tag.
+* c9824dd -- Merge branch 'update-sentinel-components-version' into 'master'
+* 2a97e4e -- Update sentinel components version
 ### 16.0.0 Update to Angular 16.
 * e9fac21 -- [CI/CD] Update packages.json version based on GitLab tag.
 * e602d7b -- Merge branch '10-update-to-angular-16' into 'master'
