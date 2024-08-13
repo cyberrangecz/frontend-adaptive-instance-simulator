@@ -1,3 +1,8 @@
+### 16.1.0 Update sentinel versions.
+* 6d08308 -- [CI/CD] Update packages.json version based on GitLab tag.
+* 8434194 -- Merge branch 'develop' into 'master'
+* 70d6acf -- Merge branch 'update-sentinel-versions' into 'develop'
+* c2fb5bf -- Update sentinel versions
 ### 16.0.1 Update sentinel components version.
 * 9ef00d2 -- [CI/CD] Update packages.json version based on GitLab tag.
 * c9824dd -- Merge branch 'update-sentinel-components-version' into 'master'
