@@ -1,3 +1,8 @@
+### 16.1.1 Update visualization dependencies versions.
+* c6a6b32 -- [CI/CD] Update packages.json version based on GitLab tag.
+* dc09caa -- Merge branch 'update-visualization-versions' into 'master'
+* 1fcb1c2 -- Update training api lockfile
+* 6414e30 -- update visualization versions
 ### 16.1.0 Update sentinel versions.
 * 6d08308 -- [CI/CD] Update packages.json version based on GitLab tag.
 * 8434194 -- Merge branch 'develop' into 'master'
