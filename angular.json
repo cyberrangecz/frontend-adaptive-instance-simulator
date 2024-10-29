@@ -127,21 +127,21 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "kypo-adaptive-model-simulator-example:build"
+            "buildTarget": "kypo-adaptive-model-simulator-example:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "kypo-adaptive-model-simulator-example:build:production"
+              "buildTarget": "kypo-adaptive-model-simulator-example:build:production"
             },
             "local": {
-              "browserTarget": "kypo-adaptive-model-simulator-example:build:local"
+              "buildTarget": "kypo-adaptive-model-simulator-example:build:local"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "kypo-adaptive-model-simulator-example:build"
+            "buildTarget": "kypo-adaptive-model-simulator-example:build"
           }
         },
         "test": {
