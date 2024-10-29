@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { SentinelBaseDirective } from '@sentinel/common';
 import { AbstractPhaseTypeEnum, Phase, TrainingPhase } from '@muni-kypo-crp/training-model';
 
 /**
@@ -11,7 +10,7 @@ import { AbstractPhaseTypeEnum, Phase, TrainingPhase } from '@muni-kypo-crp/trai
   styleUrls: ['./abstract-phase-edit.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AbstractPhaseEditComponent extends SentinelBaseDirective {
+export class AbstractPhaseEditComponent {
   @Input() phase: Phase;
   @Input() presentTrainingPhases: TrainingPhase[];
   @Output() phaseChange: EventEmitter<TrainingPhase> = new EventEmitter();

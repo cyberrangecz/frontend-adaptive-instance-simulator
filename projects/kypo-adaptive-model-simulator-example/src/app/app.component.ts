@@ -17,7 +17,7 @@ export class AppComponent {
     this.activeUser$ = this.auth.activeUser$;
     this.agendaContainers$ = this.auth.activeUser$.pipe(
       filter((user) => user !== null && user !== undefined),
-      map((user) => this.buildNav(user))
+      map((user) => this.buildNav(user)),
     );
   }
 
@@ -28,7 +28,7 @@ export class AppComponent {
         new AgendaContainer('Tools', [
           new Agenda('Pre-training', 'home'),
           new Agenda('Post-training', 'instance-model-simulator'),
-        ])
+        ]),
       );
     }
     return agendas;

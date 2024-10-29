@@ -10,31 +10,28 @@ export class InstanceModelSimulatorControls {
   static readonly EXPORT_ACTION_ID = 'export';
   static readonly GENERATE_ACTION_ID = 'generate';
 
-  static createDefinition(
-    service: InstanceSimulatorService,
-    disableGenerate$: Observable<boolean>
-  ): SentinelControlItem[] {
+  static createDefinition(service: InstanceSimulatorService): SentinelControlItem[] {
     return [
       new SentinelControlItem(
         this.EXPORT_ACTION_ID,
         'Export',
         'primary',
         service.actionsDisabled$,
-        defer(() => service.export())
+        defer(() => service.export()),
       ),
       new SentinelControlItem(
         this.UPLOAD_ACTION_ID,
         'Upload',
         'primary',
         of(false),
-        defer(() => service.upload())
+        defer(() => service.upload()),
       ),
     ];
   }
 
   static createGenerate(
     service: InstanceSimulatorService,
-    disableGenerate$: Observable<boolean>
+    disableGenerate$: Observable<boolean>,
   ): SentinelControlItem[] {
     return [
       new SentinelControlItem(
@@ -42,7 +39,7 @@ export class InstanceModelSimulatorControls {
         'Generate',
         'primary',
         disableGenerate$,
-        defer(() => service.generate())
+        defer(() => service.generate()),
       ),
     ];
   }

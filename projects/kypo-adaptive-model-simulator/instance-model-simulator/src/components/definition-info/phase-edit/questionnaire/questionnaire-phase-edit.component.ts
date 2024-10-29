@@ -1,5 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { SentinelBaseDirective } from '@sentinel/common';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import {
   QuestionnairePhase,
   QuestionnaireTypeEnum,
@@ -13,7 +12,7 @@ import {
   styleUrls: ['./questionnaire-phase-edit.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class QuestionnairePhaseEditComponent extends SentinelBaseDirective {
+export class QuestionnairePhaseEditComponent {
   @Input() phase: QuestionnairePhase;
   @Input() updateQuestionsFlag: boolean;
   @Input() presentTrainingPhases: TrainingPhase[];

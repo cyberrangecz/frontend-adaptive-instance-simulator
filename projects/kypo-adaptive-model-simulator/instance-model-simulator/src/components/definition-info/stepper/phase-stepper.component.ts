@@ -8,7 +8,6 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { SentinelBaseDirective } from '@sentinel/common';
 import { SentinelStepper, StepStateEnum } from '@sentinel/components/stepper';
 import { PhaseStepperAdapter } from '../../../model/adapters/phase-stepper-adapter';
 
@@ -21,7 +20,7 @@ import { PhaseStepperAdapter } from '../../../model/adapters/phase-stepper-adapt
   styleUrls: ['./phase-stepper.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PhaseStepperComponent extends SentinelBaseDirective implements OnChanges {
+export class PhaseStepperComponent implements OnChanges {
   @Input() phases: PhaseStepperAdapter[];
   @Input() movingInProgress: boolean;
   @Input() activeStep: number;
@@ -33,9 +32,7 @@ export class PhaseStepperComponent extends SentinelBaseDirective implements OnCh
 
   private previousActiveStep = -1;
 
-  constructor(public dialog: MatDialog) {
-    super();
-  }
+  constructor(public dialog: MatDialog) {}
 
   ngOnChanges(changes: SimpleChanges): void {
     if ('phases' in changes) {

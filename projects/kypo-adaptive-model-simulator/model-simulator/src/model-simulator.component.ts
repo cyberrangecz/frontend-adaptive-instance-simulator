@@ -21,7 +21,7 @@ export class ModelSimulatorComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.relatedTrainingPhases = this.phases.filter(
-      (phase) => phase.type === AbstractPhaseTypeEnum.Training
+      (phase) => phase.type === AbstractPhaseTypeEnum.Training,
     ) as TrainingPhase[];
     this.inspectedPhase = this.relatedTrainingPhases[this.relatedTrainingPhases.length - 1];
   }
@@ -30,7 +30,7 @@ export class ModelSimulatorComponent implements OnInit, OnChanges {
     if ('phases' in changes) {
       this.prepareData();
       this.relatedTrainingPhases = this.phases.filter(
-        (phase) => phase.type === AbstractPhaseTypeEnum.Training
+        (phase) => phase.type === AbstractPhaseTypeEnum.Training,
       ) as TrainingPhase[];
       this.inspectedPhase = this.relatedTrainingPhases[this.relatedTrainingPhases.length - 1];
     }
@@ -50,7 +50,7 @@ export class ModelSimulatorComponent implements OnInit, OnChanges {
     this.traineesSimulatedPath.trainingRunsData = this.modelSimulatorService.computeTraineePath(
       this.phases,
       this.relatedTrainingPhases,
-      performanceStatistics
+      performanceStatistics,
     );
   }
 

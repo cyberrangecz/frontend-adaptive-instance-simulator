@@ -1,6 +1,5 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { AdaptiveQuestion, QuestionnaireTypeEnum } from '@muni-kypo-crp/training-model';
-import { SentinelBaseDirective } from '@sentinel/common';
 
 @Component({
   selector: 'kypo-rating-form-question-edit',
@@ -10,7 +9,7 @@ import { SentinelBaseDirective } from '@sentinel/common';
 /**
  * Component for editing a question of type Rating Form
  */
-export class RatingFormQuestionEditComponent extends SentinelBaseDirective implements OnChanges {
+export class RatingFormQuestionEditComponent implements OnChanges {
   @Input() index: number;
   @Input() question: AdaptiveQuestion;
   @Input() questionnaireType: QuestionnaireTypeEnum;
