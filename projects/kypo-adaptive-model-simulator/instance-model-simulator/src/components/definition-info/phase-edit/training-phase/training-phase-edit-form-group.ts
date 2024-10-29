@@ -12,8 +12,8 @@ export class TrainingPhaseEditFormGroup {
       estimatedDuration: new UntypedFormControl(phase.estimatedDuration, [Validators.required, Validators.min(0)]),
       decisionMatrix: new UntypedFormArray(
         phase.decisionMatrix.map((row, index) =>
-          TrainingPhaseEditFormGroup.createRows(row, index === phase.decisionMatrix.length - 1)
-        )
+          TrainingPhaseEditFormGroup.createRows(row, index === phase.decisionMatrix.length - 1),
+        ),
       ),
     });
   }

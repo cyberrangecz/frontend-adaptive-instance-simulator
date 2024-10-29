@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { SentinelBaseDirective } from '@sentinel/common';
 import { Task } from '@muni-kypo-crp/training-model';
 
 @Component({
@@ -8,6 +7,6 @@ import { Task } from '@muni-kypo-crp/training-model';
   styleUrls: ['./task-edit.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TaskEditComponent extends SentinelBaseDirective {
+export class TaskEditComponent {
   @Input() task: Task;
 }

@@ -1,5 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { SentinelBaseDirective } from '@sentinel/common';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { InfoPhase } from '@muni-kypo-crp/training-model';
 
 /**
@@ -11,6 +10,6 @@ import { InfoPhase } from '@muni-kypo-crp/training-model';
   styleUrls: ['./info-phase-edit.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class InfoPhaseEditComponent extends SentinelBaseDirective {
+export class InfoPhaseEditComponent {
   @Input() phase: InfoPhase;
 }

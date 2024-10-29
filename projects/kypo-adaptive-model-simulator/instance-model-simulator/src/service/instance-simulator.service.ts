@@ -27,13 +27,13 @@ export class InstanceSimulatorService {
   constructor(
     private dialog: MatDialog,
     private fileUploadProgressService: FileUploadProgressService,
-    private api: InstanceSimulatorApiService
+    private api: InstanceSimulatorApiService,
   ) {}
 
   /**
    * Handles upload dialog for upload of exported training instance
    */
-  upload(): Observable<any> {
+  upload(): Observable<InstanceModelSimulator> {
     const dialogRef = this.dialog.open(InstanceUploadDialogComponent);
     return dialogRef.componentInstance.onUpload$.pipe(
       take(1),
@@ -42,7 +42,7 @@ export class InstanceSimulatorService {
       tap(
         (data) => {
           this.stateSubject$.next(
-            new SimulatorState('Training instance data were uploaded', EventStateTypeEnum.NOTIFICATION_EVENT)
+            new SimulatorState('Training instance data were uploaded', EventStateTypeEnum.NOTIFICATION_EVENT),
           );
           this.fileUploadProgressService.finish();
           this.uploadedInstanceDataSubject$.next(data);
@@ -53,10 +53,10 @@ export class InstanceSimulatorService {
           this.fileUploadProgressService.finish();
           dialogRef.close();
           this.stateSubject$.next(
-            new SimulatorState('Uploading training instance data', EventStateTypeEnum.ERROR_EVENT, err)
+            new SimulatorState('Uploading training instance data', EventStateTypeEnum.ERROR_EVENT, err),
           );
-        }
-      )
+        },
+      ),
     );
   }
 
@@ -87,10 +87,10 @@ export class InstanceSimulatorService {
         },
         (err) => {
           this.stateSubject$.next(
-            new SimulatorState('Generating training visualization', EventStateTypeEnum.ERROR_EVENT, err)
+            new SimulatorState('Generating training visualization', EventStateTypeEnum.ERROR_EVENT, err),
           );
-        }
-      )
+        },
+      ),
     );
   }
 

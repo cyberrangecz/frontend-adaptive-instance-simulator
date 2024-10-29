@@ -1,6 +1,5 @@
 {
-  "$schema": "../../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../../dist/kypo-adaptive-model-simulator",
+  "$schema": "../../../node_modules/ng-packagr/ng-entrypoint.schema.json",
   "lib": {
     "entryFile": "src/public_api.ts"
   }

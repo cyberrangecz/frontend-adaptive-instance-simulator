@@ -31,13 +31,10 @@ export class InstanceModelSimulatorComponent implements OnInit, OnDestroy {
   constructor(private instanceSimulatorService: InstanceSimulatorService) {}
 
   ngOnInit(): void {
-    this.definitionControls = InstanceModelSimulatorControls.createDefinition(
-      this.instanceSimulatorService,
-      this.disableGenerate$
-    );
+    this.definitionControls = InstanceModelSimulatorControls.createDefinition(this.instanceSimulatorService);
     this.generateControls = InstanceModelSimulatorControls.createGenerate(
       this.instanceSimulatorService,
-      this.disableGenerate$
+      this.disableGenerate$,
     );
     this.instanceSimulatorData$ = this.instanceSimulatorService.uploadedInstanceData$;
     this.state$ = this.instanceSimulatorService.state$.pipe(tap((state) => this.state.emit(state)));

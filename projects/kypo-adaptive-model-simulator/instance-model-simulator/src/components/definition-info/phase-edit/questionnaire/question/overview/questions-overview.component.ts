@@ -1,6 +1,5 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { AdaptiveQuestion, QuestionTypeEnum } from '@muni-kypo-crp/training-model';
-import { SentinelBaseDirective } from '@sentinel/common';
 import { SentinelStepper } from '@sentinel/components/stepper';
 import { SentinelControlItem } from '@sentinel/components/controls';
 
@@ -12,7 +11,7 @@ import { AdaptiveQuestionStepperAdapter } from '../../../../../../model/adapters
   templateUrl: './questions-overview.component.html',
   styleUrls: ['./questions-overview.component.css'],
 })
-export class QuestionsOverviewComponent extends SentinelBaseDirective implements OnInit, OnChanges {
+export class QuestionsOverviewComponent implements OnInit, OnChanges {
   @Input() questions: AdaptiveQuestion[];
   @Input() questionnaireOrder: number;
   @Input() questionnaireType: QuestionTypeEnum;
@@ -21,9 +20,7 @@ export class QuestionsOverviewComponent extends SentinelBaseDirective implements
   controls: SentinelControlItem[];
   selectedStep: number;
 
-  constructor(public dialog: MatDialog) {
-    super();
-  }
+  constructor(public dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.selectedStep = 0;

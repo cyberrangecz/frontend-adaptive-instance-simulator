@@ -9,7 +9,7 @@ export class ModelSimulatorService {
   computeTraineePath(
     phases: Phase[],
     relatedTrainingPhases: TrainingPhase[],
-    performanceStatistics: TraineePhasePerformance[]
+    performanceStatistics: TraineePhasePerformance[],
   ): TrainingRunData[] {
     const runData = SimulatorMapper.createTrainee();
     const maxOrder = phases.length - 1;
@@ -38,7 +38,7 @@ export class ModelSimulatorService {
           const task = this.computeSuitableTask(
             nextPhase as TrainingPhase,
             relatedTrainingPhases,
-            performanceStatistics
+            performanceStatistics,
           );
           runData.trainingRunPathNodes.push(SimulatorMapper.toCreatePathNode(task, nextPhase as TrainingPhase));
         }
@@ -58,12 +58,12 @@ export class ModelSimulatorService {
   private computeSuitableTask(
     inspectedPhase: TrainingPhase,
     relatedTrainingPhases: TrainingPhase[],
-    performanceStatisticsMatrix: TraineePhasePerformance[]
+    performanceStatisticsMatrix: TraineePhasePerformance[],
   ): Task {
     const participantPerformance = this.evaluateParticipantPerformance(
       inspectedPhase,
       relatedTrainingPhases,
-      performanceStatisticsMatrix
+      performanceStatisticsMatrix,
     );
     /**
      * This computation is equal to the third equation in the paper: https://www.muni.cz/en/research/publications/1783806
@@ -89,7 +89,7 @@ export class ModelSimulatorService {
   private evaluateParticipantPerformance(
     inspectedPhase: TrainingPhase,
     relatedTrainingPhases: TrainingPhase[],
-    performanceStatisticsMatrix: TraineePhasePerformance[]
+    performanceStatisticsMatrix: TraineePhasePerformance[],
   ): number {
     let sumOfAllWeights = 0;
     let participantWeightedPerformance = 0;

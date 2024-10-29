@@ -1,17 +1,18 @@
-import { SentinelBaseDirective } from '@sentinel/common';
 import {
   ChangeDetectionStrategy,
   Component,
+  DestroyRef,
   EventEmitter,
+  inject,
   Input,
   OnChanges,
   Output,
   SimpleChanges,
 } from '@angular/core';
 import { TrainingPhaseEditFormGroup } from './training-phase-edit-form-group';
-import { takeWhile } from 'rxjs/operators';
 import { AbstractControl, UntypedFormArray } from '@angular/forms';
 import { TrainingPhase } from '@muni-kypo-crp/training-model';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'kypo-training-phase-configuration',
@@ -19,11 +20,13 @@ import { TrainingPhase } from '@muni-kypo-crp/training-model';
   styleUrls: ['./training-phase-edit.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TrainingPhaseEditComponent extends SentinelBaseDirective implements OnChanges {
+export class TrainingPhaseEditComponent implements OnChanges {
   @Input() phase: TrainingPhase;
   @Input() presentTrainingPhases: TrainingPhase[];
   @Output() phaseChange: EventEmitter<TrainingPhase> = new EventEmitter();
   @Output() isMatrixValid: EventEmitter<boolean> = new EventEmitter();
+
+  destroyRef = inject(DestroyRef);
 
   phaseConfigFormGroup: TrainingPhaseEditFormGroup;
 
@@ -51,7 +54,7 @@ export class TrainingPhaseEditComponent extends SentinelBaseDirective implements
     if ('phase' in changes || 'updateMatrixFlag' in changes) {
       this.phaseConfigFormGroup = new TrainingPhaseEditFormGroup(this.phase);
       this.setFormsAsTouched();
-      this.phaseConfigFormGroup.formGroup.valueChanges.pipe(takeWhile(() => this.isAlive)).subscribe(() => {
+      this.phaseConfigFormGroup.formGroup.valueChanges.pipe(takeUntilDestroyed(this.destroyRef)).subscribe(() => {
         this.phaseConfigFormGroup.setToPhase(this.phase);
         this.isMatrixValid.emit(this.phaseConfigFormGroup.formGroup.valid);
         this.phaseChange.emit(this.phase);

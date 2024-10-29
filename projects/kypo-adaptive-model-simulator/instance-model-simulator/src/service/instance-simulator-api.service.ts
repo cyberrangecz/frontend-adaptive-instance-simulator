@@ -13,7 +13,10 @@ import { InstanceModelUpdateMapper } from './mapper/instance-model-update-mapper
 export class InstanceSimulatorApiService {
   private readonly FILE_NAME = 'instance-data.zip';
 
-  constructor(private http: HttpClient, private config: ModelSimulatorConfig) {}
+  constructor(
+    private http: HttpClient,
+    private config: ModelSimulatorConfig,
+  ) {}
 
   /**
    * Sends https request to upload exported training instance data from already finished training instance.
@@ -30,7 +33,7 @@ export class InstanceSimulatorApiService {
         file,
         {
           headers: headers,
-        }
+        },
       )
       .pipe(map((resp) => InstanceSimulatorMapper.fromDTO(resp)));
   }
@@ -44,7 +47,7 @@ export class InstanceSimulatorApiService {
     return this.http
       .post<AdaptiveTrainingSankeyDataDTO>(
         `${this.config.adaptiveBasePath}visualizations/training-instances/generate`,
-        InstanceModelUpdateMapper.toUpdateDTO(instanceModelSimulator)
+        InstanceModelUpdateMapper.toUpdateDTO(instanceModelSimulator),
       )
       .pipe(map((resp) => SankeyDataMapper.fromDTOs(resp)));
   }
