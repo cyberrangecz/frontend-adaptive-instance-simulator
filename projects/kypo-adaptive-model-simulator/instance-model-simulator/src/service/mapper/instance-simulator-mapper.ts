@@ -1,7 +1,7 @@
 import { InstanceModelSimulatorDTO } from '../../model/instance-model-simulator-dto';
 import { InstanceModelSimulator } from '../../model/instance-model-simulator';
-import { TrainingDefinitionMapper } from '@muni-kypo-crp/training-api';
-import { SankeyDataMapper } from '@muni-kypo-crp/adaptive-visualization';
+import { TrainingDefinitionMapper } from '@cyberrangecz-platform/training-api';
+import { SankeyDataMapper } from '@cyberrangecz-platform/adaptive-visualization';
 
 export class InstanceSimulatorMapper {
   static fromDTO(dto: InstanceModelSimulatorDTO): InstanceModelSimulator {

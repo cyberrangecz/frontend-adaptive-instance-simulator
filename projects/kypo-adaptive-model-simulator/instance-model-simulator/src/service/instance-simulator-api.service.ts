@@ -4,9 +4,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { InstanceSimulatorMapper } from './mapper/instance-simulator-mapper';
 import { InstanceModelSimulator } from '../model/instance-model-simulator';
 import { InstanceModelSimulatorDTO } from '../model/instance-model-simulator-dto';
-import { ModelSimulatorConfig } from '@muni-kypo-crp/adaptive-model-simulator/internal';
-import { AdaptiveTrainingSankeyDataDTO, SankeyDataMapper } from '@muni-kypo-crp/adaptive-visualization';
-import { AdaptiveTrainingSankeyData } from '@muni-kypo-crp/adaptive-visualization';
+import { ModelSimulatorConfig } from '@cyberrangecz-platform/adaptive-model-simulator/internal';
+import {
+  AdaptiveTrainingSankeyData,
+  AdaptiveTrainingSankeyDataDTO,
+  SankeyDataMapper,
+} from '@cyberrangecz-platform/adaptive-visualization';
 import { InstanceModelUpdateMapper } from './mapper/instance-model-update-mapper';
 
 @Injectable()

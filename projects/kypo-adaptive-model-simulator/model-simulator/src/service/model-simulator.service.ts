@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { AbstractPhaseTypeEnum, Phase, Task, TrainingPhase } from '@muni-kypo-crp/training-model';
+import { AbstractPhaseTypeEnum, Phase, Task, TrainingPhase } from '@cyberrangecz-platform/training-model';
 import { TraineePhasePerformance } from '../model/trainee-phase-statistics';
-import { TrainingRunData } from '@muni-kypo-crp/adaptive-transition-visualization';
+import { TrainingRunData } from '@cyberrangecz-platform/adaptive-transition-visualization';
 import { SimulatorMapper } from '../mappers/simulator.mapper';
 
 @Injectable()

@@ -1,7 +1,7 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { AbstractPhaseTypeEnum, Phase, TrainingPhase } from '@muni-kypo-crp/training-model';
+import { AbstractPhaseTypeEnum, Phase, TrainingPhase } from '@cyberrangecz-platform/training-model';
 import { TraineePhasePerformance } from './model/trainee-phase-statistics';
-import { TransitionPhase, VisualizationData } from '@muni-kypo-crp/adaptive-transition-visualization';
+import { TransitionPhase, VisualizationData } from '@cyberrangecz-platform/adaptive-transition-visualization';
 import { ModelSimulatorService } from './service/model-simulator.service';
 
 @Component({

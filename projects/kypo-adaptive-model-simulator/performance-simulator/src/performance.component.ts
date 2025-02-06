@@ -11,7 +11,7 @@ import {
 } from '@angular/core';
 import { UntypedFormArray } from '@angular/forms';
 import { PerformanceFormGroup } from './performance-form-group';
-import { DecisionMatrixRow, TrainingPhase } from '@muni-kypo-crp/training-model';
+import { DecisionMatrixRow, TrainingPhase } from '@cyberrangecz-platform/training-model';
 import { TraineePhasePerformance } from './model/trainee-phase-performance';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 

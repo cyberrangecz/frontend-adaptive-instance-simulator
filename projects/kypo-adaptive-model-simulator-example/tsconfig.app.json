@@ -1,22 +1,22 @@
 {
-  "extends": "../../tsconfig.json",
-  "compilerOptions": {
-    "outDir": "../../out-tsc/app",
-    "types": [],
-    "paths": {
-      "@muni-kypo-crp/adaptive-model-simulator": [
-        "../kypo-adaptive-model-simulator/src/public_api.ts"
-      ],
-      "@muni-kypo-crp/adaptive-model-simulator/*": [
-        "../kypo-adaptive-model-simulator/*/src/public_api.ts"
-      ]
-    }
-  },
-  "files": [
-    "src/main.ts",
-    "src/polyfills.ts"
-  ],
-  "include": [
-    "src/**/*.d.ts"
-  ]
+    "extends": "../../tsconfig.json",
+    "compilerOptions": {
+        "outDir": "../../out-tsc/app",
+        "types": [],
+        "paths": {
+            "@cyberrangecz-platform/adaptive-model-simulator": [
+                "../kypo-adaptive-model-simulator/src/public_api.ts"
+            ],
+            "@cyberrangecz-platform/adaptive-model-simulator/*": [
+                "../kypo-adaptive-model-simulator/*/src/public_api.ts"
+            ]
+        }
+    },
+    "files": [
+        "src/main.ts",
+        "src/polyfills.ts"
+    ],
+    "include": [
+        "src/**/*.d.ts"
+    ]
 }

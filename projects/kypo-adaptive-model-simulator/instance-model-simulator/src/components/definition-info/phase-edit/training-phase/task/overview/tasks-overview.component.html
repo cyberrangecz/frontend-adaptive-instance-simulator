@@ -1,27 +1,27 @@
 <mat-expansion-panel>
-  <mat-expansion-panel-header>
-    <mat-panel-title>
-      Tasks
-    </mat-panel-title>
-    <mat-panel-description>
-    </mat-panel-description>
-  </mat-expansion-panel-header>
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            Tasks
+        </mat-panel-title>
+        <mat-panel-description>
+        </mat-panel-description>
+    </mat-expansion-panel-header>
 
-  <mat-divider></mat-divider>
-
-  <div *ngIf="stepperTasks.length > 0 else noTasks">
-    <kypo-task-stepper [activeStep]="activeStep"
-                       [tasks]="stepperTasks"
-                       (activeStepChange)="onActiveTaskChanged($event)">
-    </kypo-task-stepper>
     <mat-divider></mat-divider>
-    <div class="step-content">
-      <kypo-task-configuration [task]="tasks[activeStep]"></kypo-task-configuration>
+
+    <div *ngIf="stepperTasks.length > 0 else noTasks">
+        <kypo-task-stepper [activeStep]="activeStep"
+                           [tasks]="stepperTasks"
+                           (activeStepChange)="onActiveTaskChanged($event)">
+        </kypo-task-stepper>
+        <mat-divider></mat-divider>
+        <div class="step-content">
+            <kypo-task-configuration [task]="tasks[activeStep]"></kypo-task-configuration>
+        </div>
     </div>
-  </div>
-  <div>
-  </div>
-  <ng-template #noTasks>
-    <h3>There are no Tasks</h3>
-  </ng-template>
+    <div>
+    </div>
+    <ng-template #noTasks>
+        <h3>There are no Tasks</h3>
+    </ng-template>
 </mat-expansion-panel>

@@ -5,9 +5,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { FileUploadProgressService } from './file-upload-progress.service';
 import { InstanceSimulatorApiService } from './instance-simulator-api.service';
 import { InstanceModelSimulator } from '../model/instance-model-simulator';
-import { Phase, TrainingPhase } from '@muni-kypo-crp/training-model';
+import { Phase, TrainingPhase } from '@cyberrangecz-platform/training-model';
 import { saveAs } from 'file-saver';
-import { AdaptiveTrainingSankeyData } from '@muni-kypo-crp/adaptive-visualization';
+import { AdaptiveTrainingSankeyData } from '@cyberrangecz-platform/adaptive-visualization';
 import { BasicEventInfo, SimulatorState } from '../model/simulator-state';
 import EventStateTypeEnum = BasicEventInfo.EventStateTypeEnum;
 

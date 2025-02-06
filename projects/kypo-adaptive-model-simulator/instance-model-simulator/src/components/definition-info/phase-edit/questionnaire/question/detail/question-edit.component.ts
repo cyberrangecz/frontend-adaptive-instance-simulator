@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { QuestionTypeEnum } from '@muni-kypo-crp/training-model';
-import { AdaptiveQuestion } from '@muni-kypo-crp/training-model/lib/phase/questionnaire-phase/adaptive-question';
+import { QuestionTypeEnum } from '@cyberrangecz-platform/training-model';
+import { AdaptiveQuestion } from '@cyberrangecz-platform/training-model/lib/phase/questionnaire-phase/adaptive-question';
 
 @Component({
   selector: 'kypo-adaptive-question-edit',

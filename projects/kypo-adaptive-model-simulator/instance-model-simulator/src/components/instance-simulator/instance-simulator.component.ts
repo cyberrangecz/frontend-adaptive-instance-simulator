@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { AdaptiveTrainingSankeyData } from '@muni-kypo-crp/adaptive-visualization';
+import { AdaptiveTrainingSankeyData } from '@cyberrangecz-platform/adaptive-visualization';
 
 @Component({
   selector: 'kypo-adaptive-model-simulator-instance-simulator',

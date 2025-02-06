@@ -8,8 +8,8 @@ import {
   Trainee,
   TrainingRunData,
   TrainingRunPathNode,
-} from '@muni-kypo-crp/adaptive-transition-visualization';
-import { AbstractPhaseTypeEnum, Phase, Task, TrainingPhase } from '@muni-kypo-crp/training-model';
+} from '@cyberrangecz-platform/adaptive-transition-visualization';
+import { AbstractPhaseTypeEnum, Phase, Task, TrainingPhase } from '@cyberrangecz-platform/training-model';
 
 export class SimulatorMapper {
   static toCreatePathNode(task: Task, phase: TrainingPhase): TrainingRunPathNode {

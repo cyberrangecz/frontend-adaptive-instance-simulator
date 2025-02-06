@@ -1,5 +1,5 @@
-import { TrainingDefinitionDTO } from '@muni-kypo-crp/training-api';
-import { AdaptiveTrainingSankeyDataDTO } from '@muni-kypo-crp/adaptive-visualization';
+import { TrainingDefinitionDTO } from '@cyberrangecz-platform/training-api';
+import { AdaptiveTrainingSankeyDataDTO } from '@cyberrangecz-platform/adaptive-visualization';
 
 export class InstanceModelSimulatorDTO {
   training_definition: TrainingDefinitionDTO;

@@ -4,7 +4,7 @@ import { InstanceSimulatorService } from './service/instance-simulator.service';
 import { InstanceModelSimulatorControls } from './model/instance-model-simulator-controls';
 import { BehaviorSubject, Observable, Subscription, take, tap } from 'rxjs';
 import { InstanceModelSimulator } from './model/instance-model-simulator';
-import { TrainingPhase } from '@muni-kypo-crp/training-model';
+import { TrainingPhase } from '@cyberrangecz-platform/training-model';
 import { SimulatorState } from './model/simulator-state';
 
 @Component({

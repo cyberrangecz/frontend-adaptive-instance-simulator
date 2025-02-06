@@ -8,7 +8,7 @@ import {
   Output,
   SimpleChanges,
 } from '@angular/core';
-import { AbstractPhaseTypeEnum, Phase, TrainingDefinition, TrainingPhase } from '@muni-kypo-crp/training-model';
+import { AbstractPhaseTypeEnum, Phase, TrainingDefinition, TrainingPhase } from '@cyberrangecz-platform/training-model';
 import { PhaseStepperAdapter } from '../../model/adapters/phase-stepper-adapter';
 
 @Component({

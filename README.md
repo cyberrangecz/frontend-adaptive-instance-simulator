@@ -1,23 +1,27 @@
 # KypoAdaptiveModelSimulator
 
 ### Running up the Project:
+
 Install project dependencies:
+
 ```
 $ npm install
 ```
+
 Then run
+
 ```
 $ ng serve --ssl
 ```
+
 Navigate to `https://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ### How to use json-server as mock backend with provided dummy data
 
-1.  Install json-server `npm install -g json-server`.
-3.  Run the server with provided parameters via `npm run api`.
-4.  Run `npm install`.
-5.  Run the app in local environment and ssl `npm start` and access it on `https://localhost:4200`.
-
+1. Install json-server `npm install -g json-server`.
+3. Run the server with provided parameters via `npm run api`.
+4. Run `npm install`.
+5. Run the app in local environment and ssl `npm start` and access it on `https://localhost:4200`.
 
 ## Code scaffolding
 

@@ -1,5 +1,5 @@
 import { StepStateEnum } from '@sentinel/components/stepper';
-import { AdaptiveQuestion, QuestionTypeEnum } from '@muni-kypo-crp/training-model';
+import { AdaptiveQuestion, QuestionTypeEnum } from '@cyberrangecz-platform/training-model';
 
 export class AdaptiveQuestionStepperAdapter {
   private _question: AdaptiveQuestion;

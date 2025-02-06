@@ -11,7 +11,7 @@ import {
 } from '@angular/core';
 import { TrainingPhaseEditFormGroup } from './training-phase-edit-form-group';
 import { AbstractControl, UntypedFormArray } from '@angular/forms';
-import { TrainingPhase } from '@muni-kypo-crp/training-model';
+import { TrainingPhase } from '@cyberrangecz-platform/training-model';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({

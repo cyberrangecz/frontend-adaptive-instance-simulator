@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { AdaptiveQuestion, QuestionTypeEnum } from '@muni-kypo-crp/training-model';
+import { AdaptiveQuestion, QuestionTypeEnum } from '@cyberrangecz-platform/training-model';
 import { SentinelStepper } from '@sentinel/components/stepper';
 import { SentinelControlItem } from '@sentinel/components/controls';
 

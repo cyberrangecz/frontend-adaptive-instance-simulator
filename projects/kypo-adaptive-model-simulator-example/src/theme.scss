@@ -11,41 +11,41 @@ $kypo-theme: sentinel-variables.$sentinel-theme;
 
 
 :root {
-  @include mat.core();
-  @include mat.color-variants-backwards-compatibility($kypo-theme);
-  @include mat.all-component-themes($kypo-theme);
-  @include mat.system-level-colors($kypo-theme);
-  @include sentinel-components.all-component-themes($kypo-theme);
-  @include layout.sentinel-layout-theme($kypo-theme);
-  @include sentinel-layout-sidebar.sidebar-page-layout-theme($kypo-theme);
+    @include mat.core();
+    @include mat.color-variants-backwards-compatibility($kypo-theme);
+    @include mat.all-component-themes($kypo-theme);
+    @include mat.system-level-colors($kypo-theme);
+    @include sentinel-components.all-component-themes($kypo-theme);
+    @include layout.sentinel-layout-theme($kypo-theme);
+    @include sentinel-layout-sidebar.sidebar-page-layout-theme($kypo-theme);
 
-  @include mat.typography-hierarchy(sentinel-variables.$sentinel-theme);
-  @include mat.all-component-typographies(sentinel-variables.$sentinel-theme);
-  @include mat.system-level-typography(sentinel-variables.$sentinel-theme);
-  @include sentinel-typography.all-component-typographies(sentinel-variables.$sentinel-theme);
+    @include mat.typography-hierarchy(sentinel-variables.$sentinel-theme);
+    @include mat.all-component-typographies(sentinel-variables.$sentinel-theme);
+    @include mat.system-level-typography(sentinel-variables.$sentinel-theme);
+    @include sentinel-typography.all-component-typographies(sentinel-variables.$sentinel-theme);
 }
 
 
 :root .mat-typography h1 {
-  font-size: 2.25rem;
-  font-weight: 500;
-  line-height: 1.2;
+    font-size: 2.25rem;
+    font-weight: 500;
+    line-height: 1.2;
 }
 
 :root .mat-typography h2 {
-  font-size: 1.75rem;
-  font-weight: 400;
-  line-height: 1.2;
+    font-size: 1.75rem;
+    font-weight: 400;
+    line-height: 1.2;
 }
 
 :root .mat-typography h3 {
-  font-size: 1.5rem;
-  font-weight: 400;
-  line-height: 1.2;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.2;
 }
 
 :root .mat-typography h4 {
-  font-size: 1.25rem;
-  font-weight: 400;
-  line-height: 1.2;
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.2;
 }

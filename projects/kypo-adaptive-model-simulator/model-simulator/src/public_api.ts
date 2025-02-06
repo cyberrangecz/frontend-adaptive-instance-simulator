@@ -1,5 +1,5 @@
 /*
- * Public API Surface of @muni-kypo-crp/adaptive-model-simulator/model-simulator
+ * Public API Surface of @cyberrangecz-platform/adaptive-model-simulator/model-simulator
  */
 
 export * from './model-simulator.component';

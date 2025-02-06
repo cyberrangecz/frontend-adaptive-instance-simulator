@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { VisualizationData } from '@muni-kypo-crp/adaptive-transition-visualization/model/visualization-data';
+import { VisualizationData } from '@cyberrangecz-platform/adaptive-transition-visualization/model/visualization-data';
 
 @Component({
   selector: 'kypo-pathway-simulator',

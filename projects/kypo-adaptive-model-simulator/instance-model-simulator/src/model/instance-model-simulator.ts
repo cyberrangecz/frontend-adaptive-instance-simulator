@@ -1,5 +1,5 @@
-import { TrainingDefinition } from '@muni-kypo-crp/training-model';
-import { AdaptiveTrainingSankeyData } from '@muni-kypo-crp/adaptive-visualization';
+import { TrainingDefinition } from '@cyberrangecz-platform/training-model';
+import { AdaptiveTrainingSankeyData } from '@cyberrangecz-platform/adaptive-visualization';
 
 export class InstanceModelSimulator {
   trainingDefinition: TrainingDefinition;

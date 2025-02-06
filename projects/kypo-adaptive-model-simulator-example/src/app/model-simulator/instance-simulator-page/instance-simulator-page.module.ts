@@ -1,10 +1,11 @@
-import { NgModule, SecurityContext } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { InstanceSimulatorPageComponent } from './instance-simulator-page.component';
 import { InstanceSimulatorPageRoutingModule } from './instance-simulator-page-routing.module';
-import { InstanceModelSimulatorModule } from '@muni-kypo-crp/adaptive-model-simulator/instance-model-simulator';
+import { InstanceModelSimulatorModule } from '@cyberrangecz-platform/adaptive-model-simulator/instance-model-simulator';
 import { environment } from '../../../environments/environment';
 import { MarkedOptions, SentinelMarkdownViewModule } from '@sentinel/components/markdown-view';
+
 const markdownParserConfig = {
   markedOptions: {
     provide: MarkedOptions,

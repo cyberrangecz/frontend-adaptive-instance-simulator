@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { AbstractPhaseTypeEnum, Phase, TrainingPhase } from '@muni-kypo-crp/training-model';
+import { AbstractPhaseTypeEnum, Phase, TrainingPhase } from '@cyberrangecz-platform/training-model';
 
 /**
  * Main component of phases edit. Resolves which component should be display based on phases type

@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PerformanceComponent } from './performance.component';
 import { PerformanceFormGroup } from './performance-form-group';
-import { TrainingPhase } from '@muni-kypo-crp/training-model';
+import { TrainingPhase } from '@cyberrangecz-platform/training-model';
 
 describe('PerformanceComponent', () => {
   let component: PerformanceComponent;

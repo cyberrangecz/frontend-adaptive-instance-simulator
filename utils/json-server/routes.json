@@ -1,5 +1,5 @@
 {
-  "/kypo-adaptive-training/api/v1/training-instances/instances": "/instances",
-  "/kypo-adaptive-training/api/v1/visualizations/training-instances/simulator": "/simulate",
-  "/kypo-adaptive-training/api/v1/visualizations/training-instances/generate": "/generate"
+    "/kypo-adaptive-training/api/v1/training-instances/instances": "/instances",
+    "/kypo-adaptive-training/api/v1/visualizations/training-instances/simulator": "/simulate",
+    "/kypo-adaptive-training/api/v1/visualizations/training-instances/generate": "/generate"
 }

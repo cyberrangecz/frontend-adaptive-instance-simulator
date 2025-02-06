@@ -2,7 +2,7 @@ import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { ChangeDetectionStrategy, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { SentinelControlItem } from '@sentinel/components/controls';
-import { Task } from '@muni-kypo-crp/training-model';
+import { Task } from '@cyberrangecz-platform/training-model';
 import { PhaseStepperAdapter } from '../../../../../../model/adapters/phase-stepper-adapter';
 
 /**
