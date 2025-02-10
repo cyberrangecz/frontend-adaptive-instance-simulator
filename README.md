@@ -1,4 +1,4 @@
-# KypoAdaptiveModelSimulator
+# Adaptive Model Simulator
 
 ### Running up the Project:
 

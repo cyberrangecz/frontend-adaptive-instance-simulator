@@ -2,7 +2,7 @@
 {
     "compileOnSave": false,
     "compilerOptions": {
-        "baseUrl": "./projects/kypo-adaptive-model-simulator",
+        "baseUrl": "./projects/adaptive-model-simulator",
         "outDir": "./dist/out-tsc",
         "sourceMap": true,
         "declaration": false,

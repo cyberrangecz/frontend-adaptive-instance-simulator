@@ -1,0 +1,22 @@
+{
+    "extends": "../../tsconfig.json",
+    "compilerOptions": {
+        "outDir": "../../out-tsc/app",
+        "types": [],
+        "paths": {
+            "@cyberrangecz-platform/adaptive-model-simulator": [
+                "../adaptive-model-simulator/src/public_api.ts"
+            ],
+            "@cyberrangecz-platform/adaptive-model-simulator/*": [
+                "../adaptive-model-simulator/*/src/public_api.ts"
+            ]
+        }
+    },
+    "files": [
+        "src/main.ts",
+        "src/polyfills.ts"
+    ],
+    "include": [
+        "src/**/*.d.ts"
+    ]
+}
