@@ -1,5 +1,0 @@
-{
-    "/adaptive-training/api/v1/training-instances/instances": "/instances",
-    "/adaptive-training/api/v1/visualizations/training-instances/simulator": "/simulate",
-    "/adaptive-training/api/v1/visualizations/training-instances/generate": "/generate"
-}

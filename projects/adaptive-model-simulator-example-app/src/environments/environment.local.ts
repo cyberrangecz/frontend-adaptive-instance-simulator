@@ -2,40 +2,44 @@
 // `ng build --configuration local` replaces `environment.ts` with `environment.local.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-export const homeURL = 'https://localhost:4200';
-export const baseURL = 'https://172.19.0.22';
+// OIDC url
+const OIDC_URL = 'https://localhost:8080';
+// backend url
+const API_URL = 'http://localhost:3000';
+// frontend home url
+const HOME_URL = 'https://localhost:4200';
 
 export const environment = {
-  production: false,
-  modelSimulatorConfig: {
-    adaptiveBasePath: 'http://localhost:3000/adaptive-training/api/v1/',
-  },
-  authConfig: {
-    guardMainPageRedirect: 'home',
-    guardLoginPageRedirect: 'login',
-    interceptorAllowedUrls: [baseURL, 'http://localhost', 'https://localhost'],
-    authorizationStrategyConfig: {
-      authorizationUrl: baseURL + '/user-and-group/api/v1/users/info',
+    production: false,
+    modelSimulatorConfig: {
+        adaptiveBasePath: API_URL + '/adaptive-training/api/v1/'
     },
-    providers: [
-      {
-        label: 'Login with MUNI',
-        textColor: 'white',
-        backgroundColor: '#002776',
-        oidcConfig: {
-          requireHttps: true,
-          issuer: baseURL + '/keycloak/realms/KYPO',
-          clientId: 'KYPO-client',
-          redirectUri: homeURL,
-          scope: 'openid email profile offline_access',
-          logoutUrl: baseURL + '/keycloak/realms/KYPO/protocol/openid-connect/logout',
-          silentRefreshRedirectUri: baseURL + '/silent-refresh.html',
-          postLogoutRedirectUri: homeURL + '/logout-confirmed',
-          clearHashAfterLogin: true,
+    authConfig: {
+        guardMainPageRedirect: 'home',
+        guardLoginPageRedirect: 'login',
+        interceptorAllowedUrls: [OIDC_URL, API_URL, 'https://localhost', 'http://localhost'],
+        authorizationStrategyConfig: {
+            authorizationUrl: API_URL + '/user-and-group/api/v1/users/info'
         },
-      },
-    ],
-  },
+        providers: [
+            {
+                label: 'Login with local Keycloak',
+                textColor: 'white',
+                backgroundColor: '#1e2173',
+                oidcConfig: {
+                    requireHttps: true,
+                    clearHashAfterLogin: true,
+                    issuer: OIDC_URL + '/keycloak/realms/CRCZP',
+                    clientId: 'CRCZP-client',
+                    redirectUri: HOME_URL,
+                    scope: 'openid email profile offline_access',
+                    logoutUrl: OIDC_URL + '/keycloak/realms/CRCZP/protocol/openid-connect/logout',
+                    silentRefreshRedirectUri: HOME_URL + '/silent-refresh.html',
+                    postLogoutRedirectUri: HOME_URL + '/logout-confirmed'
+                }
+            }
+        ]
+    }
 };
 
 /*

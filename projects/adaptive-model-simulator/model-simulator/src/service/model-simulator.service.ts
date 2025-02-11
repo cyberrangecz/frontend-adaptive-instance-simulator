@@ -65,15 +65,9 @@ export class ModelSimulatorService {
       relatedTrainingPhases,
       performanceStatisticsMatrix,
     );
-    /**
-     * This computation is equal to the third equation in the paper: https://www.muni.cz/en/research/publications/1783806
-     * it is not adding one to the suitableTask constant result as it used as index to array to pick the suitable task.
-     * Therefore, for the suitable task 1, the first task with index 0 is picked from the tasks array.
-     */
     if (participantPerformance == 0) {
       return inspectedPhase.tasks[inspectedPhase.tasks.length - 1];
     } else {
-      // ask for + 1 and 0.3333333
       const suitableTask = Math.trunc(inspectedPhase.tasks.length * Number((1 - participantPerformance).toFixed(8)));
       return inspectedPhase.tasks[suitableTask];
     }

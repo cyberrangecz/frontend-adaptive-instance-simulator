@@ -1,27 +1,12 @@
 # Adaptive Model Simulator
 
-### Running up the Project:
+## Running the demo app locally
 
-Install project dependencies:
-
-```
-$ npm install
-```
-
-Then run
-
-```
-$ ng serve --ssl
-```
-
-Navigate to `https://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-### How to use json-server as mock backend with provided dummy data
-
-1. Install json-server `npm install -g json-server`.
-3. Run the server with provided parameters via `npm run api`.
-4. Run `npm install`.
-5. Run the app in local environment and ssl `npm start` and access it on `https://localhost:4200`.
+1. Pull and run the [Adaptive training service](https://github.com/cyberrangecz/backend-adaptive-training) or the whole [deployment](https://github.com/cyberrangecz/devops-helm).
+2. Install dependencies by running `npm install`.
+3. Configure [environment.local.ts](projects/adaptive-model-simulator-example-app/src/environments/environment.local.ts), pointing to the Adaptive training service.
+4. Run the project by running `npm run start`.
+5. Navigate to `https://localhost:4200/`. The app will automatically reload if you change any of the source files. The app will be running with self-signed certificate, so you will need to accept the security exception in the browser.
 
 ## Code scaffolding
 
@@ -34,9 +19,3 @@ Run `npm run build-and-pack` to build and pack the project. The build artifacts 
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.3.
