@@ -4,12 +4,15 @@
         "outDir": "../../out-tsc/lib",
         "declaration": true,
         "inlineSources": true,
-        "types": [],
         "lib": [
             "dom",
             "es2018"
         ],
         "paths": {
+
+            "@cyberrangecz-platform/adaptive-model-simulator/pathway-simulator": [
+                "./pathway-simulator/src/public_api.ts"
+            ],
             "@cyberrangecz-platform/adaptive-model-simulator/performance-simulator": [
                 "./performance-simulator/src/public_api.ts"
             ],
@@ -18,9 +21,6 @@
             ],
             "@cyberrangecz-platform/adaptive-model-simulator/model-simulator": [
                 "./model-simulator/src/public_api.ts"
-            ],
-            "@cyberrangecz-platform/adaptive-model-simulator/pathway-simulator": [
-                "./pathway-simulator/src/public_api.ts"
             ],
             "@cyberrangecz-platform/adaptive-model-simulator/internal": [
                 "./internal/src/public_api.ts"

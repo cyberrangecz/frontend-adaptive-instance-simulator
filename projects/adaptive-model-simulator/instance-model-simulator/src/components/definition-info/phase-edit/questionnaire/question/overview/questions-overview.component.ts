@@ -1,10 +1,10 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { AdaptiveQuestion, QuestionTypeEnum } from '@cyberrangecz-platform/training-model';
 import { SentinelStepper } from '@sentinel/components/stepper';
 import { SentinelControlItem } from '@sentinel/components/controls';
 
 import { MatDialog } from '@angular/material/dialog';
 import { AdaptiveQuestionStepperAdapter } from '../../../../../../model/adapters/adaptive-question-stepper-adapter';
+import { AdaptiveQuestion, QuestionnaireTypeEnum } from '@cyberrangecz-platform/training-model';
 
 @Component({
   selector: 'crczp-adaptive-questions-overview',
@@ -14,7 +14,7 @@ import { AdaptiveQuestionStepperAdapter } from '../../../../../../model/adapters
 export class QuestionsOverviewComponent implements OnInit, OnChanges {
   @Input() questions: AdaptiveQuestion[];
   @Input() questionnaireOrder: number;
-  @Input() questionnaireType: QuestionTypeEnum;
+  @Input() questionnaireType: QuestionnaireTypeEnum;
 
   stepperQuestions: SentinelStepper<AdaptiveQuestionStepperAdapter> = { items: [] };
   controls: SentinelControlItem[];

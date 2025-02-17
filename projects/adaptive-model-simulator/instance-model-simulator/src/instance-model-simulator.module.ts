@@ -11,7 +11,10 @@ import { FileUploadProgressService } from './service/file-upload-progress.servic
 import { InstanceSimulatorApiService } from './service/instance-simulator-api.service';
 import { ngfModule } from 'angular-file';
 import { SentinelPipesModule } from '@sentinel/common/pipes';
-import { AdaptiveVisualizationConfig, AdaptiveVisualizationLibModule } from '@cyberrangecz-platform/adaptive-visualization';
+import {
+  AdaptiveVisualizationConfig,
+  AdaptiveVisualizationLibModule,
+} from '@cyberrangecz-platform/adaptive-visualization';
 import { ModelSimulatorConfig } from '@cyberrangecz-platform/adaptive-model-simulator/internal';
 import { SentinelFreeFormComponent } from '@sentinel/components/free-form';
 import { PhaseStepperComponent } from './components/definition-info/stepper/phase-stepper.component';

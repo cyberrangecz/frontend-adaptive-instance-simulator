@@ -1,7 +1,8 @@
 <sentinel-layout1 notificationsRoute="notifications"
+                  logoSrc="/assets/logo/logo.svg"
                   [agendaContainers]="agendaContainers$ | async"
                   [user]="activeUser$ | async"
                   (login)="onLogin()"
                   (logout)="onLogout()">
-    <router-outlet></router-outlet>
+    <router-outlet/>
 </sentinel-layout1>

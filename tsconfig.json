@@ -30,6 +30,9 @@
             ],
             "@cyberrangecz-platform/adaptive-model-simulator/internal": [
                 "./internal/src/public_api.ts"
+            ],
+            "minimal-lib": [
+              "./dist/minimal-lib"
             ]
         },
         "useDefineForClassFields": false

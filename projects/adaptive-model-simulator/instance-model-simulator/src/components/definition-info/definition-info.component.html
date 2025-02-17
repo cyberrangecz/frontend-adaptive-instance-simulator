@@ -10,7 +10,7 @@
     </mat-expansion-panel-header>
     <ng-template matExpansionPanelContent>
 
-        <mat-divider></mat-divider>
+        <mat-divider/>
         <div class="form-container">
             <div class="left-col">
                 <!-- TITLE field-->
@@ -25,20 +25,6 @@
                     <textarea matInput placeholder="Description" [disabled]="true"
                               [value]="definitionInfo.description"></textarea>
                 </mat-form-field>
-
-                <!-- SHOW STEPPER BAR checkbox-->
-                <div class="form-line">
-                    <div class="form-line-content">
-                        <mat-checkbox matTooltip="When active, trainee can see which level
-              he is playing and how many there are until the end"
-                                      labelPosition="after"
-                                      [disabled]="true"
-                                      [checked]="definitionInfo.showStepperBar">
-                            Show Stepper Bar
-                        </mat-checkbox>
-                    </div>
-                </div>
-
                 <!-- DEFAULT CONTENT checkbox-->
                 <div class="form-line" *ngIf="!definitionInfo.id">
                     <div class="form-line-content">
@@ -72,7 +58,7 @@
             </div>
         </div>
 
-        <mat-divider></mat-divider>
+        <mat-divider/>
 
         <div>
             <div class="phases-header">
@@ -87,7 +73,7 @@
                                               [phases]="stepperPhases"
                                               (activeStepChange)="onActivePhaseChange($event)">
                 </crczp-simulator-phase-stepper>
-                <mat-divider></mat-divider>
+                <mat-divider/>
                 <crczp-simulator-phase-edit [phase]="activePhase"
                                            [presentTrainingPhases]="trainingPhases"
                                            (phaseChange)="onActivePhaseChanged($event)"

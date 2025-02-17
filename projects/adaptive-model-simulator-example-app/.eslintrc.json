@@ -9,7 +9,7 @@
             ],
             "parserOptions": {
                 "project": [
-                    "projects/adaptive-model-simulator-example/tsconfig.*?.json"
+                    "projects/adaptive-model-simulator-example-app/tsconfig.*?.json"
                 ],
                 "createDefaultProgram": true
             },

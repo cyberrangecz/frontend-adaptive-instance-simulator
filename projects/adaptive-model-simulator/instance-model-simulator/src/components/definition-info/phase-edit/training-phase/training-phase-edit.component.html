@@ -109,10 +109,9 @@
                         [value]="phase.title"
                     />
                     <button
-                        mat-button
+                        mat-icon-button
                         *ngIf="title.value"
                         matSuffix
-                        mat-icon-button
                         aria-label="Clear"
                         (click)="title.setValue('')"
                     >
@@ -173,6 +172,6 @@
                 </mat-form-field>
             </div>
         </div>
-        <crczp-tasks-overview [tasks]="phase.tasks"></crczp-tasks-overview>
+        <crczp-tasks-overview [tasks]="phase.tasks"/>
     </form>
 </div>

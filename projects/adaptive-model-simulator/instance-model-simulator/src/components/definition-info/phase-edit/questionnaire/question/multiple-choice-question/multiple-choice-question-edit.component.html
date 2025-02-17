@@ -5,7 +5,7 @@
             <sentinel-markdown-editor
                 [sentinel-markdown-file-upload]="false"
                 [content]="question.text"
-            ></sentinel-markdown-editor>
+            />
         </div>
     </div>
     <h2>Options:</h2>
@@ -16,8 +16,7 @@
                           class="option-checkbox"
                           matTooltip="Correct"
                           [disabled]="true"
-                          [checked]="choice.correct">
-            </mat-checkbox>
+                          [checked]="choice.correct"/>
             <mat-form-field appearance="outline">
                 <mat-label>Option {{ i + 1 }}</mat-label>
                 <input matInput placeholder="Option Text" [disabled]="true" [value]="choice.text"/>

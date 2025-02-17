@@ -1,8 +1,8 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { AbstractPhaseTypeEnum, Phase, TrainingPhase } from '@cyberrangecz-platform/training-model';
 import { TraineePhasePerformance } from './model/trainee-phase-statistics';
-import { TransitionPhase, VisualizationData } from '@cyberrangecz-platform/adaptive-transition-visualization';
 import { ModelSimulatorService } from './service/model-simulator.service';
+import { AbstractPhaseTypeEnum, Phase, TrainingPhase } from '@cyberrangecz-platform/training-model';
+import { TransitionPhase, TransitionVisualizationData } from '@cyberrangecz-platform/adaptive-transition-visualization';
 
 @Component({
   selector: 'crczp-adaptive-model-simulator',
@@ -14,7 +14,7 @@ export class ModelSimulatorComponent implements OnInit, OnChanges {
 
   inspectedPhase: TrainingPhase;
   relatedTrainingPhases: TrainingPhase[];
-  traineesSimulatedPath: VisualizationData;
+  traineesSimulatedPath: TransitionVisualizationData;
   traineePerformance: TraineePhasePerformance[];
 
   constructor(private modelSimulatorService: ModelSimulatorService) {}
@@ -55,7 +55,7 @@ export class ModelSimulatorComponent implements OnInit, OnChanges {
   }
 
   private prepareData(): void {
-    this.traineesSimulatedPath = new VisualizationData();
+    this.traineesSimulatedPath = new TransitionVisualizationData();
     this.traineesSimulatedPath.trainingRunsData = [];
     this.traineesSimulatedPath.phases = [];
     this.traineesSimulatedPath.phases = this.phases as unknown as TransitionPhase[];

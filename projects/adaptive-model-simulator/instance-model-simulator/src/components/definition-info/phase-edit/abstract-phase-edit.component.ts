@@ -1,5 +1,11 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { AbstractPhaseTypeEnum, Phase, TrainingPhase } from '@cyberrangecz-platform/training-model';
+import {
+  AbstractPhaseTypeEnum,
+  InfoPhase,
+  Phase,
+  QuestionnairePhase,
+  TrainingPhase,
+} from '@cyberrangecz-platform/training-model';
 
 /**
  * Main component of phases edit. Resolves which component should be display based on phases type
@@ -24,4 +30,10 @@ export class AbstractPhaseEditComponent {
   onValidityChange(event: boolean): void {
     this.isPhaseValid.emit(event);
   }
+
+  asQuestionnairePhase = (phase: Phase) => phase as QuestionnairePhase;
+
+  asTrainingPhase = (phase: Phase) => phase as TrainingPhase;
+
+  asInfoPhase = (phase: Phase) => phase as InfoPhase;
 }

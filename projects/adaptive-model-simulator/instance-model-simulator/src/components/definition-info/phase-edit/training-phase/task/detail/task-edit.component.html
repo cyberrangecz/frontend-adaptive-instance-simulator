@@ -7,7 +7,7 @@
                 class="mrkdwn-content"
                 [sentinel-markdown-file-upload]="false"
                 [content]="task.content"
-            ></sentinel-markdown-editor>
+            />
 
             <!--SOLUTION field -->
             <h3>Solution</h3>
@@ -15,7 +15,7 @@
                 class="mrkdwn-solution"
                 [sentinel-markdown-file-upload]="false"
                 [content]="task.solution"
-            ></sentinel-markdown-editor>
+            />
         </div>
 
         <div class="right-panel">
@@ -57,7 +57,7 @@
 
             <div class="modify-sandbox">
                 <span>Modify sandbox: </span>
-                <mat-slide-toggle [disabled]="true" [checked]="task.modifySandbox"></mat-slide-toggle>
+                <mat-slide-toggle [disabled]="true" [checked]="task.modifySandbox"/>
             </div>
         </div>
     </div>

@@ -5,7 +5,7 @@
             <sentinel-markdown-editor
                 [sentinel-markdown-file-upload]="false"
                 [content]="question.text"
-            ></sentinel-markdown-editor>
+            />
         </div>
     </div>
     <h2>Rating Levels:</h2>
@@ -15,8 +15,7 @@
                           class="option-checkbox"
                           matTooltip="Correct"
                           [disabled]="true"
-                          [checked]="choice.correct">
-            </mat-checkbox>
+                          [checked]="choice.correct"/>
             <mat-form-field appearance="outline" class="rating-level-node">
                 <mat-label>Level {{ i + 1 }}</mat-label>
                 <input matInput placeholder="Level Text" [disabled]="true" [value]="choice.text"/>

@@ -18,7 +18,7 @@
     </crczp-adaptive-questions-overview>
 
     <div *ngIf="phase.questionnaireType === questionnaireTypes.Adaptive">
-        <mat-divider></mat-divider>
+        <mat-divider/>
         <mat-expansion-panel>
             <mat-expansion-panel-header>
                 <mat-panel-title>Question-Phase Relations</mat-panel-title>
@@ -26,11 +26,11 @@
             <ng-template matExpansionPanelContent>
                 <div>
                     <div *ngFor="let relation of phase.phaseRelations">
-                        <mat-divider class='bold-mat-divider'></mat-divider>
+                        <mat-divider class='bold-mat-divider'/>
                         <div class="question-container">
                             <h1>{{ relation.phaseId }}</h1>
                         </div>
-                        <mat-divider></mat-divider>
+                        <mat-divider/>
                         <div class="relation-fields">
                             <div>
                                 <p>Questions: </p>

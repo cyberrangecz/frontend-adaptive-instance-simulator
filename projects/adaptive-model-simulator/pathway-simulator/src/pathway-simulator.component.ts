@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { VisualizationData } from '@cyberrangecz-platform/adaptive-transition-visualization/model/visualization-data';
+import { TransitionVisualizationData } from '@cyberrangecz-platform/adaptive-transition-visualization';
 
 @Component({
   selector: 'crczp-pathway-simulator',
@@ -7,5 +7,5 @@ import { VisualizationData } from '@cyberrangecz-platform/adaptive-transition-vi
   styleUrls: ['./pathway-simulator.component.css'],
 })
 export class PathwaySimulatorComponent {
-  @Input() transitionData: VisualizationData;
+  @Input() transitionData: TransitionVisualizationData;
 }

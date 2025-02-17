@@ -12,7 +12,7 @@
         "ci-test": "ng test --browsers ChromeHeadless --watch=false",
         "prettier-check": "prettier --check \"projects/**/*.ts\"",
         "prettier-fix": "prettier --write \"./projects/**/*.ts\"",
-        "build-example-app": "ng build adaptive-model-simulator-example --configuration production",
+        "build-example-app": "ng build adaptive-model-simulator-example-app --configuration production",
         "build-library": "ng build --configuration production adaptive-model-simulator",
         "create-package": "cd dist/adaptive-model-simulator && npm pack",
         "build-and-pack": "npm install && npm run build-library && npm run create-package",
@@ -37,11 +37,12 @@
         "@angular/platform-browser": "^18.2.13",
         "@angular/platform-browser-dynamic": "^18.2.13",
         "@angular/router": "^18.2.13",
-        "@cyberrangecz-platform/adaptive-transition-visualization": "0.0.1",
-        "@cyberrangecz-platform/adaptive-visualization": "0.0.1",
-        "@cyberrangecz-platform/d3-service": "0.0.1",
-        "@cyberrangecz-platform/training-api": "0.0.1",
-        "@cyberrangecz-platform/training-model": "0.0.1",
+        "@cyberrangecz-platform/adaptive-transition-visualization": "file:../.built/cyberrangecz-platform-adaptive-transition-visualization-0.0.1.tgz",
+        "@cyberrangecz-platform/adaptive-visualization": "file:../.built/cyberrangecz-platform-adaptive-visualization-0.0.1.tgz",
+        "@cyberrangecz-platform/d3-service": "file:../.built/cyberrangecz-platform-d3-service-0.0.1.tgz",
+        "@cyberrangecz-platform/training-api": "file:../.built/cyberrangecz-platform-training-api-0.0.1.tgz",
+        "@cyberrangecz-platform/training-model": "file:../.built/cyberrangecz-platform-training-model-0.0.1.tgz",
+        "@cyberrangecz-platform/theme": "file:../.built/cyberrangecz-platform-theme-0.0.2.tgz",
         "@sentinel/auth": "^18.0.3",
         "@sentinel/common": "^18.0.4",
         "@sentinel/components": "^18.2.7",
@@ -81,5 +82,9 @@
         "ng-packagr": "^18.2.1",
         "prettier": "^3.5.0",
         "typescript": "5.5.4"
+    },
+    "optionalDependencies": {
+        "@esbuild/android-arm": "^0.24.0",
+        "fsevents": "^2.3.3"
     }
 }

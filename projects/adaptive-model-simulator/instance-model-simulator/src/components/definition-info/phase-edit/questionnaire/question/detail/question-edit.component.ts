@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { QuestionTypeEnum } from '@cyberrangecz-platform/training-model';
-import { AdaptiveQuestion } from '@cyberrangecz-platform/training-model/lib/phase/questionnaire-phase/adaptive-question';
+import { AdaptiveQuestion, QuestionnaireTypeEnum, QuestionTypeEnum } from '@cyberrangecz-platform/training-model';
 
 @Component({
   selector: 'crczp-adaptive-question-edit',
@@ -10,7 +9,7 @@ import { AdaptiveQuestion } from '@cyberrangecz-platform/training-model/lib/phas
 })
 export class QuestionEditComponent {
   @Input() question: AdaptiveQuestion;
-  @Input() questionnaireType: QuestionTypeEnum;
+  @Input() questionnaireType: QuestionnaireTypeEnum;
   @Input() index: number;
 
   questionTypes = QuestionTypeEnum;

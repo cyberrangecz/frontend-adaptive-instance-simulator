@@ -7,7 +7,7 @@
             "projectType": "library",
             "root": "projects/adaptive-model-simulator",
             "sourceRoot": "projects/adaptive-model-simulator",
-            "prefix": "adaptive-model-simulator",
+            "prefix": "crczp",
             "architect": {
                 "build": {
                     "builder": "@angular-devkit/build-angular:ng-packagr",
@@ -42,34 +42,40 @@
                 }
             }
         },
-        "adaptive-model-simulator-example": {
+        "adaptive-model-simulator-example-app": {
             "projectType": "application",
             "schematics": {
                 "@schematics/angular:application": {
                     "strict": true
                 }
             },
-            "root": "projects/adaptive-model-simulator-example",
-            "sourceRoot": "projects/adaptive-model-simulator-example/src",
+            "root": "projects/adaptive-model-simulator-example-app",
+            "sourceRoot": "projects/adaptive-model-simulator-example-app/src",
             "prefix": "app",
             "architect": {
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
-                        "outputPath": "dist/adaptive-model-simulator-example",
-                        "index": "projects/adaptive-model-simulator-example/src/index.html",
-                        "main": "projects/adaptive-model-simulator-example/src/main.ts",
-                        "polyfills": "projects/adaptive-model-simulator-example/src/polyfills.ts",
-                        "tsConfig": "projects/adaptive-model-simulator-example/tsconfig.app.json",
+                        "outputPath": "dist/adaptive-model-simulator-example-app",
+                        "index": "projects/adaptive-model-simulator-example-app/src/index.html",
+                        "main": "projects/adaptive-model-simulator-example-app/src/main.ts",
+                        "polyfills": "projects/adaptive-model-simulator-example-app/src/polyfills.ts",
+                        "tsConfig": "projects/adaptive-model-simulator-example-app/tsconfig.app.json",
                         "assets": [
-                            "projects/adaptive-model-simulator-example/src/favicon.ico",
-                            "projects/adaptive-model-simulator-example/src/assets"
+                            {
+                                "glob": "**/*",
+                                "input": "node_modules/@cyberrangecz-platform/theme/assets",
+                                "output": "assets/"
+                            }
                         ],
+                        "stylePreprocessorOptions": {
+                            "includePaths": [
+                                "node_modules/@cyberrangecz-platform/theme/"
+                            ]
+                        },
                         "styles": [
-                            "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-                            "projects/adaptive-model-simulator-example/src/theme.scss",
-                            "projects/adaptive-model-simulator-example/src/variables.scss",
-                            "projects/adaptive-model-simulator-example/src/styles.scss"
+                            "node_modules/@cyberrangecz-platform/theme/theming/apply-all.scss",
+                            "projects/adaptive-model-simulator-example-app/src/styles.scss"
                         ],
                         "scripts": [],
                         "vendorChunk": true,
@@ -83,8 +89,8 @@
                         "production": {
                             "fileReplacements": [
                                 {
-                                    "replace": "projects/adaptive-model-simulator-example/src/environments/environment.ts",
-                                    "with": "projects/adaptive-model-simulator-example/src/environments/environment.prod.ts"
+                                    "replace": "projects/adaptive-model-simulator-example-app/src/environments/environment.ts",
+                                    "with": "projects/adaptive-model-simulator-example-app/src/environments/environment.prod.ts"
                                 }
                             ],
                             "optimization": true,
@@ -116,8 +122,8 @@
                             ],
                             "fileReplacements": [
                                 {
-                                    "replace": "projects/adaptive-model-simulator-example/src/environments/environment.ts",
-                                    "with": "projects/adaptive-model-simulator-example/src/environments/environment.local.ts"
+                                    "replace": "projects/adaptive-model-simulator-example-app/src/environments/environment.ts",
+                                    "with": "projects/adaptive-model-simulator-example-app/src/environments/environment.local.ts"
                                 }
                             ]
                         }
@@ -127,37 +133,37 @@
                 "serve": {
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "options": {
-                        "buildTarget": "adaptive-model-simulator-example:build"
+                        "buildTarget": "adaptive-model-simulator-example-app:build"
                     },
                     "configurations": {
                         "production": {
-                            "buildTarget": "adaptive-model-simulator-example:build:production"
+                            "buildTarget": "adaptive-model-simulator-example-app:build:production"
                         },
                         "local": {
-                            "buildTarget": "adaptive-model-simulator-example:build:local"
+                            "buildTarget": "adaptive-model-simulator-example-app:build:local"
                         }
                     }
                 },
                 "extract-i18n": {
                     "builder": "@angular-devkit/build-angular:extract-i18n",
                     "options": {
-                        "buildTarget": "adaptive-model-simulator-example:build"
+                        "buildTarget": "adaptive-model-simulator-example-app:build"
                     }
                 },
                 "test": {
                     "builder": "@angular-devkit/build-angular:karma",
                     "options": {
-                        "main": "projects/adaptive-model-simulator-example/src/test.ts",
-                        "polyfills": "projects/adaptive-model-simulator-example/src/polyfills.ts",
-                        "tsConfig": "projects/adaptive-model-simulator-example/tsconfig.spec.json",
-                        "karmaConfig": "projects/adaptive-model-simulator-example/karma.conf.js",
+                        "main": "projects/adaptive-model-simulator-example-app/src/test.ts",
+                        "polyfills": "projects/adaptive-model-simulator-example-app/src/polyfills.ts",
+                        "tsConfig": "projects/adaptive-model-simulator-example-app/tsconfig.spec.json",
+                        "karmaConfig": "projects/adaptive-model-simulator-example-app/karma.conf.js",
                         "assets": [
-                            "projects/adaptive-model-simulator-example/src/favicon.ico",
-                            "projects/adaptive-model-simulator-example/src/assets"
+                            "projects/adaptive-model-simulator-example-app/src/favicon.ico",
+                            "projects/adaptive-model-simulator-example-app/src/assets"
                         ],
                         "styles": [
                             "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-                            "projects/adaptive-model-simulator-example/src/styles.scss"
+                            "projects/adaptive-model-simulator-example-app/src/styles.scss"
                         ],
                         "scripts": []
                     }
@@ -166,8 +172,8 @@
                     "builder": "@angular-eslint/builder:lint",
                     "options": {
                         "lintFilePatterns": [
-                            "projects/adaptive-model-simulator-example/src/app/visualizations/**/*.ts",
-                            "projects/adaptive-model-simulator-example/**/*.component.html"
+                            "projects/adaptive-model-simulator-example-app/src/app/visualizations/**/*.ts",
+                            "projects/adaptive-model-simulator-example-app/**/*.component.html"
                         ]
                     }
                 },
@@ -175,11 +181,11 @@
                     "builder": "@angular-devkit/build-angular:protractor",
                     "options": {
                         "protractorConfig": "e2e/protractor.conf.js",
-                        "devServerTarget": "adaptive-model-simulator-example:serve"
+                        "devServerTarget": "adaptive-model-simulator-example-app:serve"
                     },
                     "configurations": {
                         "production": {
-                            "devServerTarget": "adaptive-model-simulator-example:serve:production"
+                            "devServerTarget": "adaptive-model-simulator-example-app:serve:production"
                         }
                     }
                 }

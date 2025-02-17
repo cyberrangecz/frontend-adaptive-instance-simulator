@@ -1,5 +1,10 @@
 import { StepItem, StepStateEnum } from '@sentinel/components/stepper';
-import { AbstractPhaseTypeEnum, Phase, QuestionnairePhase, QuestionnaireTypeEnum } from '@cyberrangecz-platform/training-model';
+import {
+  AbstractPhaseTypeEnum,
+  Phase,
+  QuestionnairePhase,
+  QuestionnaireTypeEnum,
+} from '@cyberrangecz-platform/training-model';
 
 export class PhaseStepperAdapter implements StepItem {
   id: number;

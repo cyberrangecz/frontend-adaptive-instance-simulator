@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
-import { SentinelControlItem } from '@sentinel/components/controls';
+import { SentinelControlItem, SentinelControlItemSignal } from '@sentinel/components/controls';
 import { InstanceSimulatorService } from './service/instance-simulator.service';
 import { InstanceModelSimulatorControls } from './model/instance-model-simulator-controls';
 import { BehaviorSubject, Observable, Subscription, take, tap } from 'rxjs';
@@ -45,7 +45,7 @@ export class InstanceModelSimulatorComponent implements OnInit, OnDestroy {
    * Resolves controls action and calls appropriate handler
    * @param control selected control emitted by controls component
    */
-  onControlsAction(control: SentinelControlItem): void {
+  onControlsAction(control: SentinelControlItemSignal): void {
     control.result$.pipe(take(1)).subscribe();
   }
 

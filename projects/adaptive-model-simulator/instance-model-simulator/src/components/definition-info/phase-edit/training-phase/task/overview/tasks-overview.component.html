@@ -7,16 +7,16 @@
         </mat-panel-description>
     </mat-expansion-panel-header>
 
-    <mat-divider></mat-divider>
+    <mat-divider/>
 
     <div *ngIf="stepperTasks.length > 0 else noTasks">
         <crczp-task-stepper [activeStep]="activeStep"
                            [tasks]="stepperTasks"
                            (activeStepChange)="onActiveTaskChanged($event)">
         </crczp-task-stepper>
-        <mat-divider></mat-divider>
+        <mat-divider/>
         <div class="step-content">
-            <crczp-task-configuration [task]="tasks[activeStep]"></crczp-task-configuration>
+            <crczp-task-configuration [task]="tasks[activeStep]"/>
         </div>
     </div>
     <div>
