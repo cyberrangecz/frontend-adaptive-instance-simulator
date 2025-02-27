@@ -6,7 +6,7 @@
         "@angular/common": "^18.2.13",
         "@angular/core": "^18.2.13",
         "@angular/material": "^18.2.13",
-        "@crczp/d3-service": "^0.0.4",
+        "@crczp/d3-service": "^0.0.3",
         "@crczp/training-api": "^0.0.2",
         "@crczp/training-model": "^0.0.2"
     },
