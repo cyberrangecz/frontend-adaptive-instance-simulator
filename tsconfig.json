@@ -2,7 +2,7 @@
 {
     "compileOnSave": false,
     "compilerOptions": {
-        "baseUrl": "./projects/adaptive-model-simulator",
+        "baseUrl": "./projects/adaptive-instance-simulator",
         "outDir": "./dist/out-tsc",
         "sourceMap": true,
         "declaration": false,
@@ -19,20 +19,20 @@
             "dom"
         ],
         "paths": {
-            "@cyberrangecz-platform/adaptive-model-simulator/performance-simulator": [
+            "@crczp/adaptive-instance-simulator/performance-simulator": [
                 "./performance-simulator/src/public_api.ts"
             ],
-            "@cyberrangecz-platform/adaptive-model-simulator/instance-model-simulator": [
+            "@crczp/adaptive-instance-simulator/instance-model-simulator": [
                 "./instance-model-simulator/src/public_api.ts"
             ],
-            "@cyberrangecz-platform/adaptive-model-simulator/model-simulator": [
-                "./model-simulator/src/public_api.ts"
-            ],
-            "@cyberrangecz-platform/adaptive-model-simulator/internal": [
+            "@crczp/adaptive-instance-simulator/internal": [
                 "./internal/src/public_api.ts"
             ],
-            "minimal-lib": [
-              "./dist/minimal-lib"
+            "@crczp/adaptive-instance-simulator/model-simulator": [
+                "./model-simulator/src/public_api.ts"
+            ],
+            "@crczp/adaptive-instance-simulator/transition-visualization": [
+                "./transition-visualization/src/public_api.ts"
             ]
         },
         "useDefineForClassFields": false

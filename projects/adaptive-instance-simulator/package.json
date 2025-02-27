@@ -1,0 +1,16 @@
+{
+    "name": "@crczp/adaptive-instance-simulator",
+    "version": "0.0.1",
+    "license": "MIT",
+    "peerDependencies": {
+        "@angular/common": "^18.2.13",
+        "@angular/core": "^18.2.13",
+        "@angular/material": "^18.2.13",
+        "@crczp/d3-service": "^0.0.4",
+        "@crczp/training-api": "^0.0.2",
+        "@crczp/training-model": "^0.0.2"
+    },
+    "dependencies": {
+        "tslib": "^2.7.0"
+    }
+}
