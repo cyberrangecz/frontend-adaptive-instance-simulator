@@ -27,7 +27,7 @@ import { SankeyVisualizationComponent } from './components/sankey-visualization/
         PhaseStepperComponent,
         SankeyVisualizationComponent,
     ],
-    exports: [InstanceModelSimulatorComponent],
+    exports: [InstanceModelSimulatorComponent, SankeyVisualizationComponent],
     imports: [
         CommonModule,
         InstanceModelSimulatorMaterialModule,
