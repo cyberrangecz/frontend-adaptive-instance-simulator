@@ -17,6 +17,7 @@ import { InstanceSimulatorService } from './service/instance/instance-simulator.
 import { InstanceSimulatorApiService } from './service/instance/instance-simulator-api.service';
 import { FileUploadProgressService } from './service/instance/file-upload-progress.service';
 import { SankeyVisualizationComponent } from './components/sankey-visualization/sankey-visualization.component';
+import { SankeyDataService } from './service/sankey-data.service';
 
 @NgModule({
     declarations: [
@@ -38,7 +39,7 @@ import { SankeyVisualizationComponent } from './components/sankey-visualization/
         SentinelFreeFormComponent,
         SentinelStepperModule,
     ],
-    providers: [InstanceSimulatorService, FileUploadProgressService, InstanceSimulatorApiService],
+    providers: [InstanceSimulatorService, FileUploadProgressService, InstanceSimulatorApiService, SankeyDataService],
 })
 export class InstanceModelSimulatorModule {
     static forRoot(config: ModelSimulatorConfig): ModuleWithProviders<InstanceModelSimulatorModule> {
